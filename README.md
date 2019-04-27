@@ -12,7 +12,7 @@ config.jsonの複数パターンの設定内容をプリセットして保存す
 ![メイン画面](https://github.com/toma-to/VCasJsonManager/blob/master/ReleaseItems/Manual/Image/MainWindow.png?raw=true)
 
 ## 動作環境
-Windows10
+Windows10  
 出力するconfig.jsonはVirtualCast1.5.5bに対応しています。
 
 ## 利用方法
@@ -30,18 +30,13 @@ Pull RequestやIssueにてお願いします。
 ## 使用ライブラリ
 本ソフトウェアでは以下のライブラリを使用しています。
 
-[Livet](https://github.com/ugaya40/Livet)
- - [zlib/libpng license.]
+[Livet](https://github.com/ugaya40/Livet) - [zlib/libpng license.]
 
-[Material Design In XAML Toolkit](https://github.com/MaterialDesignInXAML/MaterialDesignInXamlToolkit)
- - [MIT License]
+[Material Design In XAML Toolkit](https://github.com/MaterialDesignInXAML/MaterialDesignInXamlToolkit) - [MIT License]
 
-[Json.NET](https://www.newtonsoft.com/json)
- - [MIT License]
+[Json.NET](https://www.newtonsoft.com/json) - [MIT License]
 
-[PropertyChanged.Fody](https://github.com/Fody/PropertyChanged)
- - [MIT License]
+[PropertyChanged.Fody](https://github.com/Fody/PropertyChanged) - [MIT License]
 
-[Unity Container](https://github.com/unitycontainer/unity)
- - [[Apache License 2.0](http://www.apache.org/licenses/LICENSE-2.0)]
+[Unity Container](https://github.com/unitycontainer/unity) - [[Apache License 2.0](http://www.apache.org/licenses/LICENSE-2.0)]
 
