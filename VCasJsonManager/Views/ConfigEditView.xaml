@@ -1,0 +1,422 @@
+﻿<!--
+  VCasJsonManager
+  Copyright 2019 TOMA
+  MIT License
+-->
+<UserControl x:Class="VCasJsonManager.Views.ConfigEditView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+        xmlns:ei="http://schemas.microsoft.com/expression/2010/interactions"
+        xmlns:l="http://schemas.livet-mvvm.net/2011/wpf"
+        xmlns:v="clr-namespace:VCasJsonManager.Views"
+        xmlns:vm="clr-namespace:VCasJsonManager.ViewModels">
+    
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <Style TargetType="Button" x:Key="ListSettingButton" BasedOn="{StaticResource {x:Type Button}}">
+                <Setter Property="Background" Value="{StaticResource ThirdBrush}"/>
+                <Setter Property="Height" Value="Auto"/>
+                <Setter Property="Width" Value="Auto"/>
+                <Setter Property="Margin" Value="5,10"/>
+                <Setter Property="ToolTip" Value="クリックすると設定画面"/>
+            </Style>
+            <Style TargetType="Button" x:Key="OtherSettingButton" BasedOn="{StaticResource {x:Type Button}}">
+                <Setter Property="Background" Value="{StaticResource ThirdWeakBrush}"/>
+                <Setter Property="Height" Value="Auto"/>
+                <Setter Property="Width" Value="Auto"/>
+                <Setter Property="Margin" Value="5,10"/>
+                <Setter Property="ToolTip" Value="クリックすると設定画面"/>
+            </Style>
+            <Style TargetType="TextBlock" x:Key="ListSettingLabel">
+                <Setter Property="TextDecorations" Value="Underline"/>
+                <Setter Property="Margin" Value="2, 2"/>
+            </Style>
+            <Style TargetType="TextBlock" x:Key="OtherSettingLabel">
+                <Setter Property="Foreground" Value="{StaticResource ThirdWeakTextBrush}"/>
+                <Setter Property="TextDecorations" Value="Underline"/>
+                <Setter Property="Margin" Value="2, 2"/>
+            </Style>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Button Grid.Column="0" Grid.Row="0" Style="{StaticResource ListSettingButton}">
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="Click">
+                    <l:TransitionInteractionMessageAction WindowType="{x:Type v:CharacterModelListDialog}" Mode="Modal" IsOwned="True">
+                        <l:DirectInteractionMessage>
+                            <l:TransitionMessage/>
+                        </l:DirectInteractionMessage>
+                    </l:TransitionInteractionMessageAction>
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
+            <StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <TextBlock Style="{StaticResource ListSettingLabel}">キャラクターモデル設定:</TextBlock>
+                    <TextBlock Text="{Binding CharacterModels.Count}" Style="{StaticResource ListSettingLabel}"/>
+                </StackPanel>
+                <StackPanel HorizontalAlignment="Center">
+                    <TextBlock Style="{StaticResource ListSettingLabel}">niconico</TextBlock>
+                    <TextBlock Style="{StaticResource ListSettingLabel}">&gt; character_models</TextBlock>
+                </StackPanel>
+            </StackPanel>
+        </Button>
+        <Button Grid.Column="0" Grid.Row="1" Style="{StaticResource ListSettingButton}">
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="Click">
+                    <l:TransitionInteractionMessageAction WindowType="{x:Type v:BackgroundModelListDialog}" Mode="Modal" IsOwned="True">
+                        <l:DirectInteractionMessage>
+                            <l:TransitionMessage/>
+                        </l:DirectInteractionMessage>
+                    </l:TransitionInteractionMessageAction>
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
+            <StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <TextBlock Style="{StaticResource ListSettingLabel}">背景モデル設定:</TextBlock>
+                    <TextBlock Text="{Binding BackgroundModels.Count}" Style="{StaticResource ListSettingLabel}"/>
+                </StackPanel>
+                <StackPanel HorizontalAlignment="Center">
+                    <TextBlock Style="{StaticResource ListSettingLabel}">niconico</TextBlock>
+                    <TextBlock Style="{StaticResource ListSettingLabel}">&gt; background_models</TextBlock>
+                </StackPanel>
+            </StackPanel>
+        </Button>
+        <Button Grid.Column="0" Grid.Row="2" Style="{StaticResource ListSettingButton}">
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="Click">
+                    <l:TransitionInteractionMessageAction WindowType="{x:Type v:CommentListDialog}" Mode="Modal" IsOwned="True">
+                        <l:DirectInteractionMessage>
+                            <l:TransitionMessage/>
+                        </l:DirectInteractionMessage>
+                    </l:TransitionInteractionMessageAction>
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
+            <StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <TextBlock Style="{StaticResource ListSettingLabel}">運営コメント設定:</TextBlock>
+                    <TextBlock Text="{Binding Comments.Count}" Style="{StaticResource ListSettingLabel}"/>
+                </StackPanel>
+                <StackPanel HorizontalAlignment="Center">
+                    <TextBlock Style="{StaticResource ListSettingLabel}">niconico</TextBlock>
+                    <TextBlock Style="{StaticResource ListSettingLabel}">&gt; broadcaster_comments</TextBlock>
+                </StackPanel>
+            </StackPanel>
+        </Button>
+        <Button Grid.Column="0" Grid.Row="3" Style="{StaticResource ListSettingButton}">
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="Click">
+                    <l:TransitionInteractionMessageAction WindowType="{x:Type v:BackgroundImageListDialog}" Mode="Modal" IsOwned="True">
+                        <l:DirectInteractionMessage>
+                            <l:TransitionMessage/>
+                        </l:DirectInteractionMessage>
+                    </l:TransitionInteractionMessageAction>
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
+            <StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <TextBlock Style="{StaticResource ListSettingLabel}">背景パノラマ画像設定:</TextBlock>
+                    <TextBlock Text="{Binding BackgroundImages.Count}" Style="{StaticResource ListSettingLabel}"/>
+                </StackPanel>
+                <StackPanel HorizontalAlignment="Center">
+                    <TextBlock Style="{StaticResource ListSettingLabel}">background</TextBlock>
+                    <TextBlock Style="{StaticResource ListSettingLabel}">&gt; panorama &gt; source_urls</TextBlock>
+                </StackPanel>
+            </StackPanel>
+        </Button>
+        <Button Grid.Column="0" Grid.Row="4" Style="{StaticResource ListSettingButton}">
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="Click">
+                    <l:TransitionInteractionMessageAction WindowType="{x:Type v:NiconareIdListDialog}" Mode="Modal" IsOwned="True">
+                        <l:DirectInteractionMessage>
+                            <l:TransitionMessage/>
+                        </l:DirectInteractionMessage>
+                    </l:TransitionInteractionMessageAction>
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
+            <StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <TextBlock Style="{StaticResource ListSettingLabel}">niconare ID設定:</TextBlock>
+                    <TextBlock Text="{Binding NiconareIds.Count}" Style="{StaticResource ListSettingLabel}"/>
+                </StackPanel>
+                <StackPanel HorizontalAlignment="Center">
+                    <TextBlock Style="{StaticResource ListSettingLabel}">niconico &gt; niconare_ids</TextBlock>
+                </StackPanel>
+            </StackPanel>
+        </Button>
+
+        <Button Grid.Column="1" Grid.Row="0" Style="{StaticResource ListSettingButton}">
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="Click">
+                    <l:TransitionInteractionMessageAction WindowType="{x:Type v:NicovideoIdListDialog}" Mode="Modal" IsOwned="True">
+                        <l:DirectInteractionMessage>
+                            <l:TransitionMessage/>
+                        </l:DirectInteractionMessage>
+                    </l:TransitionInteractionMessageAction>
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
+            <StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <TextBlock Style="{StaticResource ListSettingLabel}">動画ID設定:</TextBlock>
+                    <TextBlock Text="{Binding NicovideoIds.Count}" Style="{StaticResource ListSettingLabel}"/>
+                </StackPanel>
+                <StackPanel HorizontalAlignment="Center">
+                    <TextBlock Style="{StaticResource ListSettingLabel}">persistent_object</TextBlock>
+                    <TextBlock Style="{StaticResource ListSettingLabel}">&gt; nicovideo_ids</TextBlock>
+                </StackPanel>
+            </StackPanel>
+        </Button>
+        <Button Grid.Column="1" Grid.Row="1" Style="{StaticResource ListSettingButton}">
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="Click">
+                    <l:TransitionInteractionMessageAction WindowType="{x:Type v:MylistIdListDialog}" Mode="Modal" IsOwned="True">
+                        <l:DirectInteractionMessage>
+                            <l:TransitionMessage/>
+                        </l:DirectInteractionMessage>
+                    </l:TransitionInteractionMessageAction>
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
+            <StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <TextBlock Style="{StaticResource ListSettingLabel}">マイリストID設定:</TextBlock>
+                    <TextBlock Text="{Binding MylistIds.Count}" Style="{StaticResource ListSettingLabel}"/>
+                </StackPanel>
+                <StackPanel HorizontalAlignment="Center">
+                    <TextBlock Style="{StaticResource ListSettingLabel}">niconico &gt; mylist_ids</TextBlock>
+                </StackPanel>
+            </StackPanel>
+        </Button>
+        <Button Grid.Column="1" Grid.Row="2" Style="{StaticResource ListSettingButton}">
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="Click">
+                    <l:TransitionInteractionMessageAction WindowType="{x:Type v:WhiteboardListDialog}" Mode="Modal" IsOwned="True">
+                        <l:DirectInteractionMessage>
+                            <l:TransitionMessage/>
+                        </l:DirectInteractionMessage>
+                    </l:TransitionInteractionMessageAction>
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
+            <StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <TextBlock Style="{StaticResource ListSettingLabel}">ホワイトボード画像設定:</TextBlock>
+                    <TextBlock Text="{Binding Whiteboard.Count}" Style="{StaticResource ListSettingLabel}"/>
+                </StackPanel>
+                <StackPanel HorizontalAlignment="Center">
+                    <TextBlock Style="{StaticResource ListSettingLabel}">item &gt; whiteboard</TextBlock>
+                </StackPanel>
+            </StackPanel>
+        </Button>
+        <Button Grid.Column="1" Grid.Row="3" Style="{StaticResource ListSettingButton}">
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="Click">
+                    <l:TransitionInteractionMessageAction WindowType="{x:Type v:CueCardListDialog}" Mode="Modal" IsOwned="True">
+                        <l:DirectInteractionMessage>
+                            <l:TransitionMessage/>
+                        </l:DirectInteractionMessage>
+                    </l:TransitionInteractionMessageAction>
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
+            <StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <TextBlock Style="{StaticResource ListSettingLabel}">カンペ画像設定:</TextBlock>
+                    <TextBlock Text="{Binding CueCard.Count}" Style="{StaticResource ListSettingLabel}"/>
+                </StackPanel>
+                <StackPanel HorizontalAlignment="Center">
+                    <TextBlock Style="{StaticResource ListSettingLabel}">item &gt; cue_card</TextBlock>
+                </StackPanel>
+            </StackPanel>
+        </Button>
+
+        <Button Grid.Column="2" Grid.Row="0" Style="{StaticResource ListSettingButton}">
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="Click">
+                    <l:TransitionInteractionMessageAction WindowType="{x:Type v:ImageListDialog}" Mode="Modal" IsOwned="True">
+                        <l:DirectInteractionMessage>
+                            <l:TransitionMessage/>
+                        </l:DirectInteractionMessage>
+                    </l:TransitionInteractionMessageAction>
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
+            <StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <TextBlock Style="{StaticResource ListSettingLabel}">永続化画像設定:</TextBlock>
+                    <TextBlock Text="{Binding Images.Count}" Style="{StaticResource ListSettingLabel}"/>
+                </StackPanel>
+                <StackPanel HorizontalAlignment="Center">
+                    <TextBlock Style="{StaticResource ListSettingLabel}">persistent_object</TextBlock>
+                    <TextBlock Style="{StaticResource ListSettingLabel}">&gt; image_urls</TextBlock>
+                </StackPanel>
+            </StackPanel>
+        </Button>
+        <Button Grid.Column="2" Grid.Row="1" Style="{StaticResource ListSettingButton}">
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="Click">
+                    <l:TransitionInteractionMessageAction WindowType="{x:Type v:DoubleImageListDialog}" Mode="Modal" IsOwned="True">
+                        <l:DirectInteractionMessage>
+                            <l:TransitionMessage/>
+                        </l:DirectInteractionMessage>
+                    </l:TransitionInteractionMessageAction>
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
+            <StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <TextBlock Style="{StaticResource ListSettingLabel}">永続化画像(両面)設定:</TextBlock>
+                    <TextBlock Text="{Binding DoubleSided.Count}" Style="{StaticResource ListSettingLabel}"/>
+                </StackPanel>
+                <StackPanel HorizontalAlignment="Center">
+                    <TextBlock Style="{StaticResource ListSettingLabel}">persistent_object</TextBlock>
+                    <TextBlock Style="{StaticResource ListSettingLabel}">&gt; double_sided_image_urls</TextBlock>
+                </StackPanel>
+            </StackPanel>
+        </Button>
+        <Button Grid.Column="2" Grid.Row="2" Style="{StaticResource ListSettingButton}">
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="Click">
+                    <l:TransitionInteractionMessageAction WindowType="{x:Type v:HiddenImageListDialog}" Mode="Modal" IsOwned="True">
+                        <l:DirectInteractionMessage>
+                            <l:TransitionMessage/>
+                        </l:DirectInteractionMessage>
+                    </l:TransitionInteractionMessageAction>
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
+            <StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <TextBlock Style="{StaticResource ListSettingLabel}">隠し画像設定:</TextBlock>
+                    <TextBlock Text="{Binding HiddenImages.Count}" Style="{StaticResource ListSettingLabel}"/>
+                </StackPanel>
+                <StackPanel HorizontalAlignment="Center">
+                    <TextBlock Style="{StaticResource ListSettingLabel}">persistent_object</TextBlock>
+                    <TextBlock Style="{StaticResource ListSettingLabel}">&gt; hidden_image_urls</TextBlock>
+                </StackPanel>
+            </StackPanel>
+        </Button>
+        <Button Grid.Column="2" Grid.Row="3" Style="{StaticResource ListSettingButton}">
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="Click">
+                    <l:TransitionInteractionMessageAction WindowType="{x:Type v:HiddenDoubleListDialog}" Mode="Modal" IsOwned="True">
+                        <l:DirectInteractionMessage>
+                            <l:TransitionMessage/>
+                        </l:DirectInteractionMessage>
+                    </l:TransitionInteractionMessageAction>
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
+            <StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <TextBlock Style="{StaticResource ListSettingLabel}">隠し画像(両面)設定:</TextBlock>
+                    <TextBlock Text="{Binding HiddenDouble.Count}" Style="{StaticResource ListSettingLabel}"/>
+                </StackPanel>
+                <StackPanel HorizontalAlignment="Center">
+                    <TextBlock Style="{StaticResource ListSettingLabel}">persistent_object</TextBlock>
+                    <TextBlock Style="{StaticResource ListSettingLabel}">&gt; hidden_double_sided</TextBlock>
+                    <TextBlock Style="{StaticResource ListSettingLabel}">_image_urls</TextBlock>
+                </StackPanel>
+            </StackPanel>
+        </Button>
+
+        <Button Grid.Column="2" Grid.Row="4" Style="{StaticResource OtherSettingButton}">
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="Click">
+                    <l:TransitionInteractionMessageAction WindowType="{x:Type v:DirectViewDialog}" Mode="Modal" IsOwned="True">
+                        <l:DirectInteractionMessage>
+                            <l:TransitionMessage/>
+                        </l:DirectInteractionMessage>
+                    </l:TransitionInteractionMessageAction>
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
+            <StackPanel>
+                <StackPanel HorizontalAlignment="Center">
+                    <TextBlock Style="{StaticResource OtherSettingLabel}">ダイレクトビュー関係</TextBlock>
+                    <TextBlock Style="{StaticResource OtherSettingLabel}">の設定</TextBlock>
+                </StackPanel>
+            </StackPanel>
+        </Button>
+        
+        <Button Grid.Column="2" Grid.Row="5" Style="{StaticResource OtherSettingButton}">
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="Click">
+                    <l:TransitionInteractionMessageAction WindowType="{x:Type v:VrDebugDialog}" Mode="Modal" IsOwned="True">
+                        <l:DirectInteractionMessage>
+                            <l:TransitionMessage/>
+                        </l:DirectInteractionMessage>
+                    </l:TransitionInteractionMessageAction>
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
+            <StackPanel>
+                <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
+                    <TextBlock Style="{StaticResource OtherSettingLabel}"> デバッグ設定:</TextBlock>
+                    <TextBlock Style="{StaticResource OtherSettingLabel}">
+                        <TextBlock.Visibility>
+                            <Binding Path="VrDebug">
+                                <Binding.Converter>
+                                    <l:VisibilityAndBooleanConverter
+                                        ConvertWhenFalse="Collapsed"
+                                        ConvertWhenTrue="Visible"/>
+                                </Binding.Converter>
+                            </Binding>
+                        </TextBlock.Visibility>
+                        ON
+                    </TextBlock>
+                    <TextBlock Style="{StaticResource OtherSettingLabel}">
+                        <TextBlock.Visibility>
+                            <Binding Path="VrDebug">
+                                <Binding.Converter>
+                                    <l:VisibilityAndBooleanConverter
+                                        ConvertWhenFalse="Visible"
+                                        ConvertWhenTrue="Collapsed"/>
+                                </Binding.Converter>
+                            </Binding>
+                        </TextBlock.Visibility>
+                        OFF
+                    </TextBlock>
+                </StackPanel>
+            </StackPanel>
+        </Button>
+
+        <Border Grid.Column="1" Grid.Row="4" Grid.RowSpan="2"
+                BorderBrush="{StaticResource ThirdBrush}"
+                BorderThickness="1"
+                Padding="5"
+                Margin="10,15">
+            <StackPanel>
+                <CheckBox IsChecked="{Binding UseFastSpringBone}" ToolTip="humanoid &gt; use_fast_spring_bone">
+                    スプリングボーン高速化
+                </CheckBox>
+                <CheckBox IsChecked="{Binding HideCameraFromViewers}" ToolTip="item &gt; hide_camera_from_viewers">
+                    カメラを視聴者に見せない
+                </CheckBox>
+                <CheckBox IsChecked="{Binding DisplaycaptureChromaky}" ToolTip="item &gt; enable_displaycapture_chromakey">
+                    ディスプレイのクロマキー有効化
+                </CheckBox>
+                <CheckBox IsChecked="{Binding NicovideoChromaky}" ToolTip="item &gt; enable_nicovideo_chromakey">
+                    動画プレーヤーのクロマキー有効化
+                </CheckBox>
+                <StackPanel Orientation="Horizontal" Margin="0,5,0,0">
+                    <TextBlock Text="NGスコア閾値" VerticalAlignment="Bottom"/>
+                    <TextBox Width="60"
+                             Height="20"
+                             MaxLength="7"
+                             FontSize="10"
+                             TextAlignment="Right"
+                             ToolTip="niconico &gt; ng_score_threshold"
+                             Text="{Binding NgScoreThreshold}"/>
+                </StackPanel>
+            </StackPanel>
+        </Border>
+        
+
+    </Grid>
+</UserControl>

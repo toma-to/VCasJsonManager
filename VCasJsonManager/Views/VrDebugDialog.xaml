@@ -1,0 +1,72 @@
+﻿<!--
+  VCasJsonManager
+  Copyright 2019 TOMA
+  MIT License
+-->
+<Window x:Class="VCasJsonManager.Views.VrDebugDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+        xmlns:ei="http://schemas.microsoft.com/expression/2010/interactions"
+        xmlns:l="http://schemas.livet-mvvm.net/2011/wpf"
+        xmlns:v="clr-namespace:VCasJsonManager.Views"
+        xmlns:vm="clr-namespace:VCasJsonManager.ViewModels"
+        Title="VRデバッグ設定" Width="400"
+        WindowStartupLocation="CenterOwner"
+        SizeToContent="Height"
+        Style="{StaticResource DialogWindow}">
+
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="Closed">
+            <l:DataContextDisposeAction/>
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
+
+    <Window.Resources>
+        <Style TargetType="CheckBox" BasedOn="{StaticResource {x:Type CheckBox}}">
+            <Setter Property="Margin" Value="0,5"/>
+        </Style>
+    </Window.Resources>
+
+    <StackPanel>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="2*"/>
+            </Grid.ColumnDefinitions>
+            <StackPanel Grid.Column="0" Margin="5">
+                <CheckBox IsChecked="{Binding ScriptVrDebug}" ToolTip="embedded_script &gt; vr_debug">
+                    VRデバッグ
+                </CheckBox>
+            </StackPanel>
+            <StackPanel Grid.Column="1" Margin="5">
+                <StackPanel Orientation="Horizontal" ToolTip="embedded_script &gt; websocket_console_port">
+                    <TextBlock Text="WebSocketポート番号" VerticalAlignment="Center"/>
+                    <TextBox Text="{Binding ScriptWebSocketConsolePort}" Width="50" MaxLength="6"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" ToolTip="embedded_script &gt; moonsharp_debugger_port">
+                    <TextBlock Text="MoonSharp Debbugerポート番号" VerticalAlignment="Center"/>
+                    <TextBox Text="{Binding ScriptMoonsharpDebuggerPort}" Width="50" MaxLength="6"/>
+                </StackPanel>
+            </StackPanel>
+        </Grid>
+        <Grid Margin="5,10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Button Grid.Column="1"
+                    Content="閉じる">
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="Click">
+                        <l:WindowInteractionMessageAction>
+                            <l:DirectInteractionMessage>
+                                <l:WindowActionMessage Action="Close"/>
+                            </l:DirectInteractionMessage>
+                        </l:WindowInteractionMessageAction>
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+            </Button>
+        </Grid>
+    </StackPanel>
+</Window>

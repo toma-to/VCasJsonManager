@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.28803.202
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VCasJsonManager", "VCasJsonManager\VCasJsonManager.csproj", "{7EDC613C-8839-4251-AA7E-6E01AB4000FB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VCasJsonManagerTests", "VCasJsonManagerTests\VCasJsonManagerTests.csproj", "{B3BB1FF4-AB55-41CF-A75F-1E2971703002}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7EDC613C-8839-4251-AA7E-6E01AB4000FB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7EDC613C-8839-4251-AA7E-6E01AB4000FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7EDC613C-8839-4251-AA7E-6E01AB4000FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7EDC613C-8839-4251-AA7E-6E01AB4000FB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B3BB1FF4-AB55-41CF-A75F-1E2971703002}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B3BB1FF4-AB55-41CF-A75F-1E2971703002}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B3BB1FF4-AB55-41CF-A75F-1E2971703002}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B3BB1FF4-AB55-41CF-A75F-1E2971703002}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {33C16FD7-9555-4A5A-8AA7-A8E94296029F}
+	EndGlobalSection
+EndGlobal

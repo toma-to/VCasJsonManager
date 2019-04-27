@@ -1,0 +1,69 @@
+﻿<!--
+  VCasJsonManager
+  Copyright 2019 TOMA
+  MIT License
+-->
+<Window x:Class="VCasJsonManager.Views.PreferencesDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+        xmlns:ei="http://schemas.microsoft.com/expression/2010/interactions"
+        xmlns:l="http://schemas.livet-mvvm.net/2011/wpf"
+        xmlns:v="clr-namespace:VCasJsonManager.Views"
+        xmlns:vm="clr-namespace:VCasJsonManager.ViewModels"
+        Title="動作設定" Width="600"
+        WindowStartupLocation="CenterOwner"
+        SizeToContent="Height"
+        Style="{StaticResource DialogWindow}">
+
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="Closed">
+            <l:LivetCallMethodAction MethodName="SaveSetting" MethodTarget="{Binding}"/>
+            <l:DataContextDisposeAction/>
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
+
+    <StackPanel Margin="5">
+        <Grid Margin="10,20">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Grid.Column="0" VerticalAlignment="Bottom" Text="VirtualCastのフォルダー"/>
+            <TextBox Grid.Column="1"
+                     Text="{Binding VCasFolderPath}"
+                     MaxLength="1000"
+                     Margin="5,0"/>
+            <Button Grid.Column="2" Content="..." VerticalAlignment="Center">
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="Click">
+                        <l:FolderBrowserDialogInteractionMessageAction>
+                            <l:DirectInteractionMessage CallbackMethodName="VCasFolderSelected" CallbackMethodTarget="{Binding}">
+                                <l:FolderSelectionMessage Description="VirtualCastフォルダーの選択" DialogPreference="None" />
+                            </l:DirectInteractionMessage>
+                        </l:FolderBrowserDialogInteractionMessageAction>
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+            </Button>
+        </Grid>
+        <Grid Margin="5,30,5,10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Button Grid.Column="1"
+                    Content="閉じる">
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="Click">
+                        <l:WindowInteractionMessageAction>
+                            <l:DirectInteractionMessage>
+                                <l:WindowActionMessage Action="Close"/>
+                            </l:DirectInteractionMessage>
+                        </l:WindowInteractionMessageAction>
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+            </Button>
+        </Grid>        
+    </StackPanel>
+</Window>

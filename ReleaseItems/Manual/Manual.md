@@ -1,0 +1,59 @@
+# VCasJSONManager操作マニュアル
+## はじめに
+このソフトウェアは、VirtualCastのconfig.jsonファイルを管理するツールです。  
+
+<span style="color:red">**注意事項**  
+VCasJsonManagerは、VirtualCastのconfig.jsonを直接書き換えることがあります。
+すでにconfig.jsonを作成している場合は、VCasJsonManager起動前にバックアップを取っておくことをお勧めします。</span>
+
+***
+## 操作方法
+
+### メイン画面
+![メイン画面](Image/MainWindow.png)  
+メイン画面はこのような感じです。
+機能によって、以下のように分けられています。
+
+![メイン画面機能](Image/MainWindowDesc.png)
+
+#### ①config.json編集
+config.jsonを編集する場所です。各ボタンをクリックすることで、設定ダイアログが表示されます。
+config.jsonについては、[VirtualCast Wiki](https://virtualcast.jp/wiki/doku.php?id=%E3%82%AB%E3%82%B9%E3%82%BF%E3%83%9E%E3%82%A4%E3%82%BA:config.json%E3%81%AE%E8%A8%AD%E5%AE%9A%E4%B8%80%E8%A6%A7)などを参照してください。
+
+#### ②プリセット設定
+編集したconfig.jsonをプリセットして保存したり、保存済みのプリセットを呼び出す場所です。
+詳細は後述します。
+
+#### ③config.json操作
+VirtualCastのフォルダーにあるconfig.jsonファイルを操作する場所です。
+詳細は後述します。
+
+#### ④動作設定
+VCasJsonManagerの動作設定を行うダイアログを表示するボタンです。VirtualCastのフォルダーの指定はここから行います。
+
+***
+
+### プリセット設定について
+プリセット設定の最上部に表示されているのは、現在読み込んでいるプリセットの名前です。  
+編集したconfig.jsonの内容は、「上書き保存」ボタンか、「別名で保存」ボタンで保存できます。
+
+#### 上書き保存
+現在読み込んでいるプリセットの内容に上書きで保存します。
+#### 別名で保存
+新しい名前のプリセットを作成して保存します。
+
+ゴミ箱マークのボタンは削除ボタンです。現在読み込んでいるプリセットを削除します。  
+プリセット選択の部分に、保存されているプリセットのリストが表示されます。選択すると、選択したプリセットを読み込みます。
+
+***
+### config.jsonの操作について
+VirtualCastのフォルダーにあるconfig.jsonを直接操作します。  
+「読み込み」ボタンで、config.jsonの内容を読み込みます。「更新」ボタンで現在の編集内容でconfig.jsonを更新します。  
+「更新してVirtualCast起動」ボタンをクリックすると、現在の編集内容でconfig.jsonを起動した後、VirtualCastを起動します。
+
+config.jsonの操作は、動作設定にてVirtualCastのフォルダーが指定されていないと正しく動作しません。
+
+***
+***
+VCasJsonManager 1.0.0.0  
+Copyright © 2019 TOMA
