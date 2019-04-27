@@ -1,0 +1,2 @@
+# VCasJsonManager
+VirtualCastのconfig.jsonを管理するツール
