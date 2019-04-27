@@ -41,9 +41,9 @@ VCasJsonManagerフォルダー内のVCasJsonManager.exeを実行すると起動�
 
 ----------
 ◇ 連絡先 ◇
-　GitHub：  
+　GitHub：  https://github.com/toma-to/VCasJsonManager
             最新版は以下のURLよりダウンロード可能です。
-            
+            https://github.com/toma-to/VCasJsonManager/releases
             
 　Discord:  兎摩#2704
   Discordサーバー： https://discord.gg/zf2T3fD
