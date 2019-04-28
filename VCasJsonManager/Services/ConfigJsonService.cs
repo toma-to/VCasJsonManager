@@ -9,6 +9,7 @@ using System.ComponentModel;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
+using System.Security;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using VCasJsonManager.Models;
@@ -276,6 +277,57 @@ namespace VCasJsonManager.Services
                 ErrorOccurred?.Invoke(this, new ConfigJsonErrorEventArgs(ConfigJsonErrorEventArgs.Cause.DeletePresetError, e, path));
             }
 
+        }
+
+        /// <summary>
+        /// JSONファイルのインポート
+        /// </summary>
+        /// <param name="path">インポートするファイルのパス</param>
+        /// <returns></returns>
+        public async Task ImportJsonAsync(string path)
+        {
+            IsBusy = true;
+            using (new OnDisposeAction(() => IsBusy = false))
+            {
+                try
+                {
+                    ConfigJson = await FileService.ReadAsync(path);
+                    CurrentPreset = null;
+                }
+                catch (Exception e) when (e is IOException || e is ArgumentException || e is UnauthorizedAccessException || e is SecurityException)
+                {
+                    Trace.TraceInformation($"インポートファイル読み込み失敗。{path}:{e.Message}");
+                    ErrorOccurred?.Invoke(this, new ConfigJsonErrorEventArgs(ConfigJsonErrorEventArgs.Cause.ImportJsonOpenError, e, path));
+                }
+                catch (JsonException e)
+                {
+                    Trace.TraceInformation($"インポートファイルフォーマット不正。{path}:{e.Message}");
+                    ErrorOccurred?.Invoke(this, new ConfigJsonErrorEventArgs(ConfigJsonErrorEventArgs.Cause.ImportJsonBadFormat, e, path));
+                }
+            }
+        }
+
+        /// <summary>
+        /// JSONファイルへのエクスポート
+        /// </summary>
+        /// <param name="path"></param>
+        /// <returns></returns>
+        public async Task ExportJsonAsync(string path)
+        {
+            IsBusy = true;
+            using (new OnDisposeAction(() => IsBusy = false))
+            {
+                try
+                {
+                    await FileService.WriteAsync(path, ConfigJson, UserSettings.MergeUnknownJsonProperty);
+                }
+                catch (Exception e)
+                    when (e is IOException || e is JsonException || e is ArgumentException || e is UnauthorizedAccessException || e is SecurityException)
+                {
+                    Trace.TraceInformation($"エクスポート失敗。{path}:{e.Message}");
+                    ErrorOccurred?.Invoke(this, new ConfigJsonErrorEventArgs(ConfigJsonErrorEventArgs.Cause.ExoprtJsonError, e, path));
+                }
+            }
         }
     }
 

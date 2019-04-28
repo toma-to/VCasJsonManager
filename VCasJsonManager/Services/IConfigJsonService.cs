@@ -28,5 +28,7 @@ namespace VCasJsonManager.Services
         Task SaveNewPresetAsync(string presetName);
         Task SavePresetAsync(string id);
         Task WriteToConfigJsonAsync();
+        Task ImportJsonAsync(string path);
+        Task ExportJsonAsync(string path);
     }
 }
