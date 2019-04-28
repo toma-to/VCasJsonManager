@@ -67,10 +67,5 @@ namespace VCasJsonManager.ViewModels
         {
             await UserSettingsService.SaveAsync();
         }
-
-        protected override void Dispose(bool disposing)
-        {
-            base.Dispose(disposing);
-        }
     }
 }
