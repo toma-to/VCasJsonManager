@@ -6,7 +6,7 @@
 【 ソフト名 】VCasJsonManager
 【ライセンス】MIT License
 【 動作環境 】Windows10
-【バージョン】1.0.0.0
+【バージョン】1.1.0.1
 
 ---------- ----------
 ◇ 概要 ◇
@@ -38,6 +38,13 @@ VCasJsonManagerフォルダー内のVCasJsonManager.exeを実行すると起動�
 日本語訳については、https://ja.osdn.net/projects/opensource/wiki/licenses/MIT_license などを
 参考にしてください。
 
+◇ 更新履歴 ◇
+
+v1.1.0.1 - 2019/4/29
+JSONファイルのインポート、エクスポート機能追加。
+
+v1.0.0.0 - 2019/4/28
+First Release
 
 ----------
 ◇ 連絡先 ◇
