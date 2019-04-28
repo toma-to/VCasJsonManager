@@ -390,8 +390,8 @@ namespace VCasJsonManager.Services.Tests
 
             await target.DeletePresetAsync("200");
 
+            CollectionAssert.AreEqual(new[] { nameof(ConfigJsonService.IsBusy), nameof(ConfigJsonService.IsBusy) }, notifiedProperies);
             Assert.IsFalse(target.IsBusy);
-            Assert.IsFalse(notifiedProperies.Any());
             Assert.AreEqual("300", target.CurrentPreset.Id);
             Assert.AreEqual(Path.Combine(appSettings.AppDataPath, "bar_200.json"), fileService.DeletePath);
             CollectionAssert.AreEqual(new[] { "100", "300" }, settingService.UserSettings.PresetInfos.Select(e => e.Id).ToArray());
@@ -423,7 +423,7 @@ namespace VCasJsonManager.Services.Tests
             await target.DeletePresetAsync("300");
 
             Assert.IsFalse(target.IsBusy);
-            CollectionAssert.AreEqual(new[] { nameof(ConfigJsonService.CurrentPreset) }, notifiedProperies);
+            CollectionAssert.AreEqual(new[] { nameof(ConfigJsonService.IsBusy), nameof(ConfigJsonService.CurrentPreset), nameof(ConfigJsonService.IsBusy) }, notifiedProperies);
             Assert.IsNull(target.CurrentPreset);
             Assert.AreEqual(Path.Combine(appSettings.AppDataPath, "baz_300.json"), fileService.DeletePath);
             CollectionAssert.AreEqual(new[] { "100", "200" }, settingService.UserSettings.PresetInfos.Select(e => e.Id).ToArray());
@@ -455,8 +455,8 @@ namespace VCasJsonManager.Services.Tests
 
             await target.DeletePresetAsync("400");
 
+            CollectionAssert.AreEqual(new[] { nameof(ConfigJsonService.IsBusy), nameof(ConfigJsonService.IsBusy) }, notifiedProperies);
             Assert.IsFalse(target.IsBusy);
-            Assert.IsFalse(notifiedProperies.Any());
             Assert.AreEqual("300", target.CurrentPreset.Id);
             Assert.IsNull(fileService.DeletePath);
             CollectionAssert.AreEqual(new[] { "100", "200", "300" }, settingService.UserSettings.PresetInfos.Select(e => e.Id).ToArray());
@@ -488,14 +488,94 @@ namespace VCasJsonManager.Services.Tests
             fileService.Exception = new IOException();
             await target.DeletePresetAsync("200");
 
+            CollectionAssert.AreEqual(new[] { nameof(ConfigJsonService.IsBusy), nameof(ConfigJsonService.IsBusy) }, notifiedProperies);
             Assert.IsFalse(target.IsBusy);
-            Assert.IsFalse(notifiedProperies.Any());
             Assert.AreEqual("300", target.CurrentPreset.Id);
             Assert.AreEqual(ConfigJsonErrorEventArgs.Cause.DeletePresetError, errorEvent.ErrorCause);
             Assert.IsNotNull(errorEvent.Exception);
             CollectionAssert.AreEqual(new[] { "100", "200", "300" }, settingService.UserSettings.PresetInfos.Select(e => e.Id).ToArray());
         }
 
+        [TestMethod()]
+        public async Task ImportJsonAsyncTest_正常()
+        {
+            fileService.ConfigJson = new ConfigJson() { NgScoreThreshold = -999 };
+            var path = @"C:\work\config.json";
 
+            await target.ImportJsonAsync(path);
+
+            Assert.IsFalse(target.IsBusy);
+            CollectionAssert.AreEqual(
+                new[] { nameof(ConfigJsonService.IsBusy), nameof(ConfigJsonService.ConfigJson), nameof(ConfigJsonService.CurrentPreset), nameof(ConfigJsonService.IsBusy) },
+                notifiedProperies);
+            Assert.AreEqual(path, fileService.ReadAsyncPath);
+            Assert.AreEqual(fileService.ConfigJson, target.ConfigJson);
+            Assert.IsNull(target.CurrentPreset);
+            Assert.IsNull(errorEvent);
+        }
+
+        [TestMethod()]
+        public async Task ImportJsonAsyncTest_Exception()
+        {
+            fileService.Exception = new UnauthorizedAccessException();
+            var path = @"C:\work\config.json";
+
+            await target.ImportJsonAsync(path);
+
+            Assert.IsFalse(target.IsBusy);
+            CollectionAssert.AreEqual(
+                new[] { nameof(ConfigJsonService.IsBusy), nameof(ConfigJsonService.IsBusy) },
+                notifiedProperies);
+            Assert.AreEqual("300", target.CurrentPreset.Id);
+            Assert.AreEqual(ConfigJsonErrorEventArgs.Cause.ImportJsonOpenError, errorEvent.ErrorCause);
+            Assert.IsNotNull(errorEvent.Exception);
+        }
+
+        [TestMethod()]
+        public async Task ImportJsonAsyncTest_JsonException()
+        {
+            fileService.Exception = new Newtonsoft.Json.JsonException();
+            var path = @"C:\work\config.json";
+
+            await target.ImportJsonAsync(path);
+
+            Assert.IsFalse(target.IsBusy);
+            CollectionAssert.AreEqual(
+                new[] { nameof(ConfigJsonService.IsBusy), nameof(ConfigJsonService.IsBusy) },
+                notifiedProperies);
+            Assert.AreEqual("300", target.CurrentPreset.Id);
+            Assert.AreEqual(ConfigJsonErrorEventArgs.Cause.ImportJsonBadFormat, errorEvent.ErrorCause);
+            Assert.IsNotNull(errorEvent.Exception);
+        }
+
+        [TestMethod()]
+        public async Task ExportJsonAsyncTest_正常()
+        {
+            settingService.UserSettings.MergeUnknownJsonProperty = true;
+            var path = @"C:\work\config.json";
+
+            await target.ExportJsonAsync(path);
+
+            CollectionAssert.AreEqual(new[] { nameof(ConfigJsonService.IsBusy), nameof(ConfigJsonService.IsBusy) }, notifiedProperies);
+            Assert.IsFalse(target.IsBusy);
+            Assert.AreEqual(path, fileService.WriteAsyncPath);
+            Assert.AreEqual(fileService.ConfigJson, target.ConfigJson);
+            Assert.IsNull(errorEvent);
+        }
+
+        [TestMethod()]
+        public async Task ExportJsonAsyncTest_例外()
+        {
+            settingService.UserSettings.MergeUnknownJsonProperty = true;
+            var path = @"C:\work\config.json";
+            fileService.Exception = new System.Security.SecurityException();
+
+            await target.ExportJsonAsync(path);
+
+            CollectionAssert.AreEqual(new[] { nameof(ConfigJsonService.IsBusy), nameof(ConfigJsonService.IsBusy) }, notifiedProperies);
+            Assert.IsFalse(target.IsBusy);
+            Assert.AreEqual(ConfigJsonErrorEventArgs.Cause.ExoprtJsonError, errorEvent.ErrorCause);
+            Assert.IsNotNull(errorEvent.Exception);
+        }
     }
 }

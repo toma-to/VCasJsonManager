@@ -46,6 +46,21 @@ namespace VCasJsonManager.Services
             /// プリセット削除失敗
             /// </summary>
             DeletePresetError,
+
+            /// <summary>
+            /// インポートするファイルのフォーマットエラー
+            /// </summary>
+            ImportJsonBadFormat,
+
+            /// <summary>
+            /// インポートするファイルのオープン失敗
+            /// </summary>
+            ImportJsonOpenError,
+
+            /// <summary>
+            /// エクスポート失敗
+            /// </summary>
+            ExoprtJsonError,
         }
 
         /// <summary>

@@ -123,6 +123,15 @@
   <data name="ErrorConfigJsonWrite" xml:space="preserve">
     <value>config.jsonが書き込めませんでした。</value>
   </data>
+  <data name="ErrorExportJson" xml:space="preserve">
+    <value>エクスポートに失敗しました。</value>
+  </data>
+  <data name="ErrorImportJsonFile" xml:space="preserve">
+    <value>インポートするファイルが読み込めませんでした。</value>
+  </data>
+  <data name="ErrorImportJsonFormat" xml:space="preserve">
+    <value>インポートするファイルの形式に誤りがあります。</value>
+  </data>
   <data name="ErrorPresetDelete" xml:space="preserve">
     <value>プリセットファイルが削除できませんでした。</value>
   </data>
@@ -143,6 +152,15 @@
   </data>
   <data name="ErrorUnknownFatal" xml:space="preserve">
     <value>よく分からないエラーが発生しました。アプリケーションを終了します。</value>
+  </data>
+  <data name="ExportJsonFileDialogTitle" xml:space="preserve">
+    <value>エクスポート先ファイルの選択</value>
+  </data>
+  <data name="FileDialogJsonFilter" xml:space="preserve">
+    <value>JSON Files (.json)|*.json|All Files (*.*)|*.*</value>
+  </data>
+  <data name="ImportJsonFileDialogTitle" xml:space="preserve">
+    <value>インポートするJSONファイルの選択</value>
   </data>
   <data name="ValidationBadMylistId" xml:space="preserve">
     <value>正しいマイリストのIDまたはURLを入力してください</value>

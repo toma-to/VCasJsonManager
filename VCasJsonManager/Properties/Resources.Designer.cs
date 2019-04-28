@@ -79,6 +79,33 @@ namespace VCasJsonManager.Properties {
         }
         
         /// <summary>
+        ///   エクスポートに失敗しました。 に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string ErrorExportJson {
+            get {
+                return ResourceManager.GetString("ErrorExportJson", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   インポートするファイルが読み込めませんでした。 に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string ErrorImportJsonFile {
+            get {
+                return ResourceManager.GetString("ErrorImportJsonFile", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   インポートするファイルの形式に誤りがあります。 に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string ErrorImportJsonFormat {
+            get {
+                return ResourceManager.GetString("ErrorImportJsonFormat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   プリセットファイルが削除できませんでした。 に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string ErrorPresetDelete {
@@ -138,6 +165,33 @@ namespace VCasJsonManager.Properties {
         internal static string ErrorUnknownFatal {
             get {
                 return ResourceManager.GetString("ErrorUnknownFatal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   エクスポート先ファイルの選択 に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string ExportJsonFileDialogTitle {
+            get {
+                return ResourceManager.GetString("ExportJsonFileDialogTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   JSON Files (.json)|*.json|All Files (*.*)|*.* に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string FileDialogJsonFilter {
+            get {
+                return ResourceManager.GetString("FileDialogJsonFilter", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   インポートするJSONファイルの選択 に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string ImportJsonFileDialogTitle {
+            get {
+                return ResourceManager.GetString("ImportJsonFileDialogTitle", resourceCulture);
             }
         }
         
