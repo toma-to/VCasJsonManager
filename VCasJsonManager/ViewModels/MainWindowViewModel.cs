@@ -4,11 +4,15 @@
 // MIT License
 //
 using Livet;
+using Livet.Commands;
 using Livet.EventListeners;
 using Livet.Messaging;
+using Livet.Messaging.IO;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Linq;
+using System.Windows.Input;
 using VCasJsonManager.Properties;
 using VCasJsonManager.Services;
 
@@ -33,6 +37,16 @@ namespace VCasJsonManager.ViewModels
         /// 処理中フラグ
         /// </summary>
         public bool IsBusy => ConfigJsonService.IsBusy;
+
+        /// <summary>
+        /// JSONファイルのインポートコマンド
+        /// </summary>
+        public ICommand ImportJsonCommand { get; }
+
+        /// <summary>
+        /// JSONファイルのエクスポートコマンド
+        /// </summary>
+        public ICommand ExportJsonCommand { get; }
 
         /// <summary>
         /// コンストラクタ
@@ -74,6 +88,9 @@ namespace VCasJsonManager.ViewModels
                     ShowErrorMessage(message, e.Exception, e.Path);
                 }
                 ));
+
+            ImportJsonCommand = new ViewModelCommand(ImportJson);
+            ExportJsonCommand = new ViewModelCommand(ExportJson);
         }
 
         /// <summary>
@@ -112,6 +129,9 @@ namespace VCasJsonManager.ViewModels
                 { ConfigJsonErrorEventArgs.Cause.WritePresetError,  Resources.ErrorPresetWrite },
                 { ConfigJsonErrorEventArgs.Cause.CreatePresetError,  Resources.ErrorPresetWrite },
                 { ConfigJsonErrorEventArgs.Cause.DeletePresetError,  Resources.ErrorPresetDelete },
+                { ConfigJsonErrorEventArgs.Cause.ImportJsonBadFormat,  Resources.ErrorImportJsonFormat },
+                { ConfigJsonErrorEventArgs.Cause.ImportJsonOpenError,  Resources.ErrorImportJsonFile },
+                { ConfigJsonErrorEventArgs.Cause.ExoprtJsonError,  Resources.ErrorExportJson },
             };
 
         /// <summary>
@@ -123,5 +143,46 @@ namespace VCasJsonManager.ViewModels
                 { ExecutionErrorEventArgs.Cause.VirtualCastExe, Resources.ErrorRunVirtualCast },
                 { ExecutionErrorEventArgs.Cause.WebBrowser, Resources.ErrorRunBrowser },
             };
+
+        /// <summary>
+        /// JSONファイルのインポート
+        /// </summary>
+        private async void ImportJson()
+        {
+            var message = new OpeningFileSelectionMessage("ImportJsonFileDialog")
+            {
+                Title = Resources.ImportJsonFileDialogTitle,
+                Filter = Resources.FileDialogJsonFilter,
+            };
+
+            var result = Messenger.GetResponse(message);
+
+            var path = result?.Response?.FirstOrDefault();
+            if (!string.IsNullOrWhiteSpace(path))
+            {
+                await ConfigJsonService.ImportJsonAsync(path);
+            }
+        }
+
+        /// <summary>
+        /// JSONファイルのエクスポート
+        /// </summary>
+        private async void ExportJson()
+        {
+            var message = new SavingFileSelectionMessage("ExportJsonFileDialog")
+            {
+                Title = Resources.ExportJsonFileDialogTitle,
+                Filter = Resources.FileDialogJsonFilter,
+                FileName = "config.json",
+            };
+
+            var result = Messenger.GetResponse(message);
+
+            var path = result?.Response?.FirstOrDefault();
+            if (!string.IsNullOrWhiteSpace(path))
+            {
+                await ConfigJsonService.ExportJsonAsync(path);
+            }
+        }
     }
 }
