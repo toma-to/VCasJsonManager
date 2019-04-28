@@ -90,6 +90,11 @@ namespace VCasJsonManager.Models.Settings
         public bool MergeUnknownJsonProperty { get; set; } = true;
 
         /// <summary>
+        /// VirtualCast起動後にアプリケーションを終了する設定
+        /// </summary>
+        public bool ExitWhenVirtulCastLaunched { get; set; } = false;
+
+        /// <summary>
         /// コンストラクタ
         /// </summary>
         /// <param name="appSettings">アプリケーション設定情報</param>
