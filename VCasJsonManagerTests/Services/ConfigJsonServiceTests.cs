@@ -390,8 +390,8 @@ namespace VCasJsonManager.Services.Tests
 
             await target.DeletePresetAsync("200");
 
+            CollectionAssert.AreEqual(new[] { nameof(ConfigJsonService.IsBusy), nameof(ConfigJsonService.IsBusy) }, notifiedProperies);
             Assert.IsFalse(target.IsBusy);
-            Assert.IsFalse(notifiedProperies.Any());
             Assert.AreEqual("300", target.CurrentPreset.Id);
             Assert.AreEqual(Path.Combine(appSettings.AppDataPath, "bar_200.json"), fileService.DeletePath);
             CollectionAssert.AreEqual(new[] { "100", "300" }, settingService.UserSettings.PresetInfos.Select(e => e.Id).ToArray());
@@ -423,7 +423,7 @@ namespace VCasJsonManager.Services.Tests
             await target.DeletePresetAsync("300");
 
             Assert.IsFalse(target.IsBusy);
-            CollectionAssert.AreEqual(new[] { nameof(ConfigJsonService.CurrentPreset) }, notifiedProperies);
+            CollectionAssert.AreEqual(new[] { nameof(ConfigJsonService.IsBusy), nameof(ConfigJsonService.CurrentPreset), nameof(ConfigJsonService.IsBusy) }, notifiedProperies);
             Assert.IsNull(target.CurrentPreset);
             Assert.AreEqual(Path.Combine(appSettings.AppDataPath, "baz_300.json"), fileService.DeletePath);
             CollectionAssert.AreEqual(new[] { "100", "200" }, settingService.UserSettings.PresetInfos.Select(e => e.Id).ToArray());
@@ -455,8 +455,8 @@ namespace VCasJsonManager.Services.Tests
 
             await target.DeletePresetAsync("400");
 
+            CollectionAssert.AreEqual(new[] { nameof(ConfigJsonService.IsBusy), nameof(ConfigJsonService.IsBusy) }, notifiedProperies);
             Assert.IsFalse(target.IsBusy);
-            Assert.IsFalse(notifiedProperies.Any());
             Assert.AreEqual("300", target.CurrentPreset.Id);
             Assert.IsNull(fileService.DeletePath);
             CollectionAssert.AreEqual(new[] { "100", "200", "300" }, settingService.UserSettings.PresetInfos.Select(e => e.Id).ToArray());
@@ -488,8 +488,8 @@ namespace VCasJsonManager.Services.Tests
             fileService.Exception = new IOException();
             await target.DeletePresetAsync("200");
 
+            CollectionAssert.AreEqual(new[] { nameof(ConfigJsonService.IsBusy), nameof(ConfigJsonService.IsBusy) }, notifiedProperies);
             Assert.IsFalse(target.IsBusy);
-            Assert.IsFalse(notifiedProperies.Any());
             Assert.AreEqual("300", target.CurrentPreset.Id);
             Assert.AreEqual(ConfigJsonErrorEventArgs.Cause.DeletePresetError, errorEvent.ErrorCause);
             Assert.IsNotNull(errorEvent.Exception);

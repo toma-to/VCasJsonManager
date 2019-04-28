@@ -254,29 +254,32 @@ namespace VCasJsonManager.Services
         /// <param name="id"></param>
         public async Task DeletePresetAsync(string id)
         {
-            var preset = UserSettings.PresetInfos.Where(e => e.Id == id).FirstOrDefault();
-            if (preset == null)
+            IsBusy = true;
+            using (new OnDisposeAction(() => IsBusy = false))
             {
-                return;
-            }
-            var path = Path.Combine(UserSettingsService.AppSettings.AppDataPath, preset.FileName);
-
-            try
-            {
-                FileService.DeleteFile(path);
-                UserSettings.PresetInfos.Remove(preset);
-                await UserSettingsService.SaveAsync();
-                if (CurrentPreset.Id == preset.Id)
+                var preset = UserSettings.PresetInfos.Where(e => e.Id == id).FirstOrDefault();
+                if (preset == null)
                 {
-                    CurrentPreset = null;
+                    return;
+                }
+                var path = Path.Combine(UserSettingsService.AppSettings.AppDataPath, preset.FileName);
+
+                try
+                {
+                    FileService.DeleteFile(path);
+                    UserSettings.PresetInfos.Remove(preset);
+                    await UserSettingsService.SaveAsync();
+                    if (CurrentPreset.Id == preset.Id)
+                    {
+                        CurrentPreset = null;
+                    }
+                }
+                catch (IOException e)
+                {
+                    Trace.TraceInformation($"プリセット[{preset.Id}]削除失敗。{path}:{e.Message}");
+                    ErrorOccurred?.Invoke(this, new ConfigJsonErrorEventArgs(ConfigJsonErrorEventArgs.Cause.DeletePresetError, e, path));
                 }
             }
-            catch (IOException e)
-            {
-                Trace.TraceInformation($"プリセット[{preset.Id}]削除失敗。{path}:{e.Message}");
-                ErrorOccurred?.Invoke(this, new ConfigJsonErrorEventArgs(ConfigJsonErrorEventArgs.Cause.DeletePresetError, e, path));
-            }
-
         }
 
         /// <summary>
