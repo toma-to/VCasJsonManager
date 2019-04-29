@@ -16,6 +16,7 @@ namespace VCasJsonManagerTests.Stubs
     {
 #pragma warning disable 0067
         public event EventHandler<ExecutionErrorEventArgs> ExecutionError;
+        public event EventHandler VirtualCastLaunched;
 #pragma warning restore 0067
 
         public string RunBrowserUrl;
