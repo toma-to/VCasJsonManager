@@ -88,7 +88,8 @@ namespace VCasJsonManager.Services.Tests
         }
     ],
     ""ConvertGoogleDriveUri"": false,
-    ""MergeUnknownJsonProperty"": true
+    ""MergeUnknownJsonProperty"": true,
+    ""ExitWhenVirtulCastLaunched"": false
 }".RemoveSpace();
             var result = await TestUtility.ReadResultDataFileAsync(settingPath);
             Assert.AreEqual(expected, result.RemoveSpace());
@@ -153,7 +154,8 @@ namespace VCasJsonManager.Services.Tests
         }
     ],
     ""ConvertGoogleDriveUri"": false,
-    ""MergeUnknownJsonProperty"": false
+    ""MergeUnknownJsonProperty"": false,
+    ""ExitWhenVirtulCastLaunched"": true
 }".RemoveSpace();
             await TestUtility.CreateTestDataFileAsync(settingPath, input);
 
@@ -161,6 +163,7 @@ namespace VCasJsonManager.Services.Tests
 
             Assert.IsFalse(target.UserSettings.ConvertGoogleDriveUri);
             Assert.IsFalse(target.UserSettings.MergeUnknownJsonProperty);
+            Assert.IsTrue(target.UserSettings.ExitWhenVirtulCastLaunched);
             Assert.AreEqual(@"C:\work", target.UserSettings.VirtualCastFolderPath);
             CollectionAssert.AreEqual(new[] { "1", "2", "3" }, target.UserSettings.PresetInfos.Select(e => e.Id).ToArray());
             CollectionAssert.AreEqual(new[] { "Preset1", "Preset2", "Preset3" }, target.UserSettings.PresetInfos.Select(e => e.Name).ToArray());

@@ -33,6 +33,16 @@ namespace VCasJsonManager.ViewModels
         public string VCasFolderPath { get => UserSettings.VirtualCastFolderPath; set => UserSettings.VirtualCastFolderPath = value; }
 
         /// <summary>
+        /// バーチャルキャスト起動時に終了
+        /// </summary>
+        [DoNotNotify]
+        public bool ExitWhenVCasLaunched
+        {
+            get => UserSettings.ExitWhenVirtulCastLaunched;
+            set => UserSettings.ExitWhenVirtulCastLaunched = value;
+        }
+
+        /// <summary>
         /// コンストラクタ
         /// </summary>
         /// <param name="userSettingsService"></param>
@@ -41,6 +51,7 @@ namespace VCasJsonManager.ViewModels
             UserSettingsService = userSettingsService;
 
             AddMapping(nameof(UserSettings.VirtualCastFolderPath), nameof(VCasFolderPath));
+            AddMapping(nameof(UserSettings.ExitWhenVirtulCastLaunched), nameof(ExitWhenVCasLaunched));
 
             CompositeDisposable.Add(new PropertyChangedEventListener(UserSettings)
             {

@@ -21,6 +21,11 @@ namespace VCasJsonManager.Services
         public event EventHandler<ExecutionErrorEventArgs> ExecutionError;
 
         /// <summary>
+        /// VirtualCastの起動完了を通知するイベント
+        /// </summary>
+        public event EventHandler VirtualCastLaunched;
+
+        /// <summary>
         /// ユーザー設定情報サービス
         /// </summary>
         private IUserSettingsService UserSettingsService { get; }
@@ -42,6 +47,7 @@ namespace VCasJsonManager.Services
             try
             {
                 Process.Start(UserSettingsService.UserSettings.VirtualCastExePath);
+                VirtualCastLaunched?.Invoke(this, EventArgs.Empty);
             }
             catch (Exception e) when (e is Win32Exception || e is IOException)
             {

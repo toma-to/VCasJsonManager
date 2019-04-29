@@ -24,6 +24,10 @@
     </i:Interaction.Triggers>
 
     <StackPanel Margin="5">
+        <CheckBox Margin="10,20,10,0" 
+                  IsChecked="{Binding ExitWhenVCasLaunched}"
+                  Content="VirtualCast起動後にアプリケーションを終了"
+                  ToolTip="このチェックボックスをONにすると、VirtualCastを起動した後にVCasJsonManagerを終了します。"/>
         <Grid Margin="10,20">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/>
