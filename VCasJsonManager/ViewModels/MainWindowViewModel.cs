@@ -8,6 +8,7 @@ using Livet.Commands;
 using Livet.EventListeners;
 using Livet.Messaging;
 using Livet.Messaging.IO;
+using Livet.Messaging.Windows;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -34,6 +35,11 @@ namespace VCasJsonManager.ViewModels
         private IExecutionService ExecutionService { get; }
 
         /// <summary>
+        /// UserSettingsService
+        /// </summary>
+        private IUserSettingsService UserSettingsService { get; }
+
+        /// <summary>
         /// 処理中フラグ
         /// </summary>
         public bool IsBusy => ConfigJsonService.IsBusy;
@@ -53,10 +59,11 @@ namespace VCasJsonManager.ViewModels
         /// </summary>
         /// <param name="configJsonService"></param>
         /// <param name="executionService"></param>
-        public MainWindowViewModel(IConfigJsonService configJsonService, IExecutionService executionService)
+        public MainWindowViewModel(IConfigJsonService configJsonService, IExecutionService executionService, IUserSettingsService userSettingsService)
         {
             ConfigJsonService = configJsonService;
             ExecutionService = executionService;
+            UserSettingsService = userSettingsService;
 
             CompositeDisposable.Add(new PropertyChangedEventListener(ConfigJsonService)
             {
@@ -86,6 +93,18 @@ namespace VCasJsonManager.ViewModels
                         message = Resources.ErrorUnknown;
                     }
                     ShowErrorMessage(message, e.Exception, e.Path);
+                }
+                ));
+
+            CompositeDisposable.Add(new EventListener<EventHandler>(
+                h => ExecutionService.VirtualCastLaunched += h,
+                h => ExecutionService.VirtualCastLaunched -= h,
+                (_, e) =>
+                {
+                    if (UserSettingsService.UserSettings.ExitWhenVirtulCastLaunched)
+                    {
+                        Messenger.Raise(new WindowActionMessage(WindowAction.Close, "Close"));
+                    }
                 }
                 ));
 

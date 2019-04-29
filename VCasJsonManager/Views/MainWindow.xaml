@@ -43,6 +43,10 @@
         <l:InteractionMessageTrigger MessageKey="ExportJsonFileDialog" Messenger="{Binding Messenger, Mode=OneWay}">
             <l:SaveFileDialogInteractionMessageAction/>
         </l:InteractionMessageTrigger>
+        
+        <l:InteractionMessageTrigger MessageKey="Close" Messenger="{Binding Messenger, Mode=OneWay}">
+            <l:WindowInteractionMessageAction/>
+        </l:InteractionMessageTrigger>
 
     </i:Interaction.Triggers>
     

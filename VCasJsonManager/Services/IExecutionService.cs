@@ -13,6 +13,7 @@ namespace VCasJsonManager.Services
     public interface IExecutionService
     {
         event EventHandler<ExecutionErrorEventArgs> ExecutionError;
+        event EventHandler VirtualCastLaunched;
 
         void RunBrowser(string uri);
         void RunBrowser(Uri uri);
