@@ -196,6 +196,15 @@ namespace VCasJsonManager.Properties {
         }
         
         /// <summary>
+        ///   https://github.com/toma-to/VCasJsonManager/releases に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        internal static string ReleasePageUrl {
+            get {
+                return ResourceManager.GetString("ReleasePageUrl", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   正しいマイリストのIDまたはURLを入力してください に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string ValidationBadMylistId {

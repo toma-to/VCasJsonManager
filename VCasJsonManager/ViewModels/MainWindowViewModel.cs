@@ -55,6 +55,11 @@ namespace VCasJsonManager.ViewModels
         public ICommand ExportJsonCommand { get; }
 
         /// <summary>
+        /// バージョン情報表示コマンド
+        /// </summary>
+        public ICommand ShowAboutDialogCommand { get; }
+
+        /// <summary>
         /// コンストラクタ
         /// </summary>
         /// <param name="configJsonService"></param>
@@ -110,6 +115,7 @@ namespace VCasJsonManager.ViewModels
 
             ImportJsonCommand = new ViewModelCommand(ImportJson);
             ExportJsonCommand = new ViewModelCommand(ExportJson);
+            ShowAboutDialogCommand = new ViewModelCommand(() => Messenger.Raise(new TransitionMessage("AboutDialog")));
         }
 
         /// <summary>

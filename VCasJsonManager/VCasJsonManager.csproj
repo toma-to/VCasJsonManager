@@ -100,6 +100,7 @@
     <Compile Include="Services\UserSettingsService.cs" />
     <Compile Include="SimplexApplication.cs" />
     <Compile Include="StringExtensions.cs" />
+    <Compile Include="ViewModels\AboutDialogViewModel.cs" />
     <Compile Include="ViewModels\BackgroundImageListDialogViewModel.cs" />
     <Compile Include="ViewModels\BackgroundModelListDialogViewModel.cs" />
     <Compile Include="ViewModels\CharacterModelListDialogViewModel.cs" />
@@ -124,6 +125,9 @@
     <Compile Include="ViewModels\PropertyChangedMappingViewModelBase.cs" />
     <Compile Include="ViewModels\VrDebugDialogViewModel.cs" />
     <Compile Include="ViewModels\WhitboardListDialogViewModel.cs" />
+    <Compile Include="Views\AboutDialog.xaml.cs">
+      <DependentUpon>AboutDialog.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\BackgroundImageListDialog.xaml.cs">
       <DependentUpon>BackgroundImageListDialog.xaml</DependentUpon>
     </Compile>
@@ -192,6 +196,10 @@
     <Compile Include="Views\WhiteboardListDialog.xaml.cs">
       <DependentUpon>WhiteboardListDialog.xaml</DependentUpon>
     </Compile>
+    <Page Include="Views\AboutDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\BackgroundImageListDialog.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
