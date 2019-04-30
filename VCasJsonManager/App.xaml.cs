@@ -16,15 +16,29 @@ namespace VCasJsonManager
     /// </summary>
     public partial class App : Application
     {
+        /// <summary>
+        /// 二重起動抑止
+        /// </summary>
+        private SimplexApplication Simplex { get; set; }
+
         private void Application_Startup(object sender, StartupEventArgs e)
         {
             DispatcherHelper.UIDispatcher = Dispatcher;
             AppDomain.CurrentDomain.UnhandledException += new UnhandledExceptionEventHandler(CurrentDomain_UnhandledException);
+
+            Simplex = new SimplexApplication();
+            if (Simplex.CheckOtherInstance())
+            {
+                Simplex.Dispose();
+                Environment.Exit(0);
+            }
+
         }
 
         private void Application_Exit(object sender, ExitEventArgs e)
         {
             DIContainer.Container.Dispose();
+            Simplex.Dispose();
         }
 
         private void CurrentDomain_UnhandledException(object sender, UnhandledExceptionEventArgs e)

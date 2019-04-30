@@ -40,6 +40,7 @@
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Runtime.Remoting" />
     <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
@@ -97,6 +98,7 @@
     <Compile Include="Services\UriConversionService.cs" />
     <Compile Include="Services\UriCollectionService.cs" />
     <Compile Include="Services\UserSettingsService.cs" />
+    <Compile Include="SimplexApplication.cs" />
     <Compile Include="StringExtensions.cs" />
     <Compile Include="ViewModels\BackgroundImageListDialogViewModel.cs" />
     <Compile Include="ViewModels\BackgroundModelListDialogViewModel.cs" />
