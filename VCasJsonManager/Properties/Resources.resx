@@ -162,6 +162,9 @@
   <data name="ImportJsonFileDialogTitle" xml:space="preserve">
     <value>インポートするJSONファイルの選択</value>
   </data>
+  <data name="ReleasePageUrl" xml:space="preserve">
+    <value>https://github.com/toma-to/VCasJsonManager/releases</value>
+  </data>
   <data name="ValidationBadMylistId" xml:space="preserve">
     <value>正しいマイリストのIDまたはURLを入力してください</value>
   </data>

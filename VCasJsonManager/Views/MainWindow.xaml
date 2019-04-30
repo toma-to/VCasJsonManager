@@ -44,6 +44,10 @@
             <l:SaveFileDialogInteractionMessageAction/>
         </l:InteractionMessageTrigger>
         
+        <l:InteractionMessageTrigger MessageKey="AboutDialog" Messenger="{Binding Messenger, Mode=OneWay}">
+            <l:TransitionInteractionMessageAction WindowType="{x:Type v:AboutDialog}" Mode="Modal" IsOwned="True"/>
+        </l:InteractionMessageTrigger>
+
         <l:InteractionMessageTrigger MessageKey="Close" Messenger="{Binding Messenger, Mode=OneWay}">
             <l:WindowInteractionMessageAction/>
         </l:InteractionMessageTrigger>
@@ -96,6 +100,9 @@
                                 <MenuItem.Icon>
                                     <materialDesign:PackIcon Kind="FileImport" />
                                 </MenuItem.Icon>
+                            </MenuItem>
+                            <Separator/>
+                            <MenuItem Header="バージョン情報" Command="{Binding ShowAboutDialogCommand}">
                             </MenuItem>
                         </ContextMenu>
                     </Button.ContextMenu>
