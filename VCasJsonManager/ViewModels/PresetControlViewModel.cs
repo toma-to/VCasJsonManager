@@ -112,6 +112,7 @@ namespace VCasJsonManager.ViewModels
             if (ConfigJsonEventListener != null)
             {
                 CompositeDisposable.Remove(ConfigJsonEventListener);
+                ConfigJsonEventListener.Dispose();
             }
 
             ConfigJsonEventListener = new PropertyChangedEventListener(ConfigJsonService.ConfigJson)
