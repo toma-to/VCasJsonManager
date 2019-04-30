@@ -29,7 +29,7 @@ config.jsonにてリストとなっている項目の設定ボタンには、現
 VirtualCastのフォルダーにあるconfig.jsonファイルを操作する場所です。
 
 ### ④動作設定
-VCasJsonManagerの動作設定を行うダイアログを表示するボタンです。VirtualCastのフォルダーの指定はここから行います。
+VCasJsonManagerの動作設定を行うダイアログを表示するボタンです。VCasJsonManagerの自動終了設定、VirtualCastのフォルダーの指定はここから行います。
 
 ### ⑤メニュー
 メニューを表示するボタンです。メニューからは、以下の操作が可能です。
@@ -82,5 +82,5 @@ config.json内でリストとなっている項目の編集は、以下のよう
 
 ***
 ***
-VCasJsonManager 1.1.0.1  
+VCasJsonManager 1.2.0.2  
 Copyright © 2019 TOMA
