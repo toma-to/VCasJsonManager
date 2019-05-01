@@ -202,6 +202,7 @@ namespace VCasJsonManager.ViewModels
                     {
                         RaiseAllPropertyChanged();
                         CompositeDisposable.Remove(ConfigJsonListner);
+                        ConfigJsonListner.Dispose();
                         addConfigJsonListner();
                     }
                 },
