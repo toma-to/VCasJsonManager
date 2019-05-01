@@ -82,5 +82,5 @@ config.json内でリストとなっている項目の編集は、以下のよう
 
 ***
 ***
-VCasJsonManager 1.2.0.2  
+VCasJsonManager 1.2.0.3  
 Copyright © 2019 TOMA
