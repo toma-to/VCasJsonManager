@@ -25,7 +25,7 @@ New-Item $targetPath -ItemType Directory -Force
 Remove-Item "$releaseItemsPath\bin\*" -Recurse
 
 # ビルド実行
-$VsEnv = New-Object -ComObject VisualStudio.DTE
+$VsEnv = New-Object -ComObject VisualStudio.DTE.16.0
 $VsEnv.MainWindow.Visible=$True
 $VsEnv.Solution.Open($slnFilePath)
 $bld = $VsEnv.Solution.SolutionBuild
