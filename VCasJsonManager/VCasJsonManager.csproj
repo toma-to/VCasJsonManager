@@ -70,13 +70,13 @@
     <Compile Include="Models\Settings\PresetInfo.cs" />
     <Compile Include="Models\Settings\UserSettings.cs" />
     <Compile Include="OnDisposeAction.cs" />
-    <Compile Include="Services\CollectionManageService.cs" />
+    <Compile Include="Services\Impl\CollectionManageService.cs" />
     <Compile Include="Services\ConfigJsonErrorEventArgs.cs" />
-    <Compile Include="Services\ConfigJsonFileService.cs" />
-    <Compile Include="Services\ConfigJsonService.cs" />
-    <Compile Include="Services\DoubleImageCollectionService.cs" />
+    <Compile Include="Services\Impl\ConfigJsonFileService.cs" />
+    <Compile Include="Services\Impl\ConfigJsonService.cs" />
+    <Compile Include="Services\Impl\DoubleImageCollectionService.cs" />
     <Compile Include="Services\ExecutionErrorEventArgs.cs" />
-    <Compile Include="Services\ExecutionService.cs" />
+    <Compile Include="Services\Impl\ExecutionService.cs" />
     <Compile Include="Services\ICollectionManageService.cs" />
     <Compile Include="Services\IConfigJsonFileService.cs" />
     <Compile Include="Services\IConfigJsonService.cs" />
@@ -90,54 +90,54 @@
     <Compile Include="Services\IUriCollectionService.cs" />
     <Compile Include="Services\IUriConversionService.cs" />
     <Compile Include="Services\IUserSettingsService.cs" />
-    <Compile Include="Services\MylistIdCollectionService.cs" />
-    <Compile Include="Services\Nico3dIdCollectionService.cs" />
-    <Compile Include="Services\NiconareIdCollectionService.cs" />
-    <Compile Include="Services\NicovideoIdCollectionService.cs" />
-    <Compile Include="Services\TextCollectionService.cs" />
-    <Compile Include="Services\UriConversionService.cs" />
-    <Compile Include="Services\UriCollectionService.cs" />
-    <Compile Include="Services\UserSettingsService.cs" />
+    <Compile Include="Services\Impl\MylistIdCollectionService.cs" />
+    <Compile Include="Services\Impl\Nico3dIdCollectionService.cs" />
+    <Compile Include="Services\Impl\NiconareIdCollectionService.cs" />
+    <Compile Include="Services\Impl\NicovideoIdCollectionService.cs" />
+    <Compile Include="Services\Impl\TextCollectionService.cs" />
+    <Compile Include="Services\Impl\UriConversionService.cs" />
+    <Compile Include="Services\Impl\UriCollectionService.cs" />
+    <Compile Include="Services\Impl\UserSettingsService.cs" />
     <Compile Include="SimplexApplication.cs" />
     <Compile Include="StringExtensions.cs" />
     <Compile Include="ViewModels\AboutDialogViewModel.cs" />
-    <Compile Include="ViewModels\BackgroundImageListDialogViewModel.cs" />
-    <Compile Include="ViewModels\BackgroundModelListDialogViewModel.cs" />
-    <Compile Include="ViewModels\CharacterModelListDialogViewModel.cs" />
-    <Compile Include="ViewModels\CommentListDialogViewModel.cs" />
+    <Compile Include="ViewModels\ListDialog\BackgroundImageListDialogViewModel.cs" />
+    <Compile Include="ViewModels\ListDialog\BackgroundModelListDialogViewModel.cs" />
+    <Compile Include="ViewModels\ListDialog\CharacterModelListDialogViewModel.cs" />
+    <Compile Include="ViewModels\ListDialog\CommentListDialogViewModel.cs" />
     <Compile Include="ViewModels\ConfigEditViewModel.cs" />
-    <Compile Include="ViewModels\CueCardListDialogViewModel.cs" />
+    <Compile Include="ViewModels\ListDialog\CueCardListDialogViewModel.cs" />
     <Compile Include="ViewModels\DirectViewDialogViewModel.cs" />
-    <Compile Include="ViewModels\DoubleImageListDialogViewModel.cs" />
-    <Compile Include="ViewModels\DoubleSideListEditDialogViewModelBase.cs" />
-    <Compile Include="ViewModels\HiddenDoubleListDialogViewModel.cs" />
-    <Compile Include="ViewModels\HiddenImageListDialogViewModel.cs" />
-    <Compile Include="ViewModels\ImageListDialogViewModel.cs" />
-    <Compile Include="ViewModels\ListEditDialogViewModelBase.cs" />
+    <Compile Include="ViewModels\ListDialog\DoubleImageListDialogViewModel.cs" />
+    <Compile Include="ViewModels\ListDialog\DoubleSideListEditDialogViewModelBase.cs" />
+    <Compile Include="ViewModels\ListDialog\HiddenDoubleListDialogViewModel.cs" />
+    <Compile Include="ViewModels\ListDialog\HiddenImageListDialogViewModel.cs" />
+    <Compile Include="ViewModels\ListDialog\ImageListDialogViewModel.cs" />
+    <Compile Include="ViewModels\ListDialog\ListEditDialogViewModelBase.cs" />
     <Compile Include="ViewModels\MainWindowViewModel.cs" />
     <Compile Include="ViewModels\ErrorMessageDialogViewModel.cs" />
-    <Compile Include="ViewModels\MylistIdListDialogViewModel.cs" />
+    <Compile Include="ViewModels\ListDialog\MylistIdListDialogViewModel.cs" />
     <Compile Include="ViewModels\NewPresetDialogViewModel.cs" />
-    <Compile Include="ViewModels\NiconareIdListDialogViewModel.cs" />
-    <Compile Include="ViewModels\NicovideoIdListDialogViewModel.cs" />
+    <Compile Include="ViewModels\ListDialog\NiconareIdListDialogViewModel.cs" />
+    <Compile Include="ViewModels\ListDialog\NicovideoIdListDialogViewModel.cs" />
     <Compile Include="ViewModels\PreferencesDialogViewModel.cs" />
     <Compile Include="ViewModels\PresetControlViewModel.cs" />
     <Compile Include="ViewModels\PropertyChangedMappingViewModelBase.cs" />
     <Compile Include="ViewModels\VrDebugDialogViewModel.cs" />
-    <Compile Include="ViewModels\WhitboardListDialogViewModel.cs" />
+    <Compile Include="ViewModels\ListDialog\WhitboardListDialogViewModel.cs" />
     <Compile Include="Views\AboutDialog.xaml.cs">
       <DependentUpon>AboutDialog.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\BackgroundImageListDialog.xaml.cs">
+    <Compile Include="Views\ListDialog\BackgroundImageListDialog.xaml.cs">
       <DependentUpon>BackgroundImageListDialog.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\BackgroundModelListDialog.xaml.cs">
+    <Compile Include="Views\ListDialog\BackgroundModelListDialog.xaml.cs">
       <DependentUpon>BackgroundModelListDialog.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\CharacterModelListDialog.xaml.cs">
+    <Compile Include="Views\ListDialog\CharacterModelListDialog.xaml.cs">
       <DependentUpon>CharacterModelListDialog.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\CommentListDialog.xaml.cs">
+    <Compile Include="Views\ListDialog\CommentListDialog.xaml.cs">
       <DependentUpon>CommentListDialog.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\ConfigEditView.xaml.cs">
@@ -145,43 +145,43 @@
     </Compile>
     <Compile Include="Views\Converters\BoolInvertConverter.cs" />
     <Compile Include="Views\Converters\PresetNameConverter.cs" />
-    <Compile Include="Views\CueCardListDialog.xaml.cs">
+    <Compile Include="Views\ListDialog\CueCardListDialog.xaml.cs">
       <DependentUpon>CueCardListDialog.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\DirectViewDialog.xaml.cs">
       <DependentUpon>DirectViewDialog.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\DoubleImageListDialog.xaml.cs">
+    <Compile Include="Views\ListDialog\DoubleImageListDialog.xaml.cs">
       <DependentUpon>DoubleImageListDialog.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\DoubleSideListEditDialogView.xaml.cs">
+    <Compile Include="Views\ListDialog\DoubleSideListEditDialogView.xaml.cs">
       <DependentUpon>DoubleSideListEditDialogView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\ErrorMessageDialog.xaml.cs">
       <DependentUpon>ErrorMessageDialog.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\HiddenDoubleListDialog.xaml.cs">
+    <Compile Include="Views\ListDialog\HiddenDoubleListDialog.xaml.cs">
       <DependentUpon>HiddenDoubleListDialog.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\HiddenImageListDialog.xaml.cs">
+    <Compile Include="Views\ListDialog\HiddenImageListDialog.xaml.cs">
       <DependentUpon>HiddenImageListDialog.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\ImageListDialog.xaml.cs">
+    <Compile Include="Views\ListDialog\ImageListDialog.xaml.cs">
       <DependentUpon>ImageListDialog.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\ListEditDialogView.xaml.cs">
+    <Compile Include="Views\ListDialog\ListEditDialogView.xaml.cs">
       <DependentUpon>ListEditDialogView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\MylistIdListDialog.xaml.cs">
+    <Compile Include="Views\ListDialog\MylistIdListDialog.xaml.cs">
       <DependentUpon>MylistIdListDialog.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\NewPresetDialog.xaml.cs">
       <DependentUpon>NewPresetDialog.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\NiconareIdListDialog.xaml.cs">
+    <Compile Include="Views\ListDialog\NiconareIdListDialog.xaml.cs">
       <DependentUpon>NiconareIdListDialog.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\NicovideoIdListDialog.xaml.cs">
+    <Compile Include="Views\ListDialog\NicovideoIdListDialog.xaml.cs">
       <DependentUpon>NicovideoIdListDialog.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\PreferencesDialog.xaml.cs">
@@ -193,26 +193,26 @@
     <Compile Include="Views\VrDebugDialog.xaml.cs">
       <DependentUpon>VrDebugDialog.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\WhiteboardListDialog.xaml.cs">
+    <Compile Include="Views\ListDialog\WhiteboardListDialog.xaml.cs">
       <DependentUpon>WhiteboardListDialog.xaml</DependentUpon>
     </Compile>
     <Page Include="Views\AboutDialog.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\BackgroundImageListDialog.xaml">
+    <Page Include="Views\ListDialog\BackgroundImageListDialog.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\BackgroundModelListDialog.xaml">
+    <Page Include="Views\ListDialog\BackgroundModelListDialog.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Views\CharacterModelListDialog.xaml">
+    <Page Include="Views\ListDialog\CharacterModelListDialog.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\CommentListDialog.xaml">
+    <Page Include="Views\ListDialog\CommentListDialog.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -220,7 +220,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\CueCardListDialog.xaml">
+    <Page Include="Views\ListDialog\CueCardListDialog.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -228,11 +228,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\DoubleImageListDialog.xaml">
+    <Page Include="Views\ListDialog\DoubleImageListDialog.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\DoubleSideListEditDialogView.xaml">
+    <Page Include="Views\ListDialog\DoubleSideListEditDialogView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -240,19 +240,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\HiddenDoubleListDialog.xaml">
+    <Page Include="Views\ListDialog\HiddenDoubleListDialog.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\HiddenImageListDialog.xaml">
+    <Page Include="Views\ListDialog\HiddenImageListDialog.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\ImageListDialog.xaml">
+    <Page Include="Views\ListDialog\ImageListDialog.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\ListEditDialogView.xaml">
+    <Page Include="Views\ListDialog\ListEditDialogView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -268,7 +268,7 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="Views\MylistIdListDialog.xaml">
+    <Page Include="Views\ListDialog\MylistIdListDialog.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -276,11 +276,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\NiconareIdListDialog.xaml">
+    <Page Include="Views\ListDialog\NiconareIdListDialog.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\NicovideoIdListDialog.xaml">
+    <Page Include="Views\ListDialog\NicovideoIdListDialog.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -296,7 +296,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\WhiteboardListDialog.xaml">
+    <Page Include="Views\ListDialog\WhiteboardListDialog.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

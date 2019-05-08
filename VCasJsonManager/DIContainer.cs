@@ -6,7 +6,8 @@
 using Unity;
 using VCasJsonManager.Models.Settings;
 using VCasJsonManager.Services;
-using VCasJsonManager.ViewModels;
+using VCasJsonManager.Services.Impl;
+using VCasJsonManager.ViewModels.ListDialog;
 
 namespace VCasJsonManager
 {

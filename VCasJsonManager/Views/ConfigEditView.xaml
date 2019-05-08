@@ -10,7 +10,7 @@
         xmlns:ei="http://schemas.microsoft.com/expression/2010/interactions"
         xmlns:l="http://schemas.livet-mvvm.net/2011/wpf"
         xmlns:v="clr-namespace:VCasJsonManager.Views"
-        xmlns:vm="clr-namespace:VCasJsonManager.ViewModels">
+        xmlns:ldlg="clr-namespace:VCasJsonManager.Views.ListDialog">
     
     <UserControl.Resources>
         <ResourceDictionary>
@@ -57,7 +57,7 @@
         <Button Grid.Column="0" Grid.Row="0" Style="{StaticResource ListSettingButton}">
             <i:Interaction.Triggers>
                 <i:EventTrigger EventName="Click">
-                    <l:TransitionInteractionMessageAction WindowType="{x:Type v:CharacterModelListDialog}" Mode="Modal" IsOwned="True">
+                    <l:TransitionInteractionMessageAction WindowType="{x:Type ldlg:CharacterModelListDialog}" Mode="Modal" IsOwned="True">
                         <l:DirectInteractionMessage>
                             <l:TransitionMessage/>
                         </l:DirectInteractionMessage>
@@ -78,7 +78,7 @@
         <Button Grid.Column="0" Grid.Row="1" Style="{StaticResource ListSettingButton}">
             <i:Interaction.Triggers>
                 <i:EventTrigger EventName="Click">
-                    <l:TransitionInteractionMessageAction WindowType="{x:Type v:BackgroundModelListDialog}" Mode="Modal" IsOwned="True">
+                    <l:TransitionInteractionMessageAction WindowType="{x:Type ldlg:BackgroundModelListDialog}" Mode="Modal" IsOwned="True">
                         <l:DirectInteractionMessage>
                             <l:TransitionMessage/>
                         </l:DirectInteractionMessage>
@@ -99,7 +99,7 @@
         <Button Grid.Column="0" Grid.Row="2" Style="{StaticResource ListSettingButton}">
             <i:Interaction.Triggers>
                 <i:EventTrigger EventName="Click">
-                    <l:TransitionInteractionMessageAction WindowType="{x:Type v:CommentListDialog}" Mode="Modal" IsOwned="True">
+                    <l:TransitionInteractionMessageAction WindowType="{x:Type ldlg:CommentListDialog}" Mode="Modal" IsOwned="True">
                         <l:DirectInteractionMessage>
                             <l:TransitionMessage/>
                         </l:DirectInteractionMessage>
@@ -120,7 +120,7 @@
         <Button Grid.Column="0" Grid.Row="3" Style="{StaticResource ListSettingButton}">
             <i:Interaction.Triggers>
                 <i:EventTrigger EventName="Click">
-                    <l:TransitionInteractionMessageAction WindowType="{x:Type v:BackgroundImageListDialog}" Mode="Modal" IsOwned="True">
+                    <l:TransitionInteractionMessageAction WindowType="{x:Type ldlg:BackgroundImageListDialog}" Mode="Modal" IsOwned="True">
                         <l:DirectInteractionMessage>
                             <l:TransitionMessage/>
                         </l:DirectInteractionMessage>
@@ -141,7 +141,7 @@
         <Button Grid.Column="0" Grid.Row="4" Style="{StaticResource ListSettingButton}">
             <i:Interaction.Triggers>
                 <i:EventTrigger EventName="Click">
-                    <l:TransitionInteractionMessageAction WindowType="{x:Type v:NiconareIdListDialog}" Mode="Modal" IsOwned="True">
+                    <l:TransitionInteractionMessageAction WindowType="{x:Type ldlg:NiconareIdListDialog}" Mode="Modal" IsOwned="True">
                         <l:DirectInteractionMessage>
                             <l:TransitionMessage/>
                         </l:DirectInteractionMessage>
@@ -162,7 +162,7 @@
         <Button Grid.Column="1" Grid.Row="0" Style="{StaticResource ListSettingButton}">
             <i:Interaction.Triggers>
                 <i:EventTrigger EventName="Click">
-                    <l:TransitionInteractionMessageAction WindowType="{x:Type v:NicovideoIdListDialog}" Mode="Modal" IsOwned="True">
+                    <l:TransitionInteractionMessageAction WindowType="{x:Type ldlg:NicovideoIdListDialog}" Mode="Modal" IsOwned="True">
                         <l:DirectInteractionMessage>
                             <l:TransitionMessage/>
                         </l:DirectInteractionMessage>
@@ -183,7 +183,7 @@
         <Button Grid.Column="1" Grid.Row="1" Style="{StaticResource ListSettingButton}">
             <i:Interaction.Triggers>
                 <i:EventTrigger EventName="Click">
-                    <l:TransitionInteractionMessageAction WindowType="{x:Type v:MylistIdListDialog}" Mode="Modal" IsOwned="True">
+                    <l:TransitionInteractionMessageAction WindowType="{x:Type ldlg:MylistIdListDialog}" Mode="Modal" IsOwned="True">
                         <l:DirectInteractionMessage>
                             <l:TransitionMessage/>
                         </l:DirectInteractionMessage>
@@ -203,7 +203,7 @@
         <Button Grid.Column="1" Grid.Row="2" Style="{StaticResource ListSettingButton}">
             <i:Interaction.Triggers>
                 <i:EventTrigger EventName="Click">
-                    <l:TransitionInteractionMessageAction WindowType="{x:Type v:WhiteboardListDialog}" Mode="Modal" IsOwned="True">
+                    <l:TransitionInteractionMessageAction WindowType="{x:Type ldlg:WhiteboardListDialog}" Mode="Modal" IsOwned="True">
                         <l:DirectInteractionMessage>
                             <l:TransitionMessage/>
                         </l:DirectInteractionMessage>
@@ -223,7 +223,7 @@
         <Button Grid.Column="1" Grid.Row="3" Style="{StaticResource ListSettingButton}">
             <i:Interaction.Triggers>
                 <i:EventTrigger EventName="Click">
-                    <l:TransitionInteractionMessageAction WindowType="{x:Type v:CueCardListDialog}" Mode="Modal" IsOwned="True">
+                    <l:TransitionInteractionMessageAction WindowType="{x:Type ldlg:CueCardListDialog}" Mode="Modal" IsOwned="True">
                         <l:DirectInteractionMessage>
                             <l:TransitionMessage/>
                         </l:DirectInteractionMessage>
@@ -244,7 +244,7 @@
         <Button Grid.Column="2" Grid.Row="0" Style="{StaticResource ListSettingButton}">
             <i:Interaction.Triggers>
                 <i:EventTrigger EventName="Click">
-                    <l:TransitionInteractionMessageAction WindowType="{x:Type v:ImageListDialog}" Mode="Modal" IsOwned="True">
+                    <l:TransitionInteractionMessageAction WindowType="{x:Type ldlg:ImageListDialog}" Mode="Modal" IsOwned="True">
                         <l:DirectInteractionMessage>
                             <l:TransitionMessage/>
                         </l:DirectInteractionMessage>
@@ -265,7 +265,7 @@
         <Button Grid.Column="2" Grid.Row="1" Style="{StaticResource ListSettingButton}">
             <i:Interaction.Triggers>
                 <i:EventTrigger EventName="Click">
-                    <l:TransitionInteractionMessageAction WindowType="{x:Type v:DoubleImageListDialog}" Mode="Modal" IsOwned="True">
+                    <l:TransitionInteractionMessageAction WindowType="{x:Type ldlg:DoubleImageListDialog}" Mode="Modal" IsOwned="True">
                         <l:DirectInteractionMessage>
                             <l:TransitionMessage/>
                         </l:DirectInteractionMessage>
@@ -286,7 +286,7 @@
         <Button Grid.Column="2" Grid.Row="2" Style="{StaticResource ListSettingButton}">
             <i:Interaction.Triggers>
                 <i:EventTrigger EventName="Click">
-                    <l:TransitionInteractionMessageAction WindowType="{x:Type v:HiddenImageListDialog}" Mode="Modal" IsOwned="True">
+                    <l:TransitionInteractionMessageAction WindowType="{x:Type ldlg:HiddenImageListDialog}" Mode="Modal" IsOwned="True">
                         <l:DirectInteractionMessage>
                             <l:TransitionMessage/>
                         </l:DirectInteractionMessage>
@@ -307,7 +307,7 @@
         <Button Grid.Column="2" Grid.Row="3" Style="{StaticResource ListSettingButton}">
             <i:Interaction.Triggers>
                 <i:EventTrigger EventName="Click">
-                    <l:TransitionInteractionMessageAction WindowType="{x:Type v:HiddenDoubleListDialog}" Mode="Modal" IsOwned="True">
+                    <l:TransitionInteractionMessageAction WindowType="{x:Type ldlg:HiddenDoubleListDialog}" Mode="Modal" IsOwned="True">
                         <l:DirectInteractionMessage>
                             <l:TransitionMessage/>
                         </l:DirectInteractionMessage>

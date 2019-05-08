@@ -1,0 +1,107 @@
+﻿<!--
+  VCasJsonManager
+  Copyright 2019 TOMA
+  MIT License
+-->
+<UserControl x:Class="VCasJsonManager.Views.ListDialog.ListEditDialogView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+        xmlns:ei="http://schemas.microsoft.com/expression/2010/interactions"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:l="http://schemas.livet-mvvm.net/2011/wpf"
+        xmlns:v="clr-namespace:VCasJsonManager.Views.ListDialog"
+        xmlns:vm="clr-namespace:VCasJsonManager.ViewModels"
+        Loaded="UserControl_Loaded">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0" Margin="5, 10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <TextBox Grid.Column="0"
+                     Name="inputText"
+                     Text="{Binding InputValue, UpdateSourceTrigger=PropertyChanged}"
+                     Height="Auto" MaxLength="500"
+                     VerticalAlignment="Top"
+                     Margin="5"/>
+            <Button Grid.Column="1"
+                    IsDefault="True"
+                    Content="追加" VerticalAlignment="Top" Height="Auto" Margin="5">
+                <Button.IsEnabled>
+                    <Binding ElementName="inputText" Path="Text.Length"/>
+                </Button.IsEnabled>
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="Click">
+                        <l:LivetCallMethodAction MethodName="AddItem" MethodTarget="{Binding}"/>
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+            </Button>
+        </Grid>
+        <ListBox Grid.Row="1"
+                 Margin="15,0"
+                 ItemsSource="{Binding Collection}"
+                 ScrollViewer.CanContentScroll="False"
+                 AlternationCount="{Binding Items.Count, RelativeSource={RelativeSource Self}}">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Grid HorizontalAlignment="Stretch">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Grid.Column="1"
+                                   VerticalAlignment="Center"
+                                   ToolTip="{Binding}"
+                                   ToolTipService.ShowDuration="10000"
+                                   ToolTipService.InitialShowDelay="500">
+                            <Hyperlink Style="{StaticResource MaterialDesignSubheadingHyperlink}"
+                                       Foreground="{StaticResource ItemLinkBrush}"
+                                       Command="{Binding
+                                                RelativeSource={RelativeSource AncestorType=Window},
+                                                Path=DataContext.BrowsItemCommand}"
+                                       CommandParameter="{Binding}">
+                                <TextBlock Text="{Binding}"/>
+                            </Hyperlink>
+                        </TextBlock>
+                        <Button Grid.Column="0"
+                                VerticalAlignment="Center"
+                                Margin="0,0,5,0"
+                                Style="{StaticResource MaterialDesignFlatButton}"
+                                Content="{materialDesign:PackIcon DeleteForever}"
+                                ToolTip="削除"
+                                Command="{Binding
+                                        RelativeSource={RelativeSource AncestorType=Window},
+                                        Path=DataContext.DeleteItemCommand}"
+                                CommandParameter="{Binding (ItemsControl.AlternationIndex), 
+                                                RelativeSource={RelativeSource AncestorType=ListBoxItem}}"/>
+                    </Grid>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <Grid Grid.Row="2" Margin="5,30,5,20">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Button Grid.Column="1"
+                    Content="閉じる">
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="Click">
+                        <l:WindowInteractionMessageAction>
+                            <l:DirectInteractionMessage>
+                                <l:WindowActionMessage Action="Close"/>
+                            </l:DirectInteractionMessage>
+                        </l:WindowInteractionMessageAction>
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+            </Button>
+        </Grid>
+    </Grid>
+</UserControl>
