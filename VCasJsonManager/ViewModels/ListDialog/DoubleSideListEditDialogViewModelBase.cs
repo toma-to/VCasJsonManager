@@ -10,7 +10,7 @@ using System.Windows.Input;
 using VCasJsonManager.Models;
 using VCasJsonManager.Services;
 
-namespace VCasJsonManager.ViewModels
+namespace VCasJsonManager.ViewModels.ListDialog
 {
     /// <summary>
     /// 両面画像リスト設定画面のViewModelの基本クラス

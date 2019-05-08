@@ -5,7 +5,7 @@
 //
 using VCasJsonManager.Properties;
 
-namespace VCasJsonManager.Services
+namespace VCasJsonManager.Services.Impl
 {
     /// <summary>
     /// niconareのIDのコレクションを管理するクラス

@@ -9,7 +9,7 @@ using System.Collections.ObjectModel;
 using VCasJsonManager.Models;
 using VCasJsonManager.Properties;
 
-namespace VCasJsonManager.Services
+namespace VCasJsonManager.Services.Impl
 {
     /// <summary>
     /// 両面画像のコレクションを管理するクラス

@@ -9,7 +9,7 @@ using VCasJsonManager.Models;
 
 using VCasJsonManager.Properties;
 
-namespace VCasJsonManager.Services
+namespace VCasJsonManager.Services.Impl
 {
     /// <summary>
     /// URIのコレクションを管理するクラス

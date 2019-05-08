@@ -6,7 +6,7 @@
 using System.Windows;
 using System.Windows.Controls;
 
-namespace VCasJsonManager.Views
+namespace VCasJsonManager.Views.ListDialog
 {
 
     /// <summary>

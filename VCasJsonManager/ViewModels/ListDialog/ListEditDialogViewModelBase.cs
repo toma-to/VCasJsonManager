@@ -13,7 +13,7 @@ using System.ComponentModel;
 using System.Windows.Input;
 using VCasJsonManager.Services;
 
-namespace VCasJsonManager.ViewModels
+namespace VCasJsonManager.ViewModels.ListDialog
 {
     /// <summary>
     /// リストの編集用ダイアログのViewModel基本クラス

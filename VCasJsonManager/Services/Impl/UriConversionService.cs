@@ -9,7 +9,7 @@ using System.Text.RegularExpressions;
 
 using VCasJsonManager.Models.Settings;
 
-namespace VCasJsonManager.Services
+namespace VCasJsonManager.Services.Impl
 {
     /// <summary>
     /// URIの変換処理を行うクラス

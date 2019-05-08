@@ -13,7 +13,7 @@ using System.Threading.Tasks;
 using System.Collections.ObjectModel;
 using VCasJsonManagerTests.Stubs;
 
-namespace VCasJsonManager.Services.Tests
+namespace VCasJsonManager.Services.Impl.Tests
 {
     class CollectionManagerStub : CollectionManageService<string>
     {

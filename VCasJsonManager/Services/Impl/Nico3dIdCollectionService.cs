@@ -8,7 +8,7 @@ using System.Collections.ObjectModel;
 using VCasJsonManager.Models;
 using VCasJsonManager.Properties;
 
-namespace VCasJsonManager.Services
+namespace VCasJsonManager.Services.Impl
 {
     /// <summary>
     /// ニコニ立体のIDのコレクションを管理するクラス

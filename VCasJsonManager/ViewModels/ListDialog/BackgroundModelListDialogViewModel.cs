@@ -6,7 +6,7 @@
 using VCasJsonManager.Services;
 
 
-namespace VCasJsonManager.ViewModels
+namespace VCasJsonManager.ViewModels.ListDialog
 {
     /// <summary>
     /// 背景モデル設定画面のViewModel

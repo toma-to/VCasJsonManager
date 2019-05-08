@@ -16,7 +16,7 @@ using System.IO;
 using VCasJsonManager.Models;
 using VCasJsonManagerTests;
 
-namespace VCasJsonManager.Services.Tests
+namespace VCasJsonManager.Services.Impl.Tests
 {
     [TestClass()]
     public class ConfigJsonFileServiceTests

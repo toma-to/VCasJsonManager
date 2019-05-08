@@ -10,7 +10,7 @@ using System.Collections.ObjectModel;
 using System.ComponentModel;
 using VCasJsonManager.Models;
 
-namespace VCasJsonManager.Services
+namespace VCasJsonManager.Services.Impl
 {
     /// <summary>
     /// ConfigJsonオブジェクト内のコレクションを管理するための抽象基本クラス

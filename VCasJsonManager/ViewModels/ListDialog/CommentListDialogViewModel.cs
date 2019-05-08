@@ -5,7 +5,7 @@
 //
 using VCasJsonManager.Services;
 
-namespace VCasJsonManager.ViewModels
+namespace VCasJsonManager.ViewModels.ListDialog
 {
     /// <summary>
     /// 運営コメント設定画面のViewModel

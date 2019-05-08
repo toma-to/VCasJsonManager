@@ -13,7 +13,7 @@ using System.Threading.Tasks;
 
 using VCasJsonManagerTests.Stubs;
 
-namespace VCasJsonManager.Services.Tests
+namespace VCasJsonManager.Services.Impl.Tests
 {
     [TestClass()]
     public class UriConversionServiceTests

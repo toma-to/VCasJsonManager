@@ -18,7 +18,7 @@ using VCasJsonManagerTests;
 using VCasJsonManagerTests.Stubs;
 using VCasJsonManager.Models.Settings;
 
-namespace VCasJsonManager.Services.Tests
+namespace VCasJsonManager.Services.Impl.Tests
 {
     [TestClass()]
     public class UserSettingsServiceTests

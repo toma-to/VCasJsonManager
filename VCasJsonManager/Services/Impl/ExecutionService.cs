@@ -8,7 +8,7 @@ using System.ComponentModel;
 using System.Diagnostics;
 using System.IO;
 
-namespace VCasJsonManager.Services
+namespace VCasJsonManager.Services.Impl
 {
     /// <summary>
     /// 外部アプリケーションを起動するクラス

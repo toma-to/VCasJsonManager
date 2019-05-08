@@ -12,7 +12,7 @@ using System.Text;
 using System.Threading.Tasks;
 using VCasJsonManagerTests.Stubs;
 
-namespace VCasJsonManager.Services.Tests
+namespace VCasJsonManager.Services.Impl.Tests
 {
     [TestClass()]
     public class MylistIdCollectionServiceTests

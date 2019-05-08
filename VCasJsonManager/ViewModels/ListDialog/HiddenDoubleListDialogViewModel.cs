@@ -5,7 +5,7 @@
 //
 using VCasJsonManager.Services;
 
-namespace VCasJsonManager.ViewModels
+namespace VCasJsonManager.ViewModels.ListDialog
 {
     /// <summary>
     /// 隠し画像(両面)設定画面のViewModel

@@ -5,7 +5,7 @@
 //
 using VCasJsonManager.Services;
 
-namespace VCasJsonManager.ViewModels
+namespace VCasJsonManager.ViewModels.ListDialog
 {
     /// <summary>
     /// 動画ID設定画面のViewModel

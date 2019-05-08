@@ -11,7 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 using VCasJsonManager.Models.Settings;
 
-namespace VCasJsonManager.Services
+namespace VCasJsonManager.Services.Impl
 {
     /// <summary>
     /// ユーザー設定情報を管理するクラス

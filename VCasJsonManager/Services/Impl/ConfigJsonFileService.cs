@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using VCasJsonManager.Models;
 
-namespace VCasJsonManager.Services
+namespace VCasJsonManager.Services.Impl
 {
     /// <summary>
     /// config.jsonファイルのread/writeを行うクラス

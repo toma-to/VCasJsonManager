@@ -6,9 +6,9 @@
 using System.Windows;
 
 using Unity;
-using VCasJsonManager.ViewModels;
+using VCasJsonManager.ViewModels.ListDialog;
 
-namespace VCasJsonManager.Views
+namespace VCasJsonManager.Views.ListDialog
 {
 
     /// <summary>

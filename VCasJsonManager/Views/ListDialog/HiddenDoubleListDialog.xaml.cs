@@ -6,8 +6,8 @@
 using System.Windows;
 
 using Unity;
-using VCasJsonManager.ViewModels;
-namespace VCasJsonManager.Views
+using VCasJsonManager.ViewModels.ListDialog;
+namespace VCasJsonManager.Views.ListDialog
 {
 
     /// <summary>

@@ -15,7 +15,7 @@ using System.Threading.Tasks;
 using VCasJsonManager.Models;
 using VCasJsonManager.Models.Settings;
 
-namespace VCasJsonManager.Services
+namespace VCasJsonManager.Services.Impl
 {
     /// <summary>
     /// config.json情報を管理するクラス
