@@ -11,6 +11,7 @@
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:l="http://schemas.livet-mvvm.net/2011/wpf"
         xmlns:v="clr-namespace:VCasJsonManager.Views.ListDialog"
+        xmlns:view="clr-namespace:VCasJsonManager.Views"
         xmlns:vm="clr-namespace:VCasJsonManager.ViewModels"
         Title="運営コメント設定"
         WindowStartupLocation="CenterOwner"
@@ -20,6 +21,9 @@
         <i:EventTrigger EventName="Closed">
             <l:DataContextDisposeAction/>
         </i:EventTrigger>
+        <l:InteractionMessageTrigger MessageKey="DeleteConfirmDialog" Messenger="{Binding Messenger, Mode=OneWay}">
+            <l:TransitionInteractionMessageAction WindowType="{x:Type view:DeleteConfirmDialog}" Mode="Modal" IsOwned="True"/>
+        </l:InteractionMessageTrigger>
     </i:Interaction.Triggers>
 
     <FocusManager.FocusedElement>
@@ -92,10 +96,22 @@
         </ListBox>
         <Grid Grid.Row="2" Margin="5,30,5,20">
             <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="Auto"/>
             </Grid.ColumnDefinitions>
-            <Button Grid.Column="1"
+            <Button Content="{materialDesign:PackIcon DeleteVariant}"
+                    ToolTip="リストの全項目を削除"
+                    Grid.Column="0"
+                    Height="Auto"
+                    Width="Auto">
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="Click">
+                        <l:LivetCallMethodAction MethodName="DeleteAll" MethodTarget="{Binding}"/>
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+            </Button>
+            <Button Grid.Column="2"
                     Content="閉じる">
                 <i:Interaction.Triggers>
                     <i:EventTrigger EventName="Click">
