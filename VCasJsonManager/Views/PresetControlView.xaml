@@ -146,7 +146,7 @@
                         Style="{StaticResource MaterialDesignRaisedAccentButton}"
                         Margin="10,5"
                         Height="50"
-                        ToolTip="Resource name: MaterialDesignRaisedAccentButton">
+                        ToolTip="config.jsonの設定を更新して、VirtualCastを起動">
                     <i:Interaction.Triggers>
                         <i:EventTrigger EventName="Click">
                             <l:LivetCallMethodAction MethodName="RunVirtualCast" MethodTarget="{Binding}"/>
