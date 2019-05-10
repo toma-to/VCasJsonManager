@@ -1,12 +1,12 @@
 ========== ========== ==========
- VCasJsonManager v1.0.0.0
+ VCasJsonManager v1.2.0.4
  Copyright © 2019 TOMA 
 ========== ========== ==========
 
 【 ソフト名 】VCasJsonManager
 【ライセンス】MIT License
 【 動作環境 】Windows10
-【バージョン】1.2.0.2
+【バージョン】1.2.0.4
 
 ---------- ----------
 ◇ 概要 ◇
@@ -39,6 +39,9 @@ VCasJsonManagerフォルダー内のVCasJsonManager.exeを実行すると起動�
 参考にしてください。
 
 ◇ 更新履歴 ◇
+
+v1.2.0.4 - 2019/5/10
+「更新してVirtualCast起動」ボタンのToolTipがおかしい問題の修正。(Issue#10)
 
 v1.2.0.3 - 2019/5/1
 内部処理の軽微な修正。
