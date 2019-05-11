@@ -36,6 +36,7 @@
     <ApplicationIcon>Resource\Icon.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.Expression.Drawing, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="Microsoft.Expression.Interactions, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
@@ -129,6 +130,16 @@
     <Compile Include="Views\AboutDialog.xaml.cs">
       <DependentUpon>AboutDialog.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Controls\DragContentAdorner.cs" />
+    <Compile Include="Views\Controls\DragDropListBox.xaml.cs">
+      <DependentUpon>DragDropListBox.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Controls\ElementHostAdornerBase.cs" />
+    <Compile Include="Views\Controls\Extensions\DragDropListExtensions.cs" />
+    <Compile Include="Views\Controls\InsertionAdorner.cs" />
+    <Compile Include="Views\Controls\InsertionCursor.xaml.cs">
+      <DependentUpon>InsertionCursor.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\DeleteConfirmDialog.xaml.cs">
       <DependentUpon>DeleteConfirmDialog.xaml</DependentUpon>
     </Compile>
@@ -203,6 +214,14 @@
     <Page Include="Views\AboutDialog.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Controls\DragDropListBox.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Controls\InsertionCursor.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\DeleteConfirmDialog.xaml">
       <SubType>Designer</SubType>
