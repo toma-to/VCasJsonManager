@@ -65,6 +65,7 @@ namespace VCasJsonManager.Services.Impl.Tests
             target = new CollectionManagerStub(collection);
             ErrorChangedCalled = new List<string>();
             target.ErrorsChanged += (_, e) => ErrorChangedCalled.Add(e.PropertyName);
+            target.ConfigJson.IsChanged = false;
         }
 
         [TestMethod()]
@@ -78,6 +79,7 @@ namespace VCasJsonManager.Services.Impl.Tests
             CollectionAssert.AreEqual(new[] { "Value" }, collection);
             Assert.IsFalse(target.HasErrors);
             Assert.IsNull(target.GetErrors(nameof(CollectionManagerStub.InputValue)));
+            Assert.IsTrue(target.ConfigJson.IsChanged);
         }
 
         [TestMethod()]
@@ -90,6 +92,7 @@ namespace VCasJsonManager.Services.Impl.Tests
             Assert.IsFalse(target.Collection.Any());
             Assert.IsTrue(target.HasErrors);
             CollectionAssert.AreEqual(new[] { "It's Error" }, target.GetErrors(nameof(CollectionManagerStub.InputValue)).OfType<string>().ToArray());
+            Assert.IsFalse(target.ConfigJson.IsChanged);
         }
 
 
@@ -115,9 +118,11 @@ namespace VCasJsonManager.Services.Impl.Tests
             target.AddNewItem();
             target.newItem = "Value2";
             target.AddNewItem();
+            target.ConfigJson.IsChanged = false;
 
             target.RemoveAt(0);
             CollectionAssert.AreEqual(new[] { "Value2" }, target.Collection);
+            Assert.IsTrue(target.ConfigJson.IsChanged);
         }
 
         [TestMethod()]
@@ -127,9 +132,18 @@ namespace VCasJsonManager.Services.Impl.Tests
             target.AddNewItem();
             target.newItem = "Value2";
             target.AddNewItem();
+            target.ConfigJson.IsChanged = false;
 
             target.RemoveAll();
             Assert.IsFalse(target.Collection.Any());
+            Assert.IsTrue(target.ConfigJson.IsChanged);
+        }
+
+        [TestMethod()]
+        public void Collection_CollectionChangedTest()
+        {
+            collection.Add("Value");
+            Assert.IsTrue(target.ConfigJson.IsChanged);
         }
     }
 }

@@ -73,6 +73,17 @@ namespace VCasJsonManager.Services.Impl
             UriConversionService = uriConversionService;
             ConfigJson = configJsonService.ConfigJson;
             SelectCollectionFunc = selectFunc;
+            Collection.CollectionChanged += Collection_CollectionChanged;
+        }
+
+        /// <summary>
+        /// Collectionの変更通知処理
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Collection_CollectionChanged(object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
+        {
+            ConfigJson.IsChanged = true;
         }
 
         /// <summary>
@@ -83,7 +94,6 @@ namespace VCasJsonManager.Services.Impl
             if (ValidateAndCreateNewItem(out var item))
             {
                 Collection.Add(item);
-                ConfigJson.IsChanged = true;
             }
         }
 
@@ -94,7 +104,6 @@ namespace VCasJsonManager.Services.Impl
         public void RemoveAt(int index)
         {
             Collection.RemoveAt(index);
-            ConfigJson.IsChanged = true;
         }
 
         /// <summary>
@@ -103,7 +112,6 @@ namespace VCasJsonManager.Services.Impl
         public void RemoveAll()
         {
             Collection.Clear();
-            ConfigJson.IsChanged = true;
         }
 
         /// <summary>
@@ -173,6 +181,25 @@ namespace VCasJsonManager.Services.Impl
         protected void RaiseErrorChanged(string propertyName)
         {
             ErrorsChanged?.Invoke(this, new DataErrorsChangedEventArgs(propertyName));
+        }
+
+        /// <summary>
+        /// ディスポーズ済みフラグ
+        /// </summary>
+        private bool disposed = false;
+
+        /// <summary>
+        /// Dispose
+        /// </summary>
+        public void Dispose()
+        {
+            if (disposed)
+            {
+                return;
+            }
+
+            disposed = true;
+            Collection.CollectionChanged -= Collection_CollectionChanged;
         }
     }
 }
