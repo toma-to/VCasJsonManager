@@ -12,6 +12,7 @@
         xmlns:l="http://schemas.livet-mvvm.net/2011/wpf"
         xmlns:v="clr-namespace:VCasJsonManager.Views.ListDialog"
         xmlns:view="clr-namespace:VCasJsonManager.Views"
+        xmlns:ctrl="clr-namespace:VCasJsonManager.Views.Controls"
         xmlns:vm="clr-namespace:VCasJsonManager.ViewModels"
         Loaded="UserControl_Loaded">
 
@@ -72,12 +73,11 @@
                 </i:Interaction.Triggers>
             </Button>
         </Grid>
-        <ListBox Grid.Row="1"
+        <ctrl:DragDropListBox Grid.Row="1"
                  Margin="15,0"
                  ItemsSource="{Binding Collection}"
-                 ScrollViewer.CanContentScroll="False"
-                 AlternationCount="{Binding Items.Count, RelativeSource={RelativeSource Self}}">
-            <ListBox.ItemTemplate>
+                 AlternationCount="{Binding ItemsSource.Count, RelativeSource={RelativeSource Self}}">
+            <ctrl:DragDropListBox.ItemTemplate>
                 <DataTemplate>
                     <Grid HorizontalAlignment="Stretch">
                         <Grid.ColumnDefinitions>
@@ -125,8 +125,8 @@
                                                 RelativeSource={RelativeSource AncestorType=ListBoxItem}}"/>
                     </Grid>
                 </DataTemplate>
-            </ListBox.ItemTemplate>
-        </ListBox>
+            </ctrl:DragDropListBox.ItemTemplate>
+        </ctrl:DragDropListBox>
         <Grid Grid.Row="2" Margin="5,30,5,20">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/>
