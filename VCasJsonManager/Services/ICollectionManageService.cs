@@ -3,13 +3,14 @@
 // Copyright 2019 TOMA
 // MIT License
 //
+using System;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using VCasJsonManager.Models;
 
 namespace VCasJsonManager.Services
 {
-    public interface ICollectionManageService<T> : INotifyPropertyChanged, INotifyDataErrorInfo
+    public interface ICollectionManageService<T> : INotifyPropertyChanged, INotifyDataErrorInfo, IDisposable
     {
         ObservableCollection<T> Collection { get; }
         ConfigJson ConfigJson { get; }
