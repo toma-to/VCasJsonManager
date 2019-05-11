@@ -5,6 +5,7 @@
 //
 using Livet.Commands;
 using Livet.EventListeners;
+using Livet.Messaging;
 using PropertyChanged;
 using System;
 using System.Collections;
@@ -126,6 +127,20 @@ namespace VCasJsonManager.ViewModels.ListDialog
         public IEnumerable GetErrors(string propertyName)
         {
             return CollectionService.GetErrors(propertyName);
+        }
+
+        /// <summary>
+        /// 全アイテムの削除
+        /// </summary>
+        public virtual void DeleteAll()
+        {
+            var dlgVm = new DeleteConfirmDialogViewModel();
+            Messenger.Raise(new TransitionMessage(dlgVm, "DeleteConfirmDialog"));
+
+            if (dlgVm.Confirmed)
+            {
+                CollectionService.RemoveAll();
+            }
         }
 
     }

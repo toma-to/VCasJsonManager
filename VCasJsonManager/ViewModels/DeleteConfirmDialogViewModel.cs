@@ -3,40 +3,28 @@
 // Copyright 2019 TOMA
 // MIT License
 //
+
 using Livet;
 using Livet.Messaging.Windows;
-using PropertyChanged;
-using System.ComponentModel;
 
 namespace VCasJsonManager.ViewModels
 {
     /// <summary>
-    /// 新規プリセット保存ダイアログのViewModel
+    /// 削除確認ダイアログのViewModel
     /// </summary>
-    public class NewPresetDialogViewModel : ViewModel, INotifyPropertyChanged
+    public class DeleteConfirmDialogViewModel : ViewModel
     {
         /// <summary>
-        /// プリセット名
+        /// ダイアログの確認結果
         /// </summary>
-        public string PresetName { get; set; }
-
-        /// <summary>
-        /// OK呼び出し可否
-        /// </summary>
-        [DependsOn(nameof(PresetName))]
-        public bool OkEnable => !string.IsNullOrEmpty(PresetName);
-
-        /// <summary>
-        /// ダイアログがOKで閉じられたかのフラグ
-        /// </summary>
-        public bool IsOk { get; private set; }
+        public bool Confirmed { get; set; } = false;
 
         /// <summary>
         /// OK処理
         /// </summary>
         public void Ok()
         {
-            IsOk = true;
+            Confirmed = true;
             Messenger.Raise(new WindowActionMessage(WindowAction.Close, "Close"));
         }
 
@@ -45,7 +33,7 @@ namespace VCasJsonManager.ViewModels
         /// </summary>
         public void Cancel()
         {
-            IsOk = false;
+            Confirmed = false;
             Messenger.Raise(new WindowActionMessage(WindowAction.Close, "Close"));
         }
     }

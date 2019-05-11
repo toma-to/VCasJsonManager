@@ -1,0 +1,67 @@
+﻿<!--
+  VCasJsonManager
+  Copyright 2019 TOMA
+  MIT License
+-->
+<UserControl x:Class="VCasJsonManager.Views.Controls.DragDropListBox"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+             xmlns:ei="http://schemas.microsoft.com/expression/2010/interactions"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:local="clr-namespace:VCasJsonManager.Views.Controls"
+             Unloaded="UserControl_Unloaded"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+        <ItemsPanelTemplate x:Key="ItemsWrapPanelTemplate">
+            <StackPanel IsItemsHost="True">
+                <i:Interaction.Behaviors>
+                    <ei:FluidMoveBehavior AppliesTo="Children" Duration="0:0:0.1" />
+                </i:Interaction.Behaviors>
+            </StackPanel>
+        </ItemsPanelTemplate>
+        <DataTemplate x:Key="DefaultDataTemplate">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                <ContentControl Grid.Column="0"
+                                Content="{Binding}"
+                                ContentTemplate="{Binding ItemTemplate,
+                                                    RelativeSource={RelativeSource FindAncestor,
+                                                                    AncestorType={x:Type UserControl}}}" />
+                <Button Grid.Column="1"
+                        Style="{StaticResource MaterialDesignFlatButton}"
+                        Content="{materialDesign:PackIcon ReorderHorizontal}"
+                        PreviewMouseLeftButtonDown="DragArea_PreviewMouseLeftButtonDown"/>
+            </Grid>
+        </DataTemplate>
+    </UserControl.Resources>
+    <Grid x:Name="root">
+        <ScrollViewer VerticalScrollBarVisibility="Auto" CanContentScroll="True">
+            <ListBox Name="listBox"
+                     ItemsPanel="{StaticResource ItemsWrapPanelTemplate}"
+                     ItemTemplate="{StaticResource DefaultDataTemplate}"
+                     ItemsSource="{Binding ItemsSource}"
+                     HorizontalContentAlignment="Stretch"
+                     AlternationCount="{Binding AlternationCount}"
+                     AllowDrop="True"
+                     PreviewMouseMove="ListBox_PreviewMouseMove"
+                     PreviewMouseUp="ListBox_PreviewMouseUp"
+                     PreviewDragOver="ListBox_PreviewDragOver"
+                     PreviewDrop="ListBox_PreviewDrop"
+                     PreviewDragEnter="ListBox_PreviewDragEnter"
+                     PreviewDragLeave="ListBox_PreviewDragLeave">
+                <ListBox.Template>
+                    <ControlTemplate>
+                        <ItemsPresenter />
+                    </ControlTemplate>
+                </ListBox.Template>
+            </ListBox>
+        </ScrollViewer>
+    </Grid>
+</UserControl>

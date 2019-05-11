@@ -70,7 +70,6 @@
             </i:Interaction.Triggers>
         </Button>
         <Button Content="キャンセル"
-                IsDefault="True"
                 Margin="10,10,10,10"
                 Grid.Row="2"
                 Grid.Column="2">
