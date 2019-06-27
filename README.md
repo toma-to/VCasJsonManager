@@ -13,7 +13,7 @@ config.jsonの複数パターンの設定内容をプリセットして保存す
 
 ## 動作環境
 Windows10  
-出力するconfig.jsonはVirtualCast1.5.5bに対応しています。
+出力するconfig.jsonはVirtualCast1.6.3aに対応しています。
 
 ## 利用方法
 ReadMe.txt及びManual.md/Manual.pdfを参照してください。
