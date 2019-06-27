@@ -45,6 +45,7 @@ namespace VCasJsonManager.Models
                 HideCameraFromViewers = self.Item?.HideCameraFromViewrs ?? false,
                 DisplaycaptureChromaky = self.Item?.EnableDisplaycaptureChromarkey ?? false,
                 NicovideoChromaky = self.Item?.EnableNicovideoChromakey ?? false,
+                PngCaptureFormat = self.Item?.CaptureFormat == ConfigJsonStructure.CaptureFormatPngKey,
                 AllowDirectView = self.Studio?.AllowDirectView ?? false,
                 UseFastSpringBone = self.Humanoid?.UseFastSpringBone ?? false,
                 DirectViewMode = self.Mode == ConfigJsonStructure.DirectViewModeKey,
@@ -85,6 +86,7 @@ namespace VCasJsonManager.Models
             ret.Item.HideCameraFromViewrs = self.HideCameraFromViewers;
             ret.Item.EnableDisplaycaptureChromarkey = self.DisplaycaptureChromaky;
             ret.Item.EnableNicovideoChromakey = self.NicovideoChromaky;
+            ret.Item.CaptureFormat = self.PngCaptureFormat ? ConfigJsonStructure.CaptureFormatPngKey : null;
             ret.Studio.AllowDirectView = self.AllowDirectView;
             ret.Humanoid.UseFastSpringBone = self.UseFastSpringBone;
             ret.Mode = self.DirectViewMode ? ConfigJsonStructure.DirectViewModeKey : null;

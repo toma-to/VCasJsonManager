@@ -42,6 +42,7 @@ namespace VCasJsonManager.Models.Tests
             input.Item.HideCameraFromViewrs = true;
             input.Item.EnableNicovideoChromakey = true;
             input.Item.EnableDisplaycaptureChromarkey = true;
+            input.Item.CaptureFormat = "png";
             input.Studio.AllowDirectView = true;
             input.Humanoid.UseFastSpringBone = true;
             input.Mode = "direct-view";
@@ -73,6 +74,7 @@ namespace VCasJsonManager.Models.Tests
             Assert.IsTrue(result.HideCameraFromViewers);
             Assert.IsTrue(result.NicovideoChromaky);
             Assert.IsTrue(result.DisplaycaptureChromaky);
+            Assert.IsTrue(result.PngCaptureFormat);
             Assert.IsTrue(result.AllowDirectView);
             Assert.IsTrue(result.UseFastSpringBone);
             Assert.IsTrue(result.DirectViewMode);
@@ -105,6 +107,7 @@ namespace VCasJsonManager.Models.Tests
             Assert.IsFalse(result.HideCameraFromViewers);
             Assert.IsFalse(result.NicovideoChromaky);
             Assert.IsFalse(result.DisplaycaptureChromaky);
+            Assert.IsFalse(result.PngCaptureFormat);
             Assert.IsFalse(result.AllowDirectView);
             Assert.IsFalse(result.UseFastSpringBone);
             Assert.IsFalse(result.DirectViewMode);
@@ -145,6 +148,7 @@ namespace VCasJsonManager.Models.Tests
             Assert.IsFalse(result.HideCameraFromViewers);
             Assert.IsFalse(result.NicovideoChromaky);
             Assert.IsFalse(result.DisplaycaptureChromaky);
+            Assert.IsFalse(result.PngCaptureFormat);
             Assert.IsFalse(result.AllowDirectView);
             Assert.IsFalse(result.UseFastSpringBone);
             Assert.IsFalse(result.DirectViewMode);
@@ -181,6 +185,7 @@ namespace VCasJsonManager.Models.Tests
             Assert.IsFalse(result.HideCameraFromViewers);
             Assert.IsFalse(result.NicovideoChromaky);
             Assert.IsFalse(result.DisplaycaptureChromaky);
+            Assert.IsFalse(result.PngCaptureFormat);
             Assert.IsFalse(result.AllowDirectView);
             Assert.IsFalse(result.UseFastSpringBone);
             Assert.IsFalse(result.DirectViewMode);
@@ -202,6 +207,7 @@ namespace VCasJsonManager.Models.Tests
             Assert.IsTrue(result.HideCameraFromViewers);
             Assert.IsFalse(result.NicovideoChromaky);
             Assert.IsFalse(result.DisplaycaptureChromaky);
+            Assert.IsFalse(result.PngCaptureFormat);
             Assert.IsFalse(result.AllowDirectView);
             Assert.IsFalse(result.UseFastSpringBone);
             Assert.IsFalse(result.DirectViewMode);
@@ -220,6 +226,7 @@ namespace VCasJsonManager.Models.Tests
             Assert.IsFalse(result.HideCameraFromViewers);
             Assert.IsTrue(result.NicovideoChromaky);
             Assert.IsFalse(result.DisplaycaptureChromaky);
+            Assert.IsFalse(result.PngCaptureFormat);
             Assert.IsFalse(result.AllowDirectView);
             Assert.IsFalse(result.UseFastSpringBone);
             Assert.IsFalse(result.DirectViewMode);
@@ -238,6 +245,7 @@ namespace VCasJsonManager.Models.Tests
             Assert.IsFalse(result.HideCameraFromViewers);
             Assert.IsFalse(result.NicovideoChromaky);
             Assert.IsTrue(result.DisplaycaptureChromaky);
+            Assert.IsFalse(result.PngCaptureFormat);
             Assert.IsFalse(result.AllowDirectView);
             Assert.IsFalse(result.UseFastSpringBone);
             Assert.IsFalse(result.DirectViewMode);
@@ -256,6 +264,7 @@ namespace VCasJsonManager.Models.Tests
             Assert.IsFalse(result.HideCameraFromViewers);
             Assert.IsFalse(result.NicovideoChromaky);
             Assert.IsFalse(result.DisplaycaptureChromaky);
+            Assert.IsFalse(result.PngCaptureFormat);
             Assert.IsTrue(result.AllowDirectView);
             Assert.IsFalse(result.UseFastSpringBone);
             Assert.IsFalse(result.DirectViewMode);
@@ -274,6 +283,7 @@ namespace VCasJsonManager.Models.Tests
             Assert.IsFalse(result.HideCameraFromViewers);
             Assert.IsFalse(result.NicovideoChromaky);
             Assert.IsFalse(result.DisplaycaptureChromaky);
+            Assert.IsFalse(result.PngCaptureFormat);
             Assert.IsFalse(result.AllowDirectView);
             Assert.IsTrue(result.UseFastSpringBone);
             Assert.IsFalse(result.DirectViewMode);
@@ -292,6 +302,7 @@ namespace VCasJsonManager.Models.Tests
             Assert.IsFalse(result.HideCameraFromViewers);
             Assert.IsFalse(result.NicovideoChromaky);
             Assert.IsFalse(result.DisplaycaptureChromaky);
+            Assert.IsFalse(result.PngCaptureFormat);
             Assert.IsFalse(result.AllowDirectView);
             Assert.IsFalse(result.UseFastSpringBone);
             Assert.IsFalse(result.DirectViewMode);
@@ -310,6 +321,7 @@ namespace VCasJsonManager.Models.Tests
             Assert.IsFalse(result.HideCameraFromViewers);
             Assert.IsFalse(result.NicovideoChromaky);
             Assert.IsFalse(result.DisplaycaptureChromaky);
+            Assert.IsFalse(result.PngCaptureFormat);
             Assert.IsFalse(result.AllowDirectView);
             Assert.IsFalse(result.UseFastSpringBone);
             Assert.IsFalse(result.DirectViewMode);
@@ -328,6 +340,7 @@ namespace VCasJsonManager.Models.Tests
             Assert.IsFalse(result.HideCameraFromViewers);
             Assert.IsFalse(result.NicovideoChromaky);
             Assert.IsFalse(result.DisplaycaptureChromaky);
+            Assert.IsFalse(result.PngCaptureFormat);
             Assert.IsFalse(result.AllowDirectView);
             Assert.IsFalse(result.UseFastSpringBone);
             Assert.IsFalse(result.DirectViewMode);
@@ -390,6 +403,7 @@ namespace VCasJsonManager.Models.Tests
             Assert.IsFalse(result.Item.HideCameraFromViewrs);
             Assert.IsFalse(result.Item.EnableDisplaycaptureChromarkey);
             Assert.IsFalse(result.Item.EnableNicovideoChromakey);
+            Assert.IsNull(result.Item.CaptureFormat);
             Assert.IsFalse(result.Studio.AllowDirectView);
             Assert.IsFalse(result.Humanoid.UseFastSpringBone);
             Assert.IsNull(result.Mode);
@@ -409,6 +423,7 @@ namespace VCasJsonManager.Models.Tests
                 HideCameraFromViewers = true,
                 DisplaycaptureChromaky = false,
                 NicovideoChromaky = false,
+                PngCaptureFormat = false,
                 AllowDirectView = false,
                 UseFastSpringBone = false,
                 DirectViewMode = false,
@@ -421,6 +436,7 @@ namespace VCasJsonManager.Models.Tests
             Assert.IsTrue(result.Item.HideCameraFromViewrs);
             Assert.IsFalse(result.Item.EnableDisplaycaptureChromarkey);
             Assert.IsFalse(result.Item.EnableNicovideoChromakey);
+            Assert.IsNull(result.Item.CaptureFormat);
             Assert.IsFalse(result.Studio.AllowDirectView);
             Assert.IsFalse(result.Humanoid.UseFastSpringBone);
             Assert.IsNull(result.Mode);
@@ -438,6 +454,7 @@ namespace VCasJsonManager.Models.Tests
                 HideCameraFromViewers = false,
                 DisplaycaptureChromaky = true,
                 NicovideoChromaky = false,
+                PngCaptureFormat = false,
                 AllowDirectView = false,
                 UseFastSpringBone = false,
                 DirectViewMode = false,
@@ -450,6 +467,7 @@ namespace VCasJsonManager.Models.Tests
             Assert.IsFalse(result.Item.HideCameraFromViewrs);
             Assert.IsTrue(result.Item.EnableDisplaycaptureChromarkey);
             Assert.IsFalse(result.Item.EnableNicovideoChromakey);
+            Assert.IsNull(result.Item.CaptureFormat);
             Assert.IsFalse(result.Studio.AllowDirectView);
             Assert.IsFalse(result.Humanoid.UseFastSpringBone);
             Assert.IsNull(result.Mode);
@@ -467,6 +485,7 @@ namespace VCasJsonManager.Models.Tests
                 HideCameraFromViewers = false,
                 DisplaycaptureChromaky = false,
                 NicovideoChromaky = true,
+                PngCaptureFormat = false,
                 AllowDirectView = false,
                 UseFastSpringBone = false,
                 DirectViewMode = false,
@@ -479,6 +498,38 @@ namespace VCasJsonManager.Models.Tests
             Assert.IsFalse(result.Item.HideCameraFromViewrs);
             Assert.IsFalse(result.Item.EnableDisplaycaptureChromarkey);
             Assert.IsTrue(result.Item.EnableNicovideoChromakey);
+            Assert.IsNull(result.Item.CaptureFormat);
+            Assert.IsFalse(result.Studio.AllowDirectView);
+            Assert.IsFalse(result.Humanoid.UseFastSpringBone);
+            Assert.IsNull(result.Mode);
+            Assert.IsFalse(result.DirectViewTalk);
+            Assert.IsFalse(result.EnableLookingGlass);
+            Assert.IsFalse(result.EmbeddedScript.VrDebug);
+
+        }
+
+        [TestMethod()]
+        public void ToStructureTest_PngCaptureFormat()
+        {
+            var input = new ConfigJson()
+            {
+                HideCameraFromViewers = false,
+                DisplaycaptureChromaky = false,
+                NicovideoChromaky = false,
+                PngCaptureFormat = true,
+                AllowDirectView = false,
+                UseFastSpringBone = false,
+                DirectViewMode = false,
+                DirectViewTalk = false,
+                LookingGlass = false,
+                ScriptVrDebug = false,
+            };
+            var result = input.ToStructure();
+
+            Assert.IsFalse(result.Item.HideCameraFromViewrs);
+            Assert.IsFalse(result.Item.EnableDisplaycaptureChromarkey);
+            Assert.IsFalse(result.Item.EnableNicovideoChromakey);
+            Assert.AreEqual("png", result.Item.CaptureFormat);
             Assert.IsFalse(result.Studio.AllowDirectView);
             Assert.IsFalse(result.Humanoid.UseFastSpringBone);
             Assert.IsNull(result.Mode);
@@ -496,6 +547,7 @@ namespace VCasJsonManager.Models.Tests
                 HideCameraFromViewers = false,
                 DisplaycaptureChromaky = false,
                 NicovideoChromaky = false,
+                PngCaptureFormat = false,
                 AllowDirectView = true,
                 UseFastSpringBone = false,
                 DirectViewMode = false,
@@ -508,6 +560,7 @@ namespace VCasJsonManager.Models.Tests
             Assert.IsFalse(result.Item.HideCameraFromViewrs);
             Assert.IsFalse(result.Item.EnableDisplaycaptureChromarkey);
             Assert.IsFalse(result.Item.EnableNicovideoChromakey);
+            Assert.IsNull(result.Item.CaptureFormat);
             Assert.IsTrue(result.Studio.AllowDirectView);
             Assert.IsFalse(result.Humanoid.UseFastSpringBone);
             Assert.IsNull(result.Mode);
@@ -525,6 +578,7 @@ namespace VCasJsonManager.Models.Tests
                 HideCameraFromViewers = false,
                 DisplaycaptureChromaky = false,
                 NicovideoChromaky = false,
+                PngCaptureFormat = false,
                 AllowDirectView = false,
                 UseFastSpringBone = true,
                 DirectViewMode = false,
@@ -537,6 +591,7 @@ namespace VCasJsonManager.Models.Tests
             Assert.IsFalse(result.Item.HideCameraFromViewrs);
             Assert.IsFalse(result.Item.EnableDisplaycaptureChromarkey);
             Assert.IsFalse(result.Item.EnableNicovideoChromakey);
+            Assert.IsNull(result.Item.CaptureFormat);
             Assert.IsFalse(result.Studio.AllowDirectView);
             Assert.IsTrue(result.Humanoid.UseFastSpringBone);
             Assert.IsNull(result.Mode);
@@ -554,6 +609,7 @@ namespace VCasJsonManager.Models.Tests
                 HideCameraFromViewers = false,
                 DisplaycaptureChromaky = false,
                 NicovideoChromaky = false,
+                PngCaptureFormat = false,
                 AllowDirectView = false,
                 UseFastSpringBone = false,
                 DirectViewMode = true,
@@ -566,6 +622,7 @@ namespace VCasJsonManager.Models.Tests
             Assert.IsFalse(result.Item.HideCameraFromViewrs);
             Assert.IsFalse(result.Item.EnableDisplaycaptureChromarkey);
             Assert.IsFalse(result.Item.EnableNicovideoChromakey);
+            Assert.IsNull(result.Item.CaptureFormat);
             Assert.IsFalse(result.Studio.AllowDirectView);
             Assert.IsFalse(result.Humanoid.UseFastSpringBone);
             Assert.AreEqual(ConfigJsonStructure.DirectViewModeKey, result.Mode);
@@ -583,6 +640,7 @@ namespace VCasJsonManager.Models.Tests
                 HideCameraFromViewers = false,
                 DisplaycaptureChromaky = false,
                 NicovideoChromaky = false,
+                PngCaptureFormat = false,
                 AllowDirectView = false,
                 UseFastSpringBone = false,
                 DirectViewMode = false,
@@ -595,6 +653,7 @@ namespace VCasJsonManager.Models.Tests
             Assert.IsFalse(result.Item.HideCameraFromViewrs);
             Assert.IsFalse(result.Item.EnableDisplaycaptureChromarkey);
             Assert.IsFalse(result.Item.EnableNicovideoChromakey);
+            Assert.IsNull(result.Item.CaptureFormat);
             Assert.IsFalse(result.Studio.AllowDirectView);
             Assert.IsFalse(result.Humanoid.UseFastSpringBone);
             Assert.IsNull(result.Mode);
@@ -612,6 +671,7 @@ namespace VCasJsonManager.Models.Tests
                 HideCameraFromViewers = false,
                 DisplaycaptureChromaky = false,
                 NicovideoChromaky = false,
+                PngCaptureFormat = false,
                 AllowDirectView = false,
                 UseFastSpringBone = false,
                 DirectViewMode = false,
@@ -624,6 +684,7 @@ namespace VCasJsonManager.Models.Tests
             Assert.IsFalse(result.Item.HideCameraFromViewrs);
             Assert.IsFalse(result.Item.EnableDisplaycaptureChromarkey);
             Assert.IsFalse(result.Item.EnableNicovideoChromakey);
+            Assert.IsNull(result.Item.CaptureFormat);
             Assert.IsFalse(result.Studio.AllowDirectView);
             Assert.IsFalse(result.Humanoid.UseFastSpringBone);
             Assert.IsNull(result.Mode);
@@ -641,6 +702,7 @@ namespace VCasJsonManager.Models.Tests
                 HideCameraFromViewers = false,
                 DisplaycaptureChromaky = false,
                 NicovideoChromaky = false,
+                PngCaptureFormat = false,
                 AllowDirectView = false,
                 UseFastSpringBone = false,
                 DirectViewMode = false,
@@ -653,6 +715,7 @@ namespace VCasJsonManager.Models.Tests
             Assert.IsFalse(result.Item.HideCameraFromViewrs);
             Assert.IsFalse(result.Item.EnableDisplaycaptureChromarkey);
             Assert.IsFalse(result.Item.EnableNicovideoChromakey);
+            Assert.IsNull(result.Item.CaptureFormat);
             Assert.IsFalse(result.Studio.AllowDirectView);
             Assert.IsFalse(result.Humanoid.UseFastSpringBone);
             Assert.IsNull(result.Mode);
@@ -687,6 +750,7 @@ namespace VCasJsonManager.Models.Tests
             Assert.IsFalse(result.HideCameraFromViewers);
             Assert.IsFalse(result.NicovideoChromaky);
             Assert.IsFalse(result.DisplaycaptureChromaky);
+            Assert.IsTrue(result.PngCaptureFormat);
             Assert.IsFalse(result.AllowDirectView);
             Assert.IsFalse(result.UseFastSpringBone);
             Assert.IsTrue(result.DirectViewMode);
@@ -708,6 +772,7 @@ namespace VCasJsonManager.Models.Tests
             Assert.IsTrue(result.HideCameraFromViewers);
             Assert.IsTrue(result.NicovideoChromaky);
             Assert.IsTrue(result.DisplaycaptureChromaky);
+            Assert.IsFalse(result.PngCaptureFormat);
             Assert.IsTrue(result.AllowDirectView);
             Assert.IsTrue(result.UseFastSpringBone);
             Assert.IsFalse(result.DirectViewMode);

@@ -80,7 +80,9 @@ namespace VCasJsonManagerTests
         ""enable_displaycapture_chromakey.description"": ""ディスプレイにクロマキーを適用する"",
  
         ""enable_nicovideo_chromakey"": false,
-        ""enable_nicovideo_chromakey.description"": ""ニコニコ動画プレイヤーにクロマキーを適用する""
+        ""enable_nicovideo_chromakey.description"": ""ニコニコ動画プレイヤーにクロマキーを適用する"",
+
+        ""capture_format"": ""png""
     },
     ""humanoid"": {
         ""use_fast_spring_bone"": false,
@@ -202,7 +204,9 @@ namespace VCasJsonManagerTests
  
         ""enable_displaycapture_chromakey"": false,
  
-        ""enable_nicovideo_chromakey"": false
+        ""enable_nicovideo_chromakey"": false,
+
+        ""capture_format"": ""png""
     },
     ""studio"": {
         ""allow_direct_view"": false
@@ -278,7 +282,9 @@ namespace VCasJsonManagerTests
  
         ""enable_displaycapture_chromakey"": false,
  
-        ""enable_nicovideo_chromakey"": false
+        ""enable_nicovideo_chromakey"": false,
+
+        ""capture_format"": null
     },
     ""studio"": {
         ""allow_direct_view"": false

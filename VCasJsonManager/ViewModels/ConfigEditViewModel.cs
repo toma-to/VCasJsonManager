@@ -150,6 +150,16 @@ namespace VCasJsonManager.ViewModels
         }
 
         /// <summary>
+        /// キャプチャ画像のPNG保存
+        /// </summary>
+        [DoNotNotify]
+        public bool PngCaptureFormat
+        {
+            get => ConfigJson.PngCaptureFormat;
+            set => ConfigJson.PngCaptureFormat = value;
+        }
+
+        /// <summary>
         /// デバッグモード
         /// </summary>
         public bool VrDebug => ConfigJson.ScriptVrDebug;
@@ -185,6 +195,7 @@ namespace VCasJsonManager.ViewModels
             AddMapping(nameof(ConfigJson.DisplaycaptureChromaky));
             AddMapping(nameof(ConfigJson.NicovideoChromaky));
             AddMapping(nameof(ConfigJson.UseFastSpringBone));
+            AddMapping(nameof(ConfigJson.PngCaptureFormat));
             AddMapping(nameof(ConfigJson.ScriptVrDebug), nameof(VrDebug));
 
             Action addConfigJsonListner = () =>
