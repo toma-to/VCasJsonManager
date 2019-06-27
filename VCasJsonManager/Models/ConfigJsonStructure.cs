@@ -100,7 +100,13 @@ namespace VCasJsonManager.Models
 
             [JsonProperty("enable_nicovideo_chromakey")]
             public bool EnableNicovideoChromakey { get; set; }
+
+            [JsonProperty("capture_format")]
+            public string CaptureFormat { get; set; }
         }
+
+        [JsonIgnore]
+        public static string CaptureFormatPngKey { get; } = "png";
 
         [JsonProperty("item")]
         public ItemStructure Item { get; set; } = new ItemStructure();

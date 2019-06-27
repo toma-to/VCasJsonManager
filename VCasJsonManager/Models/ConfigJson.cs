@@ -135,6 +135,11 @@ namespace VCasJsonManager.Models
         public bool NicovideoChromaky { get; set; }
 
         /// <summary>
+        /// item.capture_format
+        /// </summary>
+        public bool PngCaptureFormat { get; set; }
+
+        /// <summary>
         /// studio.allow_direct_view
         /// </summary>
         public bool AllowDirectView { get; set; }

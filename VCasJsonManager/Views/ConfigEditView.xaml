@@ -404,6 +404,9 @@
                 <CheckBox IsChecked="{Binding NicovideoChromaky}" ToolTip="item &gt; enable_nicovideo_chromakey">
                     動画プレーヤーのクロマキー有効化
                 </CheckBox>
+                <CheckBox IsChecked="{Binding PngCaptureFormat}" ToolTip="item &gt; capture_format">
+                    キャプチャフォーマットをPNGにする
+                </CheckBox>
                 <StackPanel Orientation="Horizontal" Margin="0,5,0,0">
                     <TextBlock Text="NGスコア閾値" VerticalAlignment="Bottom"/>
                     <TextBox Width="60"
