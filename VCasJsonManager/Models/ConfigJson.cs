@@ -165,6 +165,26 @@ namespace VCasJsonManager.Models
         public bool LookingGlass { get; set; }
 
         /// <summary>
+        /// enable_vivesranipal_eye
+        /// </summary>
+        public bool VivesranipalEye { get; set; }
+
+        /// <summary>
+        /// enable_vivesranipal_blink
+        /// </summary>
+        public bool VivesranipalBlink { get; set; }
+
+        /// <summary>
+        /// vivesranipal_eye_adjust_x
+        /// </summary>
+        public decimal? VivesranipalX { get; set; }
+
+        /// <summary>
+        /// vivesranipal_eye_adjust_y
+        /// </summary>
+        public decimal? VivesranipalY { get; set; }
+
+        /// <summary>
         /// embedded_script.websocket_console_port
         /// </summary>
         public int? ScriptWebSocketConsolePort { get; set; }

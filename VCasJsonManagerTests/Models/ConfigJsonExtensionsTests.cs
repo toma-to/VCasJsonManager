@@ -48,6 +48,10 @@ namespace VCasJsonManager.Models.Tests
             input.Mode = "direct-view";
             input.DirectViewTalk = true;
             input.EnableLookingGlass = true;
+            input.EnableVivesranipalEye = true;
+            input.EnableVivesranipalBlink = true;
+            input.VivesranipalEyeAdjustX = (decimal)2.0;
+            input.VivesranipalEyeAdjustY = (decimal)1.0;
             input.EmbeddedScript.WebsocketConsolePort = 1111;
             input.EmbeddedScript.VrDebug = true;
             input.EmbeddedScript.MoonsharpDebuggerPort = 2222;
@@ -80,6 +84,10 @@ namespace VCasJsonManager.Models.Tests
             Assert.IsTrue(result.DirectViewMode);
             Assert.IsTrue(result.DirectViewTalk);
             Assert.IsTrue(result.LookingGlass);
+            Assert.IsTrue(result.VivesranipalEye);
+            Assert.IsTrue(result.VivesranipalBlink);
+            Assert.AreEqual((decimal)2.0, result.VivesranipalX);
+            Assert.AreEqual((decimal)1.0, result.VivesranipalY);
             Assert.AreEqual(1111, result.ScriptWebSocketConsolePort);
             Assert.IsTrue(result.ScriptVrDebug);
             Assert.AreEqual(2222, result.ScriptMoonsharpDebuggerPort);
@@ -113,6 +121,10 @@ namespace VCasJsonManager.Models.Tests
             Assert.IsFalse(result.DirectViewMode);
             Assert.IsFalse(result.DirectViewTalk);
             Assert.IsFalse(result.LookingGlass);
+            Assert.IsFalse(result.VivesranipalEye);
+            Assert.IsFalse(result.VivesranipalBlink);
+            Assert.IsNull(result.VivesranipalX);
+            Assert.IsNull(result.VivesranipalY);
             Assert.IsNull(result.ScriptWebSocketConsolePort);
             Assert.IsFalse(result.ScriptVrDebug);
             Assert.IsNull(result.ScriptMoonsharpDebuggerPort);
@@ -154,6 +166,10 @@ namespace VCasJsonManager.Models.Tests
             Assert.IsFalse(result.DirectViewMode);
             Assert.IsFalse(result.DirectViewTalk);
             Assert.IsFalse(result.LookingGlass);
+            Assert.IsFalse(result.VivesranipalEye);
+            Assert.IsFalse(result.VivesranipalBlink);
+            Assert.IsNull(result.VivesranipalX);
+            Assert.IsNull(result.VivesranipalY);
             Assert.IsNull(result.ScriptWebSocketConsolePort);
             Assert.IsFalse(result.ScriptVrDebug);
             Assert.IsNull(result.ScriptMoonsharpDebuggerPort);
@@ -191,6 +207,10 @@ namespace VCasJsonManager.Models.Tests
             Assert.IsFalse(result.DirectViewMode);
             Assert.IsFalse(result.DirectViewTalk);
             Assert.IsFalse(result.LookingGlass);
+            Assert.IsFalse(result.VivesranipalEye);
+            Assert.IsFalse(result.VivesranipalBlink);
+            Assert.IsNull(result.VivesranipalX);
+            Assert.IsNull(result.VivesranipalY);
             Assert.IsNull(result.ScriptWebSocketConsolePort);
             Assert.IsFalse(result.ScriptVrDebug);
             Assert.IsNull(result.ScriptMoonsharpDebuggerPort);
@@ -213,6 +233,8 @@ namespace VCasJsonManager.Models.Tests
             Assert.IsFalse(result.DirectViewMode);
             Assert.IsFalse(result.DirectViewTalk);
             Assert.IsFalse(result.LookingGlass);
+            Assert.IsFalse(result.VivesranipalEye);
+            Assert.IsFalse(result.VivesranipalBlink);
             Assert.IsFalse(result.ScriptVrDebug);
         }
 
@@ -232,6 +254,8 @@ namespace VCasJsonManager.Models.Tests
             Assert.IsFalse(result.DirectViewMode);
             Assert.IsFalse(result.DirectViewTalk);
             Assert.IsFalse(result.LookingGlass);
+            Assert.IsFalse(result.VivesranipalEye);
+            Assert.IsFalse(result.VivesranipalBlink);
             Assert.IsFalse(result.ScriptVrDebug);
         }
 
@@ -251,6 +275,8 @@ namespace VCasJsonManager.Models.Tests
             Assert.IsFalse(result.DirectViewMode);
             Assert.IsFalse(result.DirectViewTalk);
             Assert.IsFalse(result.LookingGlass);
+            Assert.IsFalse(result.VivesranipalEye);
+            Assert.IsFalse(result.VivesranipalBlink);
             Assert.IsFalse(result.ScriptVrDebug);
         }
 
@@ -270,6 +296,8 @@ namespace VCasJsonManager.Models.Tests
             Assert.IsFalse(result.DirectViewMode);
             Assert.IsFalse(result.DirectViewTalk);
             Assert.IsFalse(result.LookingGlass);
+            Assert.IsFalse(result.VivesranipalEye);
+            Assert.IsFalse(result.VivesranipalBlink);
             Assert.IsFalse(result.ScriptVrDebug);
         }
 
@@ -289,6 +317,8 @@ namespace VCasJsonManager.Models.Tests
             Assert.IsFalse(result.DirectViewMode);
             Assert.IsFalse(result.DirectViewTalk);
             Assert.IsFalse(result.LookingGlass);
+            Assert.IsFalse(result.VivesranipalEye);
+            Assert.IsFalse(result.VivesranipalBlink);
             Assert.IsFalse(result.ScriptVrDebug);
         }
 
@@ -308,6 +338,8 @@ namespace VCasJsonManager.Models.Tests
             Assert.IsFalse(result.DirectViewMode);
             Assert.IsTrue(result.DirectViewTalk);
             Assert.IsFalse(result.LookingGlass);
+            Assert.IsFalse(result.VivesranipalEye);
+            Assert.IsFalse(result.VivesranipalBlink);
             Assert.IsFalse(result.ScriptVrDebug);
         }
 
@@ -327,6 +359,50 @@ namespace VCasJsonManager.Models.Tests
             Assert.IsFalse(result.DirectViewMode);
             Assert.IsFalse(result.DirectViewTalk);
             Assert.IsTrue(result.LookingGlass);
+            Assert.IsFalse(result.VivesranipalEye);
+            Assert.IsFalse(result.VivesranipalBlink);
+            Assert.IsFalse(result.ScriptVrDebug);
+        }
+
+        [DataTestMethod()]
+        public void FlattenTest_VivesranipalEye()
+        {
+            var input = new ConfigJsonStructure();
+            input.EnableVivesranipalEye = true;
+            var result = input.Flatten();
+
+            Assert.IsFalse(result.HideCameraFromViewers);
+            Assert.IsFalse(result.NicovideoChromaky);
+            Assert.IsFalse(result.DisplaycaptureChromaky);
+            Assert.IsFalse(result.PngCaptureFormat);
+            Assert.IsFalse(result.AllowDirectView);
+            Assert.IsFalse(result.UseFastSpringBone);
+            Assert.IsFalse(result.DirectViewMode);
+            Assert.IsFalse(result.DirectViewTalk);
+            Assert.IsFalse(result.LookingGlass);
+            Assert.IsTrue(result.VivesranipalEye);
+            Assert.IsFalse(result.VivesranipalBlink);
+            Assert.IsFalse(result.ScriptVrDebug);
+        }
+
+        [DataTestMethod()]
+        public void FlattenTest_VivesranipalBlink()
+        {
+            var input = new ConfigJsonStructure();
+            input.EnableVivesranipalBlink = true;
+            var result = input.Flatten();
+
+            Assert.IsFalse(result.HideCameraFromViewers);
+            Assert.IsFalse(result.NicovideoChromaky);
+            Assert.IsFalse(result.DisplaycaptureChromaky);
+            Assert.IsFalse(result.PngCaptureFormat);
+            Assert.IsFalse(result.AllowDirectView);
+            Assert.IsFalse(result.UseFastSpringBone);
+            Assert.IsFalse(result.DirectViewMode);
+            Assert.IsFalse(result.DirectViewTalk);
+            Assert.IsFalse(result.LookingGlass);
+            Assert.IsFalse(result.VivesranipalEye);
+            Assert.IsTrue(result.VivesranipalBlink);
             Assert.IsFalse(result.ScriptVrDebug);
         }
 
@@ -346,6 +422,8 @@ namespace VCasJsonManager.Models.Tests
             Assert.IsFalse(result.DirectViewMode);
             Assert.IsFalse(result.DirectViewTalk);
             Assert.IsFalse(result.LookingGlass);
+            Assert.IsFalse(result.VivesranipalEye);
+            Assert.IsFalse(result.VivesranipalBlink);
             Assert.IsTrue(result.ScriptVrDebug);
         }
 
@@ -378,6 +456,10 @@ namespace VCasJsonManager.Models.Tests
                 DirectViewMode = false,
                 DirectViewTalk = false,
                 LookingGlass = false,
+                VivesranipalEye = false,
+                VivesranipalBlink = false,
+                VivesranipalX = (decimal)2.0,
+                VivesranipalY = (decimal)1.0,
                 ScriptWebSocketConsolePort = 1111,
                 ScriptVrDebug = false,
                 ScriptMoonsharpDebuggerPort = 2222,
@@ -409,6 +491,10 @@ namespace VCasJsonManager.Models.Tests
             Assert.IsNull(result.Mode);
             Assert.IsFalse(result.DirectViewTalk);
             Assert.IsFalse(result.EnableLookingGlass);
+            Assert.IsFalse(result.EnableVivesranipalEye);
+            Assert.IsFalse(result.EnableVivesranipalBlink);
+            Assert.AreEqual((decimal)2.0, result.VivesranipalEyeAdjustX);
+            Assert.AreEqual((decimal)1.0, result.VivesranipalEyeAdjustY);
             Assert.AreEqual(1111, result.EmbeddedScript.WebsocketConsolePort);
             Assert.IsFalse(result.EmbeddedScript.VrDebug);
             Assert.AreEqual(2222, result.EmbeddedScript.MoonsharpDebuggerPort);
@@ -421,15 +507,6 @@ namespace VCasJsonManager.Models.Tests
             var input = new ConfigJson()
             {
                 HideCameraFromViewers = true,
-                DisplaycaptureChromaky = false,
-                NicovideoChromaky = false,
-                PngCaptureFormat = false,
-                AllowDirectView = false,
-                UseFastSpringBone = false,
-                DirectViewMode = false,
-                DirectViewTalk = false,
-                LookingGlass = false,
-                ScriptVrDebug = false,
             };
             var result = input.ToStructure();
 
@@ -442,6 +519,8 @@ namespace VCasJsonManager.Models.Tests
             Assert.IsNull(result.Mode);
             Assert.IsFalse(result.DirectViewTalk);
             Assert.IsFalse(result.EnableLookingGlass);
+            Assert.IsFalse(result.EnableVivesranipalEye);
+            Assert.IsFalse(result.EnableVivesranipalBlink);
             Assert.IsFalse(result.EmbeddedScript.VrDebug);
 
         }
@@ -451,16 +530,7 @@ namespace VCasJsonManager.Models.Tests
         {
             var input = new ConfigJson()
             {
-                HideCameraFromViewers = false,
                 DisplaycaptureChromaky = true,
-                NicovideoChromaky = false,
-                PngCaptureFormat = false,
-                AllowDirectView = false,
-                UseFastSpringBone = false,
-                DirectViewMode = false,
-                DirectViewTalk = false,
-                LookingGlass = false,
-                ScriptVrDebug = false,
             };
             var result = input.ToStructure();
 
@@ -473,6 +543,8 @@ namespace VCasJsonManager.Models.Tests
             Assert.IsNull(result.Mode);
             Assert.IsFalse(result.DirectViewTalk);
             Assert.IsFalse(result.EnableLookingGlass);
+            Assert.IsFalse(result.EnableVivesranipalEye);
+            Assert.IsFalse(result.EnableVivesranipalBlink);
             Assert.IsFalse(result.EmbeddedScript.VrDebug);
 
         }
@@ -482,16 +554,7 @@ namespace VCasJsonManager.Models.Tests
         {
             var input = new ConfigJson()
             {
-                HideCameraFromViewers = false,
-                DisplaycaptureChromaky = false,
                 NicovideoChromaky = true,
-                PngCaptureFormat = false,
-                AllowDirectView = false,
-                UseFastSpringBone = false,
-                DirectViewMode = false,
-                DirectViewTalk = false,
-                LookingGlass = false,
-                ScriptVrDebug = false,
             };
             var result = input.ToStructure();
 
@@ -504,6 +567,8 @@ namespace VCasJsonManager.Models.Tests
             Assert.IsNull(result.Mode);
             Assert.IsFalse(result.DirectViewTalk);
             Assert.IsFalse(result.EnableLookingGlass);
+            Assert.IsFalse(result.EnableVivesranipalEye);
+            Assert.IsFalse(result.EnableVivesranipalBlink);
             Assert.IsFalse(result.EmbeddedScript.VrDebug);
 
         }
@@ -513,16 +578,7 @@ namespace VCasJsonManager.Models.Tests
         {
             var input = new ConfigJson()
             {
-                HideCameraFromViewers = false,
-                DisplaycaptureChromaky = false,
-                NicovideoChromaky = false,
                 PngCaptureFormat = true,
-                AllowDirectView = false,
-                UseFastSpringBone = false,
-                DirectViewMode = false,
-                DirectViewTalk = false,
-                LookingGlass = false,
-                ScriptVrDebug = false,
             };
             var result = input.ToStructure();
 
@@ -535,6 +591,8 @@ namespace VCasJsonManager.Models.Tests
             Assert.IsNull(result.Mode);
             Assert.IsFalse(result.DirectViewTalk);
             Assert.IsFalse(result.EnableLookingGlass);
+            Assert.IsFalse(result.EnableVivesranipalEye);
+            Assert.IsFalse(result.EnableVivesranipalBlink);
             Assert.IsFalse(result.EmbeddedScript.VrDebug);
 
         }
@@ -544,16 +602,7 @@ namespace VCasJsonManager.Models.Tests
         {
             var input = new ConfigJson()
             {
-                HideCameraFromViewers = false,
-                DisplaycaptureChromaky = false,
-                NicovideoChromaky = false,
-                PngCaptureFormat = false,
                 AllowDirectView = true,
-                UseFastSpringBone = false,
-                DirectViewMode = false,
-                DirectViewTalk = false,
-                LookingGlass = false,
-                ScriptVrDebug = false,
             };
             var result = input.ToStructure();
 
@@ -566,6 +615,8 @@ namespace VCasJsonManager.Models.Tests
             Assert.IsNull(result.Mode);
             Assert.IsFalse(result.DirectViewTalk);
             Assert.IsFalse(result.EnableLookingGlass);
+            Assert.IsFalse(result.EnableVivesranipalEye);
+            Assert.IsFalse(result.EnableVivesranipalBlink);
             Assert.IsFalse(result.EmbeddedScript.VrDebug);
 
         }
@@ -575,16 +626,7 @@ namespace VCasJsonManager.Models.Tests
         {
             var input = new ConfigJson()
             {
-                HideCameraFromViewers = false,
-                DisplaycaptureChromaky = false,
-                NicovideoChromaky = false,
-                PngCaptureFormat = false,
-                AllowDirectView = false,
                 UseFastSpringBone = true,
-                DirectViewMode = false,
-                DirectViewTalk = false,
-                LookingGlass = false,
-                ScriptVrDebug = false,
             };
             var result = input.ToStructure();
 
@@ -597,6 +639,8 @@ namespace VCasJsonManager.Models.Tests
             Assert.IsNull(result.Mode);
             Assert.IsFalse(result.DirectViewTalk);
             Assert.IsFalse(result.EnableLookingGlass);
+            Assert.IsFalse(result.EnableVivesranipalEye);
+            Assert.IsFalse(result.EnableVivesranipalBlink);
             Assert.IsFalse(result.EmbeddedScript.VrDebug);
 
         }
@@ -606,16 +650,7 @@ namespace VCasJsonManager.Models.Tests
         {
             var input = new ConfigJson()
             {
-                HideCameraFromViewers = false,
-                DisplaycaptureChromaky = false,
-                NicovideoChromaky = false,
-                PngCaptureFormat = false,
-                AllowDirectView = false,
-                UseFastSpringBone = false,
                 DirectViewMode = true,
-                DirectViewTalk = false,
-                LookingGlass = false,
-                ScriptVrDebug = false,
             };
             var result = input.ToStructure();
 
@@ -628,6 +663,8 @@ namespace VCasJsonManager.Models.Tests
             Assert.AreEqual(ConfigJsonStructure.DirectViewModeKey, result.Mode);
             Assert.IsFalse(result.DirectViewTalk);
             Assert.IsFalse(result.EnableLookingGlass);
+            Assert.IsFalse(result.EnableVivesranipalEye);
+            Assert.IsFalse(result.EnableVivesranipalBlink);
             Assert.IsFalse(result.EmbeddedScript.VrDebug);
 
         }
@@ -637,16 +674,7 @@ namespace VCasJsonManager.Models.Tests
         {
             var input = new ConfigJson()
             {
-                HideCameraFromViewers = false,
-                DisplaycaptureChromaky = false,
-                NicovideoChromaky = false,
-                PngCaptureFormat = false,
-                AllowDirectView = false,
-                UseFastSpringBone = false,
-                DirectViewMode = false,
                 DirectViewTalk = true,
-                LookingGlass = false,
-                ScriptVrDebug = false,
             };
             var result = input.ToStructure();
 
@@ -659,6 +687,8 @@ namespace VCasJsonManager.Models.Tests
             Assert.IsNull(result.Mode);
             Assert.IsTrue(result.DirectViewTalk);
             Assert.IsFalse(result.EnableLookingGlass);
+            Assert.IsFalse(result.EnableVivesranipalEye);
+            Assert.IsFalse(result.EnableVivesranipalBlink);
             Assert.IsFalse(result.EmbeddedScript.VrDebug);
 
         }
@@ -668,16 +698,7 @@ namespace VCasJsonManager.Models.Tests
         {
             var input = new ConfigJson()
             {
-                HideCameraFromViewers = false,
-                DisplaycaptureChromaky = false,
-                NicovideoChromaky = false,
-                PngCaptureFormat = false,
-                AllowDirectView = false,
-                UseFastSpringBone = false,
-                DirectViewMode = false,
-                DirectViewTalk = false,
                 LookingGlass = true,
-                ScriptVrDebug = false,
             };
             var result = input.ToStructure();
 
@@ -690,6 +711,56 @@ namespace VCasJsonManager.Models.Tests
             Assert.IsNull(result.Mode);
             Assert.IsFalse(result.DirectViewTalk);
             Assert.IsTrue(result.EnableLookingGlass);
+            Assert.IsFalse(result.EnableVivesranipalEye);
+            Assert.IsFalse(result.EnableVivesranipalBlink);
+            Assert.IsFalse(result.EmbeddedScript.VrDebug);
+
+        }
+
+        [TestMethod()]
+        public void ToStructureTest_VivesranipalEye()
+        {
+            var input = new ConfigJson()
+            {
+                VivesranipalEye = true,
+            };
+            var result = input.ToStructure();
+
+            Assert.IsFalse(result.Item.HideCameraFromViewrs);
+            Assert.IsFalse(result.Item.EnableDisplaycaptureChromarkey);
+            Assert.IsFalse(result.Item.EnableNicovideoChromakey);
+            Assert.IsNull(result.Item.CaptureFormat);
+            Assert.IsFalse(result.Studio.AllowDirectView);
+            Assert.IsFalse(result.Humanoid.UseFastSpringBone);
+            Assert.IsNull(result.Mode);
+            Assert.IsFalse(result.DirectViewTalk);
+            Assert.IsFalse(result.EnableLookingGlass);
+            Assert.IsTrue(result.EnableVivesranipalEye);
+            Assert.IsFalse(result.EnableVivesranipalBlink);
+            Assert.IsFalse(result.EmbeddedScript.VrDebug);
+
+        }
+
+        [TestMethod()]
+        public void ToStructureTest_VivesranipalBlink()
+        {
+            var input = new ConfigJson()
+            {
+                VivesranipalBlink = true,
+            };
+            var result = input.ToStructure();
+
+            Assert.IsFalse(result.Item.HideCameraFromViewrs);
+            Assert.IsFalse(result.Item.EnableDisplaycaptureChromarkey);
+            Assert.IsFalse(result.Item.EnableNicovideoChromakey);
+            Assert.IsNull(result.Item.CaptureFormat);
+            Assert.IsFalse(result.Studio.AllowDirectView);
+            Assert.IsFalse(result.Humanoid.UseFastSpringBone);
+            Assert.IsNull(result.Mode);
+            Assert.IsFalse(result.DirectViewTalk);
+            Assert.IsFalse(result.EnableLookingGlass);
+            Assert.IsFalse(result.EnableVivesranipalEye);
+            Assert.IsTrue(result.EnableVivesranipalBlink);
             Assert.IsFalse(result.EmbeddedScript.VrDebug);
 
         }
@@ -699,15 +770,6 @@ namespace VCasJsonManager.Models.Tests
         {
             var input = new ConfigJson()
             {
-                HideCameraFromViewers = false,
-                DisplaycaptureChromaky = false,
-                NicovideoChromaky = false,
-                PngCaptureFormat = false,
-                AllowDirectView = false,
-                UseFastSpringBone = false,
-                DirectViewMode = false,
-                DirectViewTalk = false,
-                LookingGlass = false,
                 ScriptVrDebug = true,
             };
             var result = input.ToStructure();
@@ -721,6 +783,8 @@ namespace VCasJsonManager.Models.Tests
             Assert.IsNull(result.Mode);
             Assert.IsFalse(result.DirectViewTalk);
             Assert.IsFalse(result.EnableLookingGlass);
+            Assert.IsFalse(result.EnableVivesranipalEye);
+            Assert.IsFalse(result.EnableVivesranipalBlink);
             Assert.IsTrue(result.EmbeddedScript.VrDebug);
 
         }
@@ -756,6 +820,10 @@ namespace VCasJsonManager.Models.Tests
             Assert.IsTrue(result.DirectViewMode);
             Assert.IsFalse(result.DirectViewTalk);
             Assert.IsFalse(result.LookingGlass);
+            Assert.IsFalse(result.VivesranipalEye);
+            Assert.IsFalse(result.VivesranipalBlink);
+            Assert.IsNull(result.VivesranipalX);
+            Assert.IsNull(result.VivesranipalY);
             Assert.AreEqual(8080, result.ScriptWebSocketConsolePort);
             Assert.IsFalse(result.ScriptVrDebug);
             Assert.AreEqual(8888, result.ScriptMoonsharpDebuggerPort);
@@ -778,6 +846,10 @@ namespace VCasJsonManager.Models.Tests
             Assert.IsFalse(result.DirectViewMode);
             Assert.IsTrue(result.DirectViewTalk);
             Assert.IsTrue(result.LookingGlass);
+            Assert.IsTrue(result.VivesranipalEye);
+            Assert.IsTrue(result.VivesranipalBlink);
+            Assert.AreEqual((decimal)2.0, result.VivesranipalX);
+            Assert.AreEqual((decimal)1.0, result.VivesranipalY);
             Assert.IsTrue(result.ScriptVrDebug);
         }
 
