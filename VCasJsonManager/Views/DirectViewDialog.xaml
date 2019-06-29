@@ -11,7 +11,7 @@
         xmlns:l="http://schemas.livet-mvvm.net/2011/wpf"
         xmlns:v="clr-namespace:VCasJsonManager.Views"
         xmlns:vm="clr-namespace:VCasJsonManager.ViewModels"
-        Title="ダイレクトビュー設定" Width="400"
+        Title="アイトラッキング/ダイレクトビュー設定" Width="480"
         WindowStartupLocation="CenterOwner"
         SizeToContent="Height"
         Style="{StaticResource DialogWindow}">
@@ -34,6 +34,10 @@
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
             <StackPanel Grid.Column="0" Margin="5">
                 <CheckBox IsChecked="{Binding AllowDirectView}" ToolTip="studio &gt; allow_direct_view">
                     ダイレクトビューの許可
@@ -49,6 +53,36 @@
                 <CheckBox IsChecked="{Binding LookingGlass}" ToolTip="enable_looking_glass">
                     Looking Glassの使用
                 </CheckBox>
+            </StackPanel>
+            <StackPanel Grid.Row="1" Grid.Column="0" Margin="5,10,5,5">
+                <CheckBox IsChecked="{Binding VivesranipalEye}" ToolTip="enable_vivesranipal_eye">
+                    アイトラッキングでの眼球動作
+                </CheckBox>
+                <CheckBox IsChecked="{Binding VivesranipalBlink}" ToolTip="enable_looking_glass">
+                    アイトラッキングでのまばたき動作
+                </CheckBox>
+            </StackPanel>
+            <StackPanel Grid.Row="1" Grid.Column="1" Margin="5,10,5,5">
+                <StackPanel Orientation="Horizontal" Margin="0,3,0,0">
+                    <TextBlock Text="左右の眼球移動量" VerticalAlignment="Bottom"/>
+                    <TextBox Width="60"
+                             Height="20"
+                             MaxLength="7"
+                             FontSize="10"
+                             TextAlignment="Right"
+                             ToolTip="vivesranipal_eye_adjust_x"
+                             Text="{Binding VivesranipalX}"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="0,8,0,0">
+                    <TextBlock Text="上下の眼球移動量" VerticalAlignment="Bottom"/>
+                    <TextBox Width="60"
+                             Height="20"
+                             MaxLength="7"
+                             FontSize="10"
+                             TextAlignment="Right"
+                             ToolTip="vivesranipal_eye_adjust_y"
+                             Text="{Binding VivesranipalY}"/>
+                </StackPanel>
             </StackPanel>
         </Grid>
         <Grid Margin="5,10">

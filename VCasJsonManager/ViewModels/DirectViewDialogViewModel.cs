@@ -12,7 +12,7 @@ using VCasJsonManager.Services;
 namespace VCasJsonManager.ViewModels
 {
     /// <summary>
-    /// ダイレクトビュー設定画面のViewModel
+    /// アイトラッキング設定/ダイレクトビュー設定画面のViewModel
     /// </summary>
     public class DirectViewDialogViewModel : PropertyChangedMappingViewModelBase
     {
@@ -51,6 +51,59 @@ namespace VCasJsonManager.ViewModels
         public bool LookingGlass { get => ConfigJson.LookingGlass; set => ConfigJson.LookingGlass = value; }
 
         /// <summary>
+        /// VivesranipalEye
+        /// </summary>
+        [DoNotNotify]
+        public bool VivesranipalEye { get => ConfigJson.VivesranipalEye; set => ConfigJson.VivesranipalEye = value; }
+
+        /// <summary>
+        /// VivesranipalBlink
+        /// </summary>
+        [DoNotNotify]
+        public bool VivesranipalBlink { get => ConfigJson.VivesranipalBlink; set => ConfigJson.VivesranipalBlink = value; }
+
+        /// <summary>
+        /// VivesranipalX
+        /// </summary>
+        [DoNotNotify]
+        public string VivesranipalX
+        {
+            get => ConfigJson.VivesranipalX?.ToString();
+            set
+            {
+                if (decimal.TryParse(value, out var wk))
+                {
+                    ConfigJson.VivesranipalX = wk;
+                }
+                else
+                {
+                    ConfigJson.VivesranipalX = null;
+                }
+            }
+        }
+
+        /// <summary>
+        /// VivesranipalY
+        /// </summary>
+        [DoNotNotify]
+        public string VivesranipalY
+        {
+            get => ConfigJson.VivesranipalY?.ToString();
+            set
+            {
+                if (decimal.TryParse(value, out var wk))
+                {
+                    ConfigJson.VivesranipalY = wk;
+                }
+                else
+                {
+                    ConfigJson.VivesranipalY = null;
+                }
+            }
+        }
+
+
+        /// <summary>
         /// ConfigJsonのイベントリスナ
         /// </summary>
         private PropertyChangedEventListener ConfigJsonListner { get; set; }
@@ -67,6 +120,10 @@ namespace VCasJsonManager.ViewModels
             AddMapping(nameof(ConfigJson.DirectViewMode));
             AddMapping(nameof(ConfigJson.DirectViewTalk));
             AddMapping(nameof(ConfigJson.LookingGlass));
+            AddMapping(nameof(ConfigJson.VivesranipalEye));
+            AddMapping(nameof(ConfigJson.VivesranipalBlink));
+            AddMapping(nameof(ConfigJson.VivesranipalX));
+            AddMapping(nameof(ConfigJson.VivesranipalY));
 
             Action addConfigJsonListner = () =>
             {

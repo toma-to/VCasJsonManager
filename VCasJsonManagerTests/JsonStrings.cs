@@ -94,6 +94,10 @@ namespace VCasJsonManagerTests
     ""mode"": ""direct-view"",
     ""direct_view_talk"": false,
     ""enable_looking_glass"": false,
+    ""enable_vivesranipal_eye"": false,
+    ""enable_vivesranipal_blink"": false,
+    ""vivesranipal_eye_adjust_x"": null,
+    ""vivesranipal_eye_adjust_y"": null,
     ""embedded_script"": {
         ""websocket_console_port"": 8080,
         ""vr_debug"": false,
@@ -122,6 +126,10 @@ namespace VCasJsonManagerTests
     },
     ""direct_view_talk"": true,
     ""enable_looking_glass"": true,
+    ""enable_vivesranipal_eye"": true,
+    ""enable_vivesranipal_blink"": true,
+    ""vivesranipal_eye_adjust_x"": 2.0,
+    ""vivesranipal_eye_adjust_y"": 1.0,
     ""embedded_script"": {
         ""vr_debug"": true
     }
@@ -217,6 +225,10 @@ namespace VCasJsonManagerTests
     ""mode"": ""direct-view"",
     ""direct_view_talk"": false,
     ""enable_looking_glass"": false,
+    ""enable_vivesranipal_eye"": false,
+    ""enable_vivesranipal_blink"": false,
+    ""vivesranipal_eye_adjust_x"": null,
+    ""vivesranipal_eye_adjust_y"": null,
     ""embedded_script"": {
         ""websocket_console_port"": 8080,
         ""vr_debug"": false,
@@ -295,6 +307,10 @@ namespace VCasJsonManagerTests
     ""mode"":null,
     ""direct_view_talk"": false,
     ""enable_looking_glass"": false,
+    ""enable_vivesranipal_eye"": false,
+    ""enable_vivesranipal_blink"": false,
+    ""vivesranipal_eye_adjust_x"": null,
+    ""vivesranipal_eye_adjust_y"": null,
     ""embedded_script"": {
         ""websocket_console_port"": null,
         ""vr_debug"": false,

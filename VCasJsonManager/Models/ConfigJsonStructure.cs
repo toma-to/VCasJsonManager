@@ -141,6 +141,18 @@ namespace VCasJsonManager.Models
         [JsonProperty("enable_looking_glass")]
         public bool EnableLookingGlass { get; set; }
 
+        [JsonProperty("enable_vivesranipal_eye")]
+        public bool EnableVivesranipalEye { get; set; }
+
+        [JsonProperty("enable_vivesranipal_blink")]
+        public bool EnableVivesranipalBlink { get; set; }
+
+        [JsonProperty("vivesranipal_eye_adjust_x")]
+        public decimal? VivesranipalEyeAdjustX { get; set; }
+
+        [JsonProperty("vivesranipal_eye_adjust_y")]
+        public decimal? VivesranipalEyeAdjustY { get; set; }
+
         public sealed class EmbeddedScriptStructure
         {
             [JsonProperty("websocket_console_port")]

@@ -339,7 +339,8 @@
             </i:Interaction.Triggers>
             <StackPanel>
                 <StackPanel HorizontalAlignment="Center">
-                    <TextBlock Style="{StaticResource OtherSettingLabel}">ダイレクトビュー関係</TextBlock>
+                    <TextBlock Style="{StaticResource OtherSettingLabel}">アイトラッキング関係</TextBlock>
+                    <TextBlock Style="{StaticResource OtherSettingLabel}">/ ダイレクトビュー関係</TextBlock>
                     <TextBlock Style="{StaticResource OtherSettingLabel}">の設定</TextBlock>
                 </StackPanel>
             </StackPanel>

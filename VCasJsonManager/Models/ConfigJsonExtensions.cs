@@ -51,6 +51,10 @@ namespace VCasJsonManager.Models
                 DirectViewMode = self.Mode == ConfigJsonStructure.DirectViewModeKey,
                 DirectViewTalk = self.DirectViewTalk,
                 LookingGlass = self.EnableLookingGlass,
+                VivesranipalEye = self.EnableVivesranipalEye,
+                VivesranipalBlink = self.EnableVivesranipalBlink,
+                VivesranipalX = self.VivesranipalEyeAdjustX,
+                VivesranipalY = self.VivesranipalEyeAdjustY,
                 ScriptWebSocketConsolePort = self.EmbeddedScript?.WebsocketConsolePort,
                 ScriptVrDebug = self.EmbeddedScript?.VrDebug ?? false,
                 ScriptMoonsharpDebuggerPort = self.EmbeddedScript?.MoonsharpDebuggerPort,
@@ -92,6 +96,10 @@ namespace VCasJsonManager.Models
             ret.Mode = self.DirectViewMode ? ConfigJsonStructure.DirectViewModeKey : null;
             ret.DirectViewTalk = self.DirectViewTalk;
             ret.EnableLookingGlass = self.LookingGlass;
+            ret.EnableVivesranipalEye = self.VivesranipalEye;
+            ret.EnableVivesranipalBlink = self.VivesranipalBlink;
+            ret.VivesranipalEyeAdjustX = self.VivesranipalX;
+            ret.VivesranipalEyeAdjustY = self.VivesranipalY;
             ret.EmbeddedScript.WebsocketConsolePort = self.ScriptWebSocketConsolePort;
             ret.EmbeddedScript.VrDebug = self.ScriptVrDebug;
             ret.EmbeddedScript.MoonsharpDebuggerPort = self.ScriptMoonsharpDebuggerPort;
