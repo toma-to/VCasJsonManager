@@ -7,7 +7,6 @@ using Newtonsoft.Json;
 using PropertyChanged;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
-using System.IO;
 
 namespace VCasJsonManager.Models.Settings
 {
@@ -33,18 +32,18 @@ namespace VCasJsonManager.Models.Settings
         /// config.jsonのパス
         /// </summary>
         [JsonIgnore]
-        [DependsOn(nameof(VirtualCastFolderPath))]
+        [DependsOn(nameof(ConfigJsonFilePath))]
         public string ConfigJsonPath
         {
             get
             {
-                if (string.IsNullOrEmpty(VirtualCastFolderPath))
+                if (string.IsNullOrEmpty(ConfigJsonFilePath))
                 {
                     return AppSettings.ConfigJsonPath;
                 }
                 else
                 {
-                    return Path.Combine(VirtualCastFolderPath, AppSettings.ConfigJsonName);
+                    return ConfigJsonFilePath;
                 }
             }
         }
@@ -53,26 +52,31 @@ namespace VCasJsonManager.Models.Settings
         /// VirtualCastの実行ファイルのパス
         /// </summary>
         [JsonIgnore]
-        [DependsOn(nameof(VirtualCastFolderPath))]
+        [DependsOn(nameof(RunVirtualCastPath))]
         public string VirtualCastExePath
         {
             get
             {
-                if (string.IsNullOrEmpty(VirtualCastFolderPath))
+                if (string.IsNullOrEmpty(RunVirtualCastPath))
                 {
                     return AppSettings.VirtualCastExePath;
                 }
                 else
                 {
-                    return Path.Combine(VirtualCastFolderPath, AppSettings.VirtualCastExeName);
+                    return RunVirtualCastPath;
                 }
             }
         }
 
         /// <summary>
-        /// VirtualCastフォルダーのパス
+        /// VirtualCast起動パス
         /// </summary>
-        public string VirtualCastFolderPath { get; set; }
+        public string RunVirtualCastPath { get; set; }
+
+        /// <summary>
+        /// config.jsonファイルのパス
+        /// </summary>
+        public string ConfigJsonFilePath { get; set; }
 
         /// <summary>
         /// プリセット情報の配列

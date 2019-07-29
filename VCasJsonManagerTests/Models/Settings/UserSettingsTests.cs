@@ -37,15 +37,15 @@ namespace VCasJsonManager.Models.Settings.Tests
         [TestMethod()]
         public void VirtualCastExePathTest_設定あり()
         {
-            target.VirtualCastFolderPath = @"C:\work";
+            target.RunVirtualCastPath = @"C:\work";
 
-            Assert.AreEqual(@"C:\work\VirtualCast.exe", target.VirtualCastExePath);
+            Assert.AreEqual(@"C:\work", target.VirtualCastExePath);
         }
 
         [TestMethod()]
         public void VirtualCastExePathTest_設定なし()
         {
-            target.VirtualCastFolderPath = null;
+            target.RunVirtualCastPath = null;
 
             Assert.AreEqual(@"C:\VCas\VC.exe", target.VirtualCastExePath);
         }
@@ -53,15 +53,16 @@ namespace VCasJsonManager.Models.Settings.Tests
         [TestMethod()]
         public void ConfigJsonPathTest_設定あり()
         {
-            target.VirtualCastFolderPath = @"C:\work";
+            target.RunVirtualCastPath = @"C:\work";
+            target.ConfigJsonFilePath = @"C:\jsonfolder";
 
-            Assert.AreEqual(@"C:\work\config.json", target.ConfigJsonPath);
+            Assert.AreEqual(@"C:\jsonfolder", target.ConfigJsonPath);
         }
 
         [TestMethod()]
         public void ConfigJsonPathTest_設定なし()
         {
-            target.VirtualCastFolderPath = null;
+            target.RunVirtualCastPath = null;
 
             Assert.AreEqual(@"C:\VCas\\conf.json", target.ConfigJsonPath);
         }
