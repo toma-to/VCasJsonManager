@@ -214,7 +214,7 @@ namespace VCasJsonManagerTests
  
         ""enable_nicovideo_chromakey"": false,
 
-        ""capture_format"": ""png""
+        ""capture_format"": ""PNG""
     },
     ""studio"": {
         ""allow_direct_view"": false
