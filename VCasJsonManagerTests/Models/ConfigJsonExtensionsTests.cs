@@ -585,7 +585,7 @@ namespace VCasJsonManager.Models.Tests
             Assert.IsFalse(result.Item.HideCameraFromViewrs);
             Assert.IsFalse(result.Item.EnableDisplaycaptureChromarkey);
             Assert.IsFalse(result.Item.EnableNicovideoChromakey);
-            Assert.AreEqual("png", result.Item.CaptureFormat);
+            Assert.AreEqual("PNG", result.Item.CaptureFormat);
             Assert.IsFalse(result.Studio.AllowDirectView);
             Assert.IsFalse(result.Humanoid.UseFastSpringBone);
             Assert.IsNull(result.Mode);

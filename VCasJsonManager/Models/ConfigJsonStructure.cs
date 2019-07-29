@@ -106,7 +106,7 @@ namespace VCasJsonManager.Models
         }
 
         [JsonIgnore]
-        public static string CaptureFormatPngKey { get; } = "png";
+        public static string CaptureFormatPngKey { get; } = "PNG";
 
         [JsonProperty("item")]
         public ItemStructure Item { get; set; } = new ItemStructure();
