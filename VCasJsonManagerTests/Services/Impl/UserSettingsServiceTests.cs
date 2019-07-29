@@ -63,13 +63,15 @@ namespace VCasJsonManager.Services.Impl.Tests
                     FileName = "Preset3_3.json",
                 },
             });
-            target.UserSettings.VirtualCastFolderPath = @"C:\work";
+            target.UserSettings.RunVirtualCastPath = @"C:\work";
+            target.UserSettings.ConfigJsonFilePath = @"C:\jsonfolder";
 
             await target.SaveAsync();
 
             var expected = @"
 {
-    ""VirtualCastFolderPath"": ""C:\\work"",
+    ""RunVirtualCastPath"": ""C:\\work"",
+    ""ConfigJsonFilePath"": ""C:\\jsonfolder"",
     ""PresetInfos"": [
         {
             ""Id"": ""1"",
@@ -135,7 +137,8 @@ namespace VCasJsonManager.Services.Impl.Tests
         {
             var input = @"
 {
-    ""VirtualCastFolderPath"": ""C:\\work"",
+    ""RunVirtualCastPath"": ""C:\\work"",
+    ""ConfigJsonFilePath"": ""C:\\jsonfolder"",
     ""PresetInfos"": [
         {
             ""Id"": ""1"",
@@ -164,7 +167,8 @@ namespace VCasJsonManager.Services.Impl.Tests
             Assert.IsFalse(target.UserSettings.ConvertGoogleDriveUri);
             Assert.IsFalse(target.UserSettings.MergeUnknownJsonProperty);
             Assert.IsTrue(target.UserSettings.ExitWhenVirtulCastLaunched);
-            Assert.AreEqual(@"C:\work", target.UserSettings.VirtualCastFolderPath);
+            Assert.AreEqual(@"C:\work", target.UserSettings.RunVirtualCastPath);
+            Assert.AreEqual(@"C:\jsonfolder", target.UserSettings.ConfigJsonFilePath);
             CollectionAssert.AreEqual(new[] { "1", "2", "3" }, target.UserSettings.PresetInfos.Select(e => e.Id).ToArray());
             CollectionAssert.AreEqual(new[] { "Preset1", "Preset2", "Preset3" }, target.UserSettings.PresetInfos.Select(e => e.Name).ToArray());
             CollectionAssert.AreEqual(new[] { "Preset1_1.json", "Preset2_2.json", "Preset3_3.json" },

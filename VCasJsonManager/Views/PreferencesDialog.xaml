@@ -9,6 +9,7 @@
         xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
         xmlns:ei="http://schemas.microsoft.com/expression/2010/interactions"
         xmlns:l="http://schemas.livet-mvvm.net/2011/wpf"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:v="clr-namespace:VCasJsonManager.Views"
         xmlns:vm="clr-namespace:VCasJsonManager.ViewModels"
         Title="動作設定" Width="600"
@@ -28,25 +29,49 @@
                   IsChecked="{Binding ExitWhenVCasLaunched}"
                   Content="VirtualCast起動後にアプリケーションを終了"
                   ToolTip="このチェックボックスをONにすると、VirtualCastを起動した後にVCasJsonManagerを終了します。"/>
+        <Grid Margin="10,20,10,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Grid.Column="0" VerticalAlignment="Bottom" Text="VirtualCastの起動パス" Width="120"/>
+            <TextBox Grid.Column="1"
+                     Text="{Binding RunVcasPath}"
+                     MaxLength="1000"
+                     Margin="5,0"
+                     materialDesign:HintAssist.Hint="VirtualCast.exeのパス、またはsteam://rungameid/xxxxx"/>
+            <Button Grid.Column="2" Content="..." VerticalAlignment="Center">
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="Click">
+                        <l:OpenFileDialogInteractionMessageAction>
+                            <l:DirectInteractionMessage CallbackMethodName="VCasExeSelected" CallbackMethodTarget="{Binding}">
+                                <l:OpeningFileSelectionMessage Title="VirtualCast.exeの選択" Filter=".exe|*.exe" FileName="VirtualCast.exe"/>
+                            </l:DirectInteractionMessage>
+                        </l:OpenFileDialogInteractionMessageAction>
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+            </Button>
+        </Grid>
         <Grid Margin="10,20">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="Auto"/>
             </Grid.ColumnDefinitions>
-            <TextBlock Grid.Column="0" VerticalAlignment="Bottom" Text="VirtualCastのフォルダー"/>
+            <TextBlock Grid.Column="0" VerticalAlignment="Bottom" Text="config.jsonのパス" Width="120"/>
             <TextBox Grid.Column="1"
-                     Text="{Binding VCasFolderPath}"
+                     Text="{Binding ConfigJsonPath}"
                      MaxLength="1000"
                      Margin="5,0"/>
             <Button Grid.Column="2" Content="..." VerticalAlignment="Center">
                 <i:Interaction.Triggers>
                     <i:EventTrigger EventName="Click">
-                        <l:FolderBrowserDialogInteractionMessageAction>
-                            <l:DirectInteractionMessage CallbackMethodName="VCasFolderSelected" CallbackMethodTarget="{Binding}">
-                                <l:FolderSelectionMessage Description="VirtualCastフォルダーの選択" DialogPreference="None" />
+                        <l:OpenFileDialogInteractionMessageAction>
+                            <l:DirectInteractionMessage CallbackMethodName="ConfigJsonSelected" CallbackMethodTarget="{Binding}">
+                                <l:OpeningFileSelectionMessage Title="config.jsonの選択" Filter=".json|*.json" FileName="config.json"/>
                             </l:DirectInteractionMessage>
-                        </l:FolderBrowserDialogInteractionMessageAction>
+                        </l:OpenFileDialogInteractionMessageAction>
                     </i:EventTrigger>
                 </i:Interaction.Triggers>
             </Button>

@@ -5,6 +5,7 @@
 //
 using Livet.EventListeners;
 using Livet.Messaging.IO;
+using System.Linq;
 using PropertyChanged;
 using VCasJsonManager.Models.Settings;
 using VCasJsonManager.Services;
@@ -27,10 +28,16 @@ namespace VCasJsonManager.ViewModels
         private UserSettings UserSettings => UserSettingsService.UserSettings;
 
         /// <summary>
-        /// VirtualCastフォルダーパス
+        /// VirtualCast起動パス
         /// </summary>
         [DoNotNotify]
-        public string VCasFolderPath { get => UserSettings.VirtualCastFolderPath; set => UserSettings.VirtualCastFolderPath = value; }
+        public string RunVcasPath { get => UserSettings.RunVirtualCastPath; set => UserSettings.RunVirtualCastPath = value; }
+
+        /// <summary>
+        /// config.jsonファイルパス
+        /// </summary>
+        [DoNotNotify]
+        public string ConfigJsonPath { get => UserSettings.ConfigJsonFilePath; set => UserSettings.ConfigJsonFilePath = value; }
 
         /// <summary>
         /// バーチャルキャスト起動時に終了
@@ -50,7 +57,8 @@ namespace VCasJsonManager.ViewModels
         {
             UserSettingsService = userSettingsService;
 
-            AddMapping(nameof(UserSettings.VirtualCastFolderPath), nameof(VCasFolderPath));
+            AddMapping(nameof(UserSettings.RunVirtualCastPath), nameof(RunVcasPath));
+            AddMapping(nameof(UserSettings.ConfigJsonFilePath), nameof(ConfigJsonPath));
             AddMapping(nameof(UserSettings.ExitWhenVirtulCastLaunched), nameof(ExitWhenVCasLaunched));
 
             CompositeDisposable.Add(new PropertyChangedEventListener(UserSettings)
@@ -60,14 +68,26 @@ namespace VCasJsonManager.ViewModels
         }
 
         /// <summary>
-        /// バーチャルキャストフォルダ選択
+        /// バーチャルキャストファイル選択
         /// </summary>
         /// <param name="message"></param>
-        public void VCasFolderSelected(FolderSelectionMessage message)
+        public void VCasExeSelected(OpeningFileSelectionMessage message)
         {
-            if (!string.IsNullOrWhiteSpace(message.Response))
+            if (!string.IsNullOrWhiteSpace(message.Response?.FirstOrDefault()))
             {
-                VCasFolderPath = message.Response;
+                RunVcasPath = message.Response.FirstOrDefault();
+            }
+        }
+
+        /// <summary>
+        /// config.jsonファイル選択
+        /// </summary>
+        /// <param name="message"></param>
+        public void ConfigJsonSelected(OpeningFileSelectionMessage message)
+        {
+            if (!string.IsNullOrWhiteSpace(message.Response?.FirstOrDefault()))
+            {
+                ConfigJsonPath = message.Response.FirstOrDefault();
             }
         }
 
