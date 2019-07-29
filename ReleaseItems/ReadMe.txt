@@ -1,12 +1,12 @@
 ========== ========== ==========
- VCasJsonManager v1.3.2.7
+ VCasJsonManager v1.3.3.8
  Copyright © 2019 TOMA 
 ========== ========== ==========
 
 【 ソフト名 】VCasJsonManager
 【ライセンス】MIT License
 【 動作環境 】Windows10
-【バージョン】1.3.2.7
+【バージョン】1.3.3.8
 
 ---------- ----------
 ◇ 概要 ◇
@@ -16,7 +16,7 @@
 
 ◇ 動作条件 ◇
 Windows10
-作成するconfig.jsonは、VirtualCast1.6.3aに対応しています。
+作成するconfig.jsonは、VirtualCast1.7.0aに対応しています。
 
 ◇ インストール ◇
 お好きなフォルダに展開してください。
@@ -29,7 +29,7 @@ VCasJsonManagerフォルダー内のVCasJsonManager.exeを実行すると起動�
 
 ◇ 使い方 ◇
 ※VirtualCastのconfig.jsonを作成済みの方は、事前にバックアップを取っておくことをお勧めします。
-起動後は、右上の歯車アイコンをクリックし、設定画面にてVirtualCastのフォルダーを指定してください。
+起動後は、右上の歯車アイコンをクリックし、設定画面にてVirtualCast.exeとconfig.jsonのパスを指定してください。
 その他の操作については、同梱の「マニュアル.pdf」を参照してください。
 
 ◇ ライセンス ◇
@@ -39,6 +39,10 @@ VCasJsonManagerフォルダー内のVCasJsonManager.exeを実行すると起動�
 参考にしてください。
 
 ◇ 更新履歴 ◇
+
+v1.3.3.8 - 2019/7/29
+VirtualCast1.7.0a対応
+・VirtualCastの起動パスとconfig.jsonのパスを個別に設定できるよう修正。
 
 v1.3.2.7 - 2019/6/30
 アイトラッキング設定対応

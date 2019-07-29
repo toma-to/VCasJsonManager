@@ -1,7 +1,9 @@
 # VCasJsonManager
+
 VirtualCastのconfig.jsonを管理するツール
 
 ## 概要
+
 VirtualCastのconifg.jsonを管理するツールです。  
 config.jsonの複数パターンの設定内容をプリセットして保存することで、
 数クリックでconfig.jsonの内容を切り替えて、VirtualCastを起動することができます。
@@ -12,22 +14,27 @@ config.jsonの複数パターンの設定内容をプリセットして保存す
 ![メイン画面](https://github.com/toma-to/VCasJsonManager/blob/master/ReleaseItems/Manual/Image/MainWindow.png?raw=true)
 
 ## 動作環境
+
 Windows10  
-出力するconfig.jsonはVirtualCast1.6.3aに対応しています。
+出力するconfig.jsonはVirtualCast1.7.0aに対応しています。
 
 ## 利用方法
+
 ReadMe.txt及びManual.md/Manual.pdfを参照してください。
 
 ## ライセンス
+
 本ソフトウェアはMIT Licenseにて公開しています。
 
 ## Contribution
+
 Pull RequestやIssueにてお願いします。  
 開発者でなくGitHubアカウントをお持ちでない方は、以下のDiscordサーバーでもバグ報告、要望を
 受け付けています。  
 [https://discord.gg/zf2T3fD](https://discord.gg/zf2T3fD)
 
 ## 使用ライブラリ
+
 本ソフトウェアでは以下のライブラリを使用しています。
 
 [Livet](https://github.com/ugaya40/Livet) - [zlib/libpng license.]
