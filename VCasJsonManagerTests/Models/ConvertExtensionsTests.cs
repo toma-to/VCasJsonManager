@@ -94,5 +94,28 @@ namespace VCasJsonManager.Models.Tests
             CollectionAssert.AreEqual(expectedFront, result.Select(e => e.FrontSide).ToArray());
             CollectionAssert.AreEqual(expectedBack, result.Select(e => e.BackSide).ToArray());
         }
+
+        [DataTestMethod()]
+        [DataRow(CaptureResolution.HD, "HD")]
+        [DataRow(CaptureResolution.FHD, null)]
+        [DataRow(CaptureResolution.WQHD, "WQHD")]
+        [DataRow(CaptureResolution.UHD4K, "4KUHD")]
+        [DataRow((CaptureResolution)200, null)]
+        public void ToResolutionStringTest(CaptureResolution input, string expected)
+        {
+            var result = input.ToResolutionString();
+            Assert.AreEqual(expected, result);
+        }
+
+        [DataTestMethod()]
+        [DataRow("HD", CaptureResolution.HD)]
+        [DataRow(null, CaptureResolution.FHD)]
+        [DataRow("WQHD", CaptureResolution.WQHD)]
+        [DataRow("4KUHD", CaptureResolution.UHD4K)]
+        public void FromResolutionStringTest(string input, CaptureResolution expected)
+        {
+            var result = input.FromResolutionString();
+            Assert.AreEqual(expected, result);
+        }
     }
 }

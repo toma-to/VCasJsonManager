@@ -28,7 +28,6 @@ namespace VCasJsonManager.Models.Tests
             input.Niconico.CharacterModels = new[] { 111, 222, 333 };
             input.Niconico.BackgroundModels = new[] { 123, 456 };
             input.Niconico.MylistIds = new[] { 1, 2, 3, 4 };
-            input.Niconico.NiconareIds = new[] { 10, 11 };
             input.Niconico.BroadcasterComments = new[] { "放送者コメント", "Hogehoge" };
             input.Niconico.NgScoreThreshold = -100;
             input.Background.Panorama.SourceUrls = new[] { "http://background.foo", "http://background.bar" };
@@ -43,6 +42,7 @@ namespace VCasJsonManager.Models.Tests
             input.Item.EnableNicovideoChromakey = true;
             input.Item.EnableDisplaycaptureChromarkey = true;
             input.Item.CaptureFormat = "png";
+            input.Item.CaptureResolution = "4KUHD";
             input.Studio.AllowDirectView = true;
             input.Humanoid.UseFastSpringBone = true;
             input.Mode = "direct-view";
@@ -52,6 +52,8 @@ namespace VCasJsonManager.Models.Tests
             input.EnableVivesranipalBlink = true;
             input.VivesranipalEyeAdjustX = (decimal)2.0;
             input.VivesranipalEyeAdjustY = (decimal)1.0;
+            input.EnableVivesranipalEyeWithEmothion = true;
+            input.EnableVivesranipalLip = true;
             input.EmbeddedScript.WebsocketConsolePort = 1111;
             input.EmbeddedScript.VrDebug = true;
             input.EmbeddedScript.MoonsharpDebuggerPort = 2222;
@@ -62,7 +64,6 @@ namespace VCasJsonManager.Models.Tests
             CollectionAssert.AreEqual(new[] { 111, 222, 333 }, result.CharacterModels);
             CollectionAssert.AreEqual(new[] { 123, 456 }, result.BackgroundModels);
             CollectionAssert.AreEqual(new[] { 1, 2, 3, 4 }, result.MylistIds);
-            CollectionAssert.AreEqual(new[] { 10, 11 }, result.NiconareIds);
             CollectionAssert.AreEqual(new[] { "放送者コメント", "Hogehoge" }, result.BroadcasterComments);
             Assert.AreEqual(-100, result.NgScoreThreshold);
             CollectionAssert.AreEqual(new[] { new Uri("http://background.foo"), new Uri("http://background.bar") }, result.BackgroundUrls);
@@ -79,6 +80,7 @@ namespace VCasJsonManager.Models.Tests
             Assert.IsTrue(result.NicovideoChromaky);
             Assert.IsTrue(result.DisplaycaptureChromaky);
             Assert.IsTrue(result.PngCaptureFormat);
+            Assert.AreEqual(CaptureResolution.UHD4K, result.CaptureResolution);
             Assert.IsTrue(result.AllowDirectView);
             Assert.IsTrue(result.UseFastSpringBone);
             Assert.IsTrue(result.DirectViewMode);
@@ -88,6 +90,8 @@ namespace VCasJsonManager.Models.Tests
             Assert.IsTrue(result.VivesranipalBlink);
             Assert.AreEqual((decimal)2.0, result.VivesranipalX);
             Assert.AreEqual((decimal)1.0, result.VivesranipalY);
+            Assert.IsTrue(result.VivesranipalEyeWithEmothion);
+            Assert.IsTrue(result.VivesranipalLip);
             Assert.AreEqual(1111, result.ScriptWebSocketConsolePort);
             Assert.IsTrue(result.ScriptVrDebug);
             Assert.AreEqual(2222, result.ScriptMoonsharpDebuggerPort);
@@ -101,7 +105,6 @@ namespace VCasJsonManager.Models.Tests
             Assert.IsFalse(result.CharacterModels.Any());
             Assert.IsFalse(result.BackgroundModels.Any());
             Assert.IsFalse(result.MylistIds.Any());
-            Assert.IsFalse(result.NiconareIds.Any());
             Assert.IsFalse(result.BroadcasterComments.Any());
             Assert.IsNull(result.NgScoreThreshold);
             Assert.IsFalse(result.BackgroundUrls.Any());
@@ -116,6 +119,7 @@ namespace VCasJsonManager.Models.Tests
             Assert.IsFalse(result.NicovideoChromaky);
             Assert.IsFalse(result.DisplaycaptureChromaky);
             Assert.IsFalse(result.PngCaptureFormat);
+            Assert.AreEqual(CaptureResolution.FHD, result.CaptureResolution);
             Assert.IsFalse(result.AllowDirectView);
             Assert.IsFalse(result.UseFastSpringBone);
             Assert.IsFalse(result.DirectViewMode);
@@ -125,6 +129,8 @@ namespace VCasJsonManager.Models.Tests
             Assert.IsFalse(result.VivesranipalBlink);
             Assert.IsNull(result.VivesranipalX);
             Assert.IsNull(result.VivesranipalY);
+            Assert.IsFalse(result.VivesranipalEyeWithEmothion);
+            Assert.IsFalse(result.VivesranipalLip);
             Assert.IsNull(result.ScriptWebSocketConsolePort);
             Assert.IsFalse(result.ScriptVrDebug);
             Assert.IsNull(result.ScriptMoonsharpDebuggerPort);
@@ -146,7 +152,6 @@ namespace VCasJsonManager.Models.Tests
             Assert.IsFalse(result.CharacterModels.Any());
             Assert.IsFalse(result.BackgroundModels.Any());
             Assert.IsFalse(result.MylistIds.Any());
-            Assert.IsFalse(result.NiconareIds.Any());
             Assert.IsFalse(result.BroadcasterComments.Any());
             Assert.IsNull(result.NgScoreThreshold);
             Assert.IsFalse(result.BackgroundUrls.Any());
@@ -161,6 +166,7 @@ namespace VCasJsonManager.Models.Tests
             Assert.IsFalse(result.NicovideoChromaky);
             Assert.IsFalse(result.DisplaycaptureChromaky);
             Assert.IsFalse(result.PngCaptureFormat);
+            Assert.AreEqual(CaptureResolution.FHD, result.CaptureResolution);
             Assert.IsFalse(result.AllowDirectView);
             Assert.IsFalse(result.UseFastSpringBone);
             Assert.IsFalse(result.DirectViewMode);
@@ -170,6 +176,8 @@ namespace VCasJsonManager.Models.Tests
             Assert.IsFalse(result.VivesranipalBlink);
             Assert.IsNull(result.VivesranipalX);
             Assert.IsNull(result.VivesranipalY);
+            Assert.IsFalse(result.VivesranipalEyeWithEmothion);
+            Assert.IsFalse(result.VivesranipalLip);
             Assert.IsNull(result.ScriptWebSocketConsolePort);
             Assert.IsFalse(result.ScriptVrDebug);
             Assert.IsNull(result.ScriptMoonsharpDebuggerPort);
@@ -187,7 +195,6 @@ namespace VCasJsonManager.Models.Tests
             Assert.IsFalse(result.CharacterModels.Any());
             Assert.IsFalse(result.BackgroundModels.Any());
             Assert.IsFalse(result.MylistIds.Any());
-            Assert.IsFalse(result.NiconareIds.Any());
             Assert.IsFalse(result.BroadcasterComments.Any());
             Assert.IsNull(result.NgScoreThreshold);
             Assert.IsFalse(result.BackgroundUrls.Any());
@@ -202,6 +209,7 @@ namespace VCasJsonManager.Models.Tests
             Assert.IsFalse(result.NicovideoChromaky);
             Assert.IsFalse(result.DisplaycaptureChromaky);
             Assert.IsFalse(result.PngCaptureFormat);
+            Assert.AreEqual(CaptureResolution.FHD, result.CaptureResolution);
             Assert.IsFalse(result.AllowDirectView);
             Assert.IsFalse(result.UseFastSpringBone);
             Assert.IsFalse(result.DirectViewMode);
@@ -211,6 +219,8 @@ namespace VCasJsonManager.Models.Tests
             Assert.IsFalse(result.VivesranipalBlink);
             Assert.IsNull(result.VivesranipalX);
             Assert.IsNull(result.VivesranipalY);
+            Assert.IsFalse(result.VivesranipalEyeWithEmothion);
+            Assert.IsFalse(result.VivesranipalLip);
             Assert.IsNull(result.ScriptWebSocketConsolePort);
             Assert.IsFalse(result.ScriptVrDebug);
             Assert.IsNull(result.ScriptMoonsharpDebuggerPort);
@@ -235,6 +245,8 @@ namespace VCasJsonManager.Models.Tests
             Assert.IsFalse(result.LookingGlass);
             Assert.IsFalse(result.VivesranipalEye);
             Assert.IsFalse(result.VivesranipalBlink);
+            Assert.IsFalse(result.VivesranipalEyeWithEmothion);
+            Assert.IsFalse(result.VivesranipalLip);
             Assert.IsFalse(result.ScriptVrDebug);
         }
 
@@ -256,6 +268,8 @@ namespace VCasJsonManager.Models.Tests
             Assert.IsFalse(result.LookingGlass);
             Assert.IsFalse(result.VivesranipalEye);
             Assert.IsFalse(result.VivesranipalBlink);
+            Assert.IsFalse(result.VivesranipalEyeWithEmothion);
+            Assert.IsFalse(result.VivesranipalLip);
             Assert.IsFalse(result.ScriptVrDebug);
         }
 
@@ -277,6 +291,8 @@ namespace VCasJsonManager.Models.Tests
             Assert.IsFalse(result.LookingGlass);
             Assert.IsFalse(result.VivesranipalEye);
             Assert.IsFalse(result.VivesranipalBlink);
+            Assert.IsFalse(result.VivesranipalEyeWithEmothion);
+            Assert.IsFalse(result.VivesranipalLip);
             Assert.IsFalse(result.ScriptVrDebug);
         }
 
@@ -298,6 +314,8 @@ namespace VCasJsonManager.Models.Tests
             Assert.IsFalse(result.LookingGlass);
             Assert.IsFalse(result.VivesranipalEye);
             Assert.IsFalse(result.VivesranipalBlink);
+            Assert.IsFalse(result.VivesranipalEyeWithEmothion);
+            Assert.IsFalse(result.VivesranipalLip);
             Assert.IsFalse(result.ScriptVrDebug);
         }
 
@@ -319,6 +337,8 @@ namespace VCasJsonManager.Models.Tests
             Assert.IsFalse(result.LookingGlass);
             Assert.IsFalse(result.VivesranipalEye);
             Assert.IsFalse(result.VivesranipalBlink);
+            Assert.IsFalse(result.VivesranipalEyeWithEmothion);
+            Assert.IsFalse(result.VivesranipalLip);
             Assert.IsFalse(result.ScriptVrDebug);
         }
 
@@ -340,6 +360,8 @@ namespace VCasJsonManager.Models.Tests
             Assert.IsFalse(result.LookingGlass);
             Assert.IsFalse(result.VivesranipalEye);
             Assert.IsFalse(result.VivesranipalBlink);
+            Assert.IsFalse(result.VivesranipalEyeWithEmothion);
+            Assert.IsFalse(result.VivesranipalLip);
             Assert.IsFalse(result.ScriptVrDebug);
         }
 
@@ -361,6 +383,8 @@ namespace VCasJsonManager.Models.Tests
             Assert.IsTrue(result.LookingGlass);
             Assert.IsFalse(result.VivesranipalEye);
             Assert.IsFalse(result.VivesranipalBlink);
+            Assert.IsFalse(result.VivesranipalEyeWithEmothion);
+            Assert.IsFalse(result.VivesranipalLip);
             Assert.IsFalse(result.ScriptVrDebug);
         }
 
@@ -382,6 +406,8 @@ namespace VCasJsonManager.Models.Tests
             Assert.IsFalse(result.LookingGlass);
             Assert.IsTrue(result.VivesranipalEye);
             Assert.IsFalse(result.VivesranipalBlink);
+            Assert.IsFalse(result.VivesranipalEyeWithEmothion);
+            Assert.IsFalse(result.VivesranipalLip);
             Assert.IsFalse(result.ScriptVrDebug);
         }
 
@@ -403,6 +429,54 @@ namespace VCasJsonManager.Models.Tests
             Assert.IsFalse(result.LookingGlass);
             Assert.IsFalse(result.VivesranipalEye);
             Assert.IsTrue(result.VivesranipalBlink);
+            Assert.IsFalse(result.VivesranipalEyeWithEmothion);
+            Assert.IsFalse(result.VivesranipalLip);
+            Assert.IsFalse(result.ScriptVrDebug);
+        }
+
+        [DataTestMethod()]
+        public void FlattenTest_VivesranipalEyeWithEmothion()
+        {
+            var input = new ConfigJsonStructure();
+            input.EnableVivesranipalEyeWithEmothion = true;
+            var result = input.Flatten();
+
+            Assert.IsFalse(result.HideCameraFromViewers);
+            Assert.IsFalse(result.NicovideoChromaky);
+            Assert.IsFalse(result.DisplaycaptureChromaky);
+            Assert.IsFalse(result.PngCaptureFormat);
+            Assert.IsFalse(result.AllowDirectView);
+            Assert.IsFalse(result.UseFastSpringBone);
+            Assert.IsFalse(result.DirectViewMode);
+            Assert.IsFalse(result.DirectViewTalk);
+            Assert.IsFalse(result.LookingGlass);
+            Assert.IsFalse(result.VivesranipalEye);
+            Assert.IsFalse(result.VivesranipalBlink);
+            Assert.IsTrue(result.VivesranipalEyeWithEmothion);
+            Assert.IsFalse(result.VivesranipalLip);
+            Assert.IsFalse(result.ScriptVrDebug);
+        }
+
+        [DataTestMethod()]
+        public void FlattenTest_VivesranipalLip()
+        {
+            var input = new ConfigJsonStructure();
+            input.EnableVivesranipalLip = true;
+            var result = input.Flatten();
+
+            Assert.IsFalse(result.HideCameraFromViewers);
+            Assert.IsFalse(result.NicovideoChromaky);
+            Assert.IsFalse(result.DisplaycaptureChromaky);
+            Assert.IsFalse(result.PngCaptureFormat);
+            Assert.IsFalse(result.AllowDirectView);
+            Assert.IsFalse(result.UseFastSpringBone);
+            Assert.IsFalse(result.DirectViewMode);
+            Assert.IsFalse(result.DirectViewTalk);
+            Assert.IsFalse(result.LookingGlass);
+            Assert.IsFalse(result.VivesranipalEye);
+            Assert.IsFalse(result.VivesranipalBlink);
+            Assert.IsFalse(result.VivesranipalEyeWithEmothion);
+            Assert.IsTrue(result.VivesranipalLip);
             Assert.IsFalse(result.ScriptVrDebug);
         }
 
@@ -424,6 +498,8 @@ namespace VCasJsonManager.Models.Tests
             Assert.IsFalse(result.LookingGlass);
             Assert.IsFalse(result.VivesranipalEye);
             Assert.IsFalse(result.VivesranipalBlink);
+            Assert.IsFalse(result.VivesranipalEyeWithEmothion);
+            Assert.IsFalse(result.VivesranipalLip);
             Assert.IsTrue(result.ScriptVrDebug);
         }
 
@@ -435,7 +511,6 @@ namespace VCasJsonManager.Models.Tests
                 CharacterModels = new ObservableCollection<int>(new[] { 111, 222 }),
                 BackgroundModels = new ObservableCollection<int>(new[] { 123, 456 }),
                 MylistIds = new ObservableCollection<int>(new[] { 11, 22 }),
-                NiconareIds = new ObservableCollection<int>(new[] { 33, 44 }),
                 BroadcasterComments = new ObservableCollection<string>(new[] { "Foo", "Bar" }),
                 NgScoreThreshold = -100,
                 BackgroundUrls = new ObservableCollection<Uri>(new[] { new Uri("http://background.foo"), new Uri("http://background.bar") }),
@@ -448,6 +523,8 @@ namespace VCasJsonManager.Models.Tests
                 NicovideoIds = new ObservableCollection<string>(new[] { "tdfoo" }),
                 WhiteboardUrls = new ObservableCollection<Uri>(new[] { new Uri("http://white.foo") }),
                 CueCardUrls = new ObservableCollection<Uri>(new[] { new Uri("http://cue.foo") }),
+                PngCaptureFormat = false,
+                CaptureResolution = CaptureResolution.WQHD,
                 HideCameraFromViewers = false,
                 DisplaycaptureChromaky = false,
                 NicovideoChromaky = false,
@@ -460,6 +537,8 @@ namespace VCasJsonManager.Models.Tests
                 VivesranipalBlink = false,
                 VivesranipalX = (decimal)2.0,
                 VivesranipalY = (decimal)1.0,
+                VivesranipalEyeWithEmothion = false,
+                VivesranipalLip = false,
                 ScriptWebSocketConsolePort = 1111,
                 ScriptVrDebug = false,
                 ScriptMoonsharpDebuggerPort = 2222,
@@ -469,7 +548,6 @@ namespace VCasJsonManager.Models.Tests
             CollectionAssert.AreEqual(new[] { 111, 222 }, result.Niconico.CharacterModels);
             CollectionAssert.AreEqual(new[] { 123, 456 }, result.Niconico.BackgroundModels);
             CollectionAssert.AreEqual(new[] { 11, 22 }, result.Niconico.MylistIds);
-            CollectionAssert.AreEqual(new[] { 33, 44 }, result.Niconico.NiconareIds);
             CollectionAssert.AreEqual(new[] { "Foo", "Bar" }, result.Niconico.BroadcasterComments);
             Assert.AreEqual(-100, result.Niconico.NgScoreThreshold);
             CollectionAssert.AreEqual(new[] { "http://background.foo/", "http://background.bar/" }, result.Background.Panorama.SourceUrls);
@@ -486,6 +564,7 @@ namespace VCasJsonManager.Models.Tests
             Assert.IsFalse(result.Item.EnableDisplaycaptureChromarkey);
             Assert.IsFalse(result.Item.EnableNicovideoChromakey);
             Assert.IsNull(result.Item.CaptureFormat);
+            Assert.AreEqual("WQHD", result.Item.CaptureResolution);
             Assert.IsFalse(result.Studio.AllowDirectView);
             Assert.IsFalse(result.Humanoid.UseFastSpringBone);
             Assert.IsNull(result.Mode);
@@ -496,6 +575,8 @@ namespace VCasJsonManager.Models.Tests
             Assert.AreEqual((decimal)2.0, result.VivesranipalEyeAdjustX);
             Assert.AreEqual((decimal)1.0, result.VivesranipalEyeAdjustY);
             Assert.AreEqual(1111, result.EmbeddedScript.WebsocketConsolePort);
+            Assert.IsFalse(result.EnableVivesranipalEyeWithEmothion);
+            Assert.IsFalse(result.EnableVivesranipalLip);
             Assert.IsFalse(result.EmbeddedScript.VrDebug);
             Assert.AreEqual(2222, result.EmbeddedScript.MoonsharpDebuggerPort);
 
@@ -521,6 +602,8 @@ namespace VCasJsonManager.Models.Tests
             Assert.IsFalse(result.EnableLookingGlass);
             Assert.IsFalse(result.EnableVivesranipalEye);
             Assert.IsFalse(result.EnableVivesranipalBlink);
+            Assert.IsFalse(result.EnableVivesranipalEyeWithEmothion);
+            Assert.IsFalse(result.EnableVivesranipalLip);
             Assert.IsFalse(result.EmbeddedScript.VrDebug);
 
         }
@@ -545,6 +628,8 @@ namespace VCasJsonManager.Models.Tests
             Assert.IsFalse(result.EnableLookingGlass);
             Assert.IsFalse(result.EnableVivesranipalEye);
             Assert.IsFalse(result.EnableVivesranipalBlink);
+            Assert.IsFalse(result.EnableVivesranipalEyeWithEmothion);
+            Assert.IsFalse(result.EnableVivesranipalLip);
             Assert.IsFalse(result.EmbeddedScript.VrDebug);
 
         }
@@ -569,6 +654,8 @@ namespace VCasJsonManager.Models.Tests
             Assert.IsFalse(result.EnableLookingGlass);
             Assert.IsFalse(result.EnableVivesranipalEye);
             Assert.IsFalse(result.EnableVivesranipalBlink);
+            Assert.IsFalse(result.EnableVivesranipalEyeWithEmothion);
+            Assert.IsFalse(result.EnableVivesranipalLip);
             Assert.IsFalse(result.EmbeddedScript.VrDebug);
 
         }
@@ -593,6 +680,8 @@ namespace VCasJsonManager.Models.Tests
             Assert.IsFalse(result.EnableLookingGlass);
             Assert.IsFalse(result.EnableVivesranipalEye);
             Assert.IsFalse(result.EnableVivesranipalBlink);
+            Assert.IsFalse(result.EnableVivesranipalEyeWithEmothion);
+            Assert.IsFalse(result.EnableVivesranipalLip);
             Assert.IsFalse(result.EmbeddedScript.VrDebug);
 
         }
@@ -617,6 +706,8 @@ namespace VCasJsonManager.Models.Tests
             Assert.IsFalse(result.EnableLookingGlass);
             Assert.IsFalse(result.EnableVivesranipalEye);
             Assert.IsFalse(result.EnableVivesranipalBlink);
+            Assert.IsFalse(result.EnableVivesranipalEyeWithEmothion);
+            Assert.IsFalse(result.EnableVivesranipalLip);
             Assert.IsFalse(result.EmbeddedScript.VrDebug);
 
         }
@@ -641,6 +732,8 @@ namespace VCasJsonManager.Models.Tests
             Assert.IsFalse(result.EnableLookingGlass);
             Assert.IsFalse(result.EnableVivesranipalEye);
             Assert.IsFalse(result.EnableVivesranipalBlink);
+            Assert.IsFalse(result.EnableVivesranipalEyeWithEmothion);
+            Assert.IsFalse(result.EnableVivesranipalLip);
             Assert.IsFalse(result.EmbeddedScript.VrDebug);
 
         }
@@ -665,6 +758,8 @@ namespace VCasJsonManager.Models.Tests
             Assert.IsFalse(result.EnableLookingGlass);
             Assert.IsFalse(result.EnableVivesranipalEye);
             Assert.IsFalse(result.EnableVivesranipalBlink);
+            Assert.IsFalse(result.EnableVivesranipalEyeWithEmothion);
+            Assert.IsFalse(result.EnableVivesranipalLip);
             Assert.IsFalse(result.EmbeddedScript.VrDebug);
 
         }
@@ -689,6 +784,8 @@ namespace VCasJsonManager.Models.Tests
             Assert.IsFalse(result.EnableLookingGlass);
             Assert.IsFalse(result.EnableVivesranipalEye);
             Assert.IsFalse(result.EnableVivesranipalBlink);
+            Assert.IsFalse(result.EnableVivesranipalEyeWithEmothion);
+            Assert.IsFalse(result.EnableVivesranipalLip);
             Assert.IsFalse(result.EmbeddedScript.VrDebug);
 
         }
@@ -713,6 +810,8 @@ namespace VCasJsonManager.Models.Tests
             Assert.IsTrue(result.EnableLookingGlass);
             Assert.IsFalse(result.EnableVivesranipalEye);
             Assert.IsFalse(result.EnableVivesranipalBlink);
+            Assert.IsFalse(result.EnableVivesranipalEyeWithEmothion);
+            Assert.IsFalse(result.EnableVivesranipalLip);
             Assert.IsFalse(result.EmbeddedScript.VrDebug);
 
         }
@@ -737,6 +836,8 @@ namespace VCasJsonManager.Models.Tests
             Assert.IsFalse(result.EnableLookingGlass);
             Assert.IsTrue(result.EnableVivesranipalEye);
             Assert.IsFalse(result.EnableVivesranipalBlink);
+            Assert.IsFalse(result.EnableVivesranipalEyeWithEmothion);
+            Assert.IsFalse(result.EnableVivesranipalLip);
             Assert.IsFalse(result.EmbeddedScript.VrDebug);
 
         }
@@ -761,6 +862,60 @@ namespace VCasJsonManager.Models.Tests
             Assert.IsFalse(result.EnableLookingGlass);
             Assert.IsFalse(result.EnableVivesranipalEye);
             Assert.IsTrue(result.EnableVivesranipalBlink);
+            Assert.IsFalse(result.EnableVivesranipalEyeWithEmothion);
+            Assert.IsFalse(result.EnableVivesranipalLip);
+            Assert.IsFalse(result.EmbeddedScript.VrDebug);
+
+        }
+
+        [TestMethod()]
+        public void ToStructureTest_VivesranipalEyeWithEmothion()
+        {
+            var input = new ConfigJson()
+            {
+                VivesranipalEyeWithEmothion = true,
+            };
+            var result = input.ToStructure();
+
+            Assert.IsFalse(result.Item.HideCameraFromViewrs);
+            Assert.IsFalse(result.Item.EnableDisplaycaptureChromarkey);
+            Assert.IsFalse(result.Item.EnableNicovideoChromakey);
+            Assert.IsNull(result.Item.CaptureFormat);
+            Assert.IsFalse(result.Studio.AllowDirectView);
+            Assert.IsFalse(result.Humanoid.UseFastSpringBone);
+            Assert.IsNull(result.Mode);
+            Assert.IsFalse(result.DirectViewTalk);
+            Assert.IsFalse(result.EnableLookingGlass);
+            Assert.IsFalse(result.EnableVivesranipalEye);
+            Assert.IsFalse(result.EnableVivesranipalBlink);
+            Assert.IsTrue(result.EnableVivesranipalEyeWithEmothion);
+            Assert.IsFalse(result.EnableVivesranipalLip);
+            Assert.IsFalse(result.EmbeddedScript.VrDebug);
+
+        }
+
+        [TestMethod()]
+        public void ToStructureTest_VivesranipalLip()
+        {
+            var input = new ConfigJson()
+            {
+                VivesranipalLip = true,
+            };
+            var result = input.ToStructure();
+
+            Assert.IsFalse(result.Item.HideCameraFromViewrs);
+            Assert.IsFalse(result.Item.EnableDisplaycaptureChromarkey);
+            Assert.IsFalse(result.Item.EnableNicovideoChromakey);
+            Assert.IsNull(result.Item.CaptureFormat);
+            Assert.IsFalse(result.Studio.AllowDirectView);
+            Assert.IsFalse(result.Humanoid.UseFastSpringBone);
+            Assert.IsNull(result.Mode);
+            Assert.IsFalse(result.DirectViewTalk);
+            Assert.IsFalse(result.EnableLookingGlass);
+            Assert.IsFalse(result.EnableVivesranipalEye);
+            Assert.IsFalse(result.EnableVivesranipalBlink);
+            Assert.IsFalse(result.EnableVivesranipalEyeWithEmothion);
+            Assert.IsTrue(result.EnableVivesranipalLip);
             Assert.IsFalse(result.EmbeddedScript.VrDebug);
 
         }
@@ -785,6 +940,8 @@ namespace VCasJsonManager.Models.Tests
             Assert.IsFalse(result.EnableLookingGlass);
             Assert.IsFalse(result.EnableVivesranipalEye);
             Assert.IsFalse(result.EnableVivesranipalBlink);
+            Assert.IsFalse(result.EnableVivesranipalEyeWithEmothion);
+            Assert.IsFalse(result.EnableVivesranipalLip);
             Assert.IsTrue(result.EmbeddedScript.VrDebug);
 
         }
@@ -798,7 +955,6 @@ namespace VCasJsonManager.Models.Tests
             CollectionAssert.AreEqual(new[] { 1, 11 }, result.CharacterModels);
             CollectionAssert.AreEqual(new[] { 2 }, result.BackgroundModels);
             CollectionAssert.AreEqual(new[] { 3 }, result.MylistIds);
-            CollectionAssert.AreEqual(new[] { 4 }, result.NiconareIds);
             CollectionAssert.AreEqual(new[] { "コメント" }, result.BroadcasterComments);
             Assert.AreEqual(-50, result.NgScoreThreshold);
             CollectionAssert.AreEqual(new[] { new Uri("http://bg.foo") }, result.BackgroundUrls);

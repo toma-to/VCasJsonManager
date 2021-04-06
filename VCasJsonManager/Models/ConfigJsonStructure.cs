@@ -4,6 +4,7 @@
 // MIT License
 //
 using Newtonsoft.Json;
+using System;
 
 namespace VCasJsonManager.Models
 {
@@ -20,9 +21,6 @@ namespace VCasJsonManager.Models
 
             [JsonProperty("background_models")]
             public int[] BackgroundModels { get; set; }
-
-            [JsonProperty("niconare_ids")]
-            public int[] NiconareIds { get; set; }
 
             [JsonProperty("mylist_ids")]
             public int[] MylistIds { get; set; }
@@ -103,6 +101,9 @@ namespace VCasJsonManager.Models
 
             [JsonProperty("capture_format")]
             public string CaptureFormat { get; set; }
+
+            [JsonProperty("capture_resolution")]
+            public string CaptureResolution { get; set; }
         }
 
         [JsonIgnore]
@@ -152,6 +153,12 @@ namespace VCasJsonManager.Models
 
         [JsonProperty("vivesranipal_eye_adjust_y")]
         public decimal? VivesranipalEyeAdjustY { get; set; }
+
+        [JsonProperty("enable_vivesranipal_eye_with_emotion")]
+        public bool EnableVivesranipalEyeWithEmothion { get; set; }
+
+        [JsonProperty("enable_vivesranipal_lip")]
+        public bool EnableVivesranipalLip { get; set; }
 
         public sealed class EmbeddedScriptStructure
         {

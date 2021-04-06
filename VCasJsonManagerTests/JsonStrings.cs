@@ -82,7 +82,9 @@ namespace VCasJsonManagerTests
         ""enable_nicovideo_chromakey"": false,
         ""enable_nicovideo_chromakey.description"": ""ニコニコ動画プレイヤーにクロマキーを適用する"",
 
-        ""capture_format"": ""png""
+        ""capture_format"": ""png"",
+
+        ""capture_resolution"": ""4KUHD"",
     },
     ""humanoid"": {
         ""use_fast_spring_bone"": false,
@@ -98,6 +100,8 @@ namespace VCasJsonManagerTests
     ""enable_vivesranipal_blink"": false,
     ""vivesranipal_eye_adjust_x"": null,
     ""vivesranipal_eye_adjust_y"": null,
+    ""enable_vivesranipal_eye_with_emotion"": false,
+    ""enable_vivesranipal_lip"": false,
     ""embedded_script"": {
         ""websocket_console_port"": 8080,
         ""vr_debug"": false,
@@ -130,6 +134,8 @@ namespace VCasJsonManagerTests
     ""enable_vivesranipal_blink"": true,
     ""vivesranipal_eye_adjust_x"": 2.0,
     ""vivesranipal_eye_adjust_y"": 1.0,
+    ""enable_vivesranipal_eye_with_emotion"": true,
+    ""enable_vivesranipal_lip"": true,
     ""embedded_script"": {
         ""vr_debug"": true
     }
@@ -169,9 +175,6 @@ namespace VCasJsonManagerTests
         ],
         ""background_models"": [
             2
-        ],
-        ""niconare_ids"": [
-            4
         ],
         ""mylist_ids"": [
             3
@@ -214,7 +217,9 @@ namespace VCasJsonManagerTests
  
         ""enable_nicovideo_chromakey"": false,
 
-        ""capture_format"": ""PNG""
+        ""capture_format"": ""PNG"",
+
+        ""capture_resolution"": ""4KUHD""
     },
     ""studio"": {
         ""allow_direct_view"": false
@@ -229,6 +234,8 @@ namespace VCasJsonManagerTests
     ""enable_vivesranipal_blink"": false,
     ""vivesranipal_eye_adjust_x"": null,
     ""vivesranipal_eye_adjust_y"": null,
+    ""enable_vivesranipal_eye_with_emotion"": false,
+    ""enable_vivesranipal_lip"": false,
     ""embedded_script"": {
         ""websocket_console_port"": 8080,
         ""vr_debug"": false,
@@ -257,8 +264,6 @@ namespace VCasJsonManagerTests
             
         ],
         ""foo"":""unknown"",
-        ""niconare_ids"": [
-        ],
         ""mylist_ids"": [
         ],
         ""broadcaster_comments"": [
@@ -296,7 +301,9 @@ namespace VCasJsonManagerTests
  
         ""enable_nicovideo_chromakey"": false,
 
-        ""capture_format"": null
+        ""capture_format"": null,
+
+        ""capture_resolution"": null
     },
     ""studio"": {
         ""allow_direct_view"": false
@@ -311,6 +318,8 @@ namespace VCasJsonManagerTests
     ""enable_vivesranipal_blink"": false,
     ""vivesranipal_eye_adjust_x"": null,
     ""vivesranipal_eye_adjust_y"": null,
+    ""enable_vivesranipal_eye_with_emotion"": false,
+    ""enable_vivesranipal_lip"": false,
     ""embedded_script"": {
         ""websocket_console_port"": null,
         ""vr_debug"": false,

@@ -28,7 +28,6 @@ namespace VCasJsonManager.Models
             {
                 CharacterModels = new ObservableCollection<int>(self.Niconico?.CharacterModels ?? new int[0]),
                 BackgroundModels = new ObservableCollection<int>(self.Niconico?.BackgroundModels ?? new int[0]),
-                NiconareIds = new ObservableCollection<int>(self.Niconico?.NiconareIds ?? new int[0]),
                 MylistIds = new ObservableCollection<int>(self.Niconico?.MylistIds ?? new int[0]),
                 BroadcasterComments = new ObservableCollection<string>(self.Niconico?.BroadcasterComments ?? new string[0]),
                 NgScoreThreshold = self.Niconico?.NgScoreThreshold,
@@ -46,6 +45,7 @@ namespace VCasJsonManager.Models
                 DisplaycaptureChromaky = self.Item?.EnableDisplaycaptureChromarkey ?? false,
                 NicovideoChromaky = self.Item?.EnableNicovideoChromakey ?? false,
                 PngCaptureFormat = ConfigJsonStructure.CaptureFormatPngKey.Equals(self.Item?.CaptureFormat, StringComparison.OrdinalIgnoreCase),
+                CaptureResolution = self.Item?.CaptureResolution.FromResolutionString() ?? CaptureResolution.FHD,
                 AllowDirectView = self.Studio?.AllowDirectView ?? false,
                 UseFastSpringBone = self.Humanoid?.UseFastSpringBone ?? false,
                 DirectViewMode = self.Mode == ConfigJsonStructure.DirectViewModeKey,
@@ -55,6 +55,8 @@ namespace VCasJsonManager.Models
                 VivesranipalBlink = self.EnableVivesranipalBlink,
                 VivesranipalX = self.VivesranipalEyeAdjustX,
                 VivesranipalY = self.VivesranipalEyeAdjustY,
+                VivesranipalEyeWithEmothion = self.EnableVivesranipalEyeWithEmothion,
+                VivesranipalLip = self.EnableVivesranipalLip,
                 ScriptWebSocketConsolePort = self.EmbeddedScript?.WebsocketConsolePort,
                 ScriptVrDebug = self.EmbeddedScript?.VrDebug ?? false,
                 ScriptMoonsharpDebuggerPort = self.EmbeddedScript?.MoonsharpDebuggerPort,
@@ -74,7 +76,6 @@ namespace VCasJsonManager.Models
             ret.Niconico.CharacterModels = self.CharacterModels.ToArray();
             ret.Niconico.BackgroundModels = self.BackgroundModels.ToArray();
             ret.Niconico.MylistIds = self.MylistIds.ToArray();
-            ret.Niconico.NiconareIds = self.NiconareIds.ToArray();
             ret.Niconico.BroadcasterComments = self.BroadcasterComments.ToArray();
             ret.Niconico.NgScoreThreshold = self.NgScoreThreshold;
             ret.Background.Panorama.SourceUrls = self.BackgroundUrls.Select(e => e.ToString()).ToArray();
@@ -91,6 +92,7 @@ namespace VCasJsonManager.Models
             ret.Item.EnableDisplaycaptureChromarkey = self.DisplaycaptureChromaky;
             ret.Item.EnableNicovideoChromakey = self.NicovideoChromaky;
             ret.Item.CaptureFormat = self.PngCaptureFormat ? ConfigJsonStructure.CaptureFormatPngKey : null;
+            ret.Item.CaptureResolution = self.CaptureResolution.ToResolutionString();
             ret.Studio.AllowDirectView = self.AllowDirectView;
             ret.Humanoid.UseFastSpringBone = self.UseFastSpringBone;
             ret.Mode = self.DirectViewMode ? ConfigJsonStructure.DirectViewModeKey : null;
@@ -100,6 +102,8 @@ namespace VCasJsonManager.Models
             ret.EnableVivesranipalBlink = self.VivesranipalBlink;
             ret.VivesranipalEyeAdjustX = self.VivesranipalX;
             ret.VivesranipalEyeAdjustY = self.VivesranipalY;
+            ret.EnableVivesranipalEyeWithEmothion = self.VivesranipalEyeWithEmothion;
+            ret.EnableVivesranipalLip = self.VivesranipalLip;
             ret.EmbeddedScript.WebsocketConsolePort = self.ScriptWebSocketConsolePort;
             ret.EmbeddedScript.VrDebug = self.ScriptVrDebug;
             ret.EmbeddedScript.MoonsharpDebuggerPort = self.ScriptMoonsharpDebuggerPort;

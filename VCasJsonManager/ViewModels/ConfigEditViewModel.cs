@@ -35,11 +35,6 @@ namespace VCasJsonManager.ViewModels
         public ObservableCollection<int> BackgroundModels => ConfigJson.BackgroundModels;
 
         /// <summary>
-        /// ニコナレID
-        /// </summary>
-        public ObservableCollection<int> NiconareIds => ConfigJson.NiconareIds;
-
-        /// <summary>
         /// マイリストID
         /// </summary>
         public ObservableCollection<int> MylistIds => ConfigJson.MylistIds;
@@ -179,7 +174,6 @@ namespace VCasJsonManager.ViewModels
 
             AddMapping(nameof(ConfigJson.CharacterModels), nameof(CharacterModels));
             AddMapping(nameof(ConfigJson.BackgroundModels), nameof(BackgroundModels));
-            AddMapping(nameof(ConfigJson.NiconareIds), nameof(NiconareIds));
             AddMapping(nameof(ConfigJson.MylistIds), nameof(MylistIds));
             AddMapping(nameof(ConfigJson.BroadcasterComments), nameof(Comments));
             AddMapping(nameof(ConfigJson.BackgroundUrls), nameof(BackgroundImages));
@@ -187,7 +181,6 @@ namespace VCasJsonManager.ViewModels
             AddMapping(nameof(ConfigJson.DoubleSidedImageUrls), nameof(DoubleSided));
             AddMapping(nameof(ConfigJson.HiddenImageUrls), nameof(HiddenImages));
             AddMapping(nameof(ConfigJson.HiddenDoubleSidedImageUrls), nameof(HiddenDouble));
-            AddMapping(nameof(ConfigJson.NicovideoIds), nameof(NiconareIds));
             AddMapping(nameof(ConfigJson.WhiteboardUrls), nameof(Whiteboard));
             AddMapping(nameof(ConfigJson.CueCardUrls), nameof(CueCard));
             AddMapping(nameof(ConfigJson.NgScoreThreshold));

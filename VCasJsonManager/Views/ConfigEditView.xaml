@@ -139,24 +139,7 @@
             </StackPanel>
         </Button>
         <Button Grid.Column="0" Grid.Row="4" Style="{StaticResource ListSettingButton}">
-            <i:Interaction.Triggers>
-                <i:EventTrigger EventName="Click">
-                    <l:TransitionInteractionMessageAction WindowType="{x:Type ldlg:NiconareIdListDialog}" Mode="Modal" IsOwned="True">
-                        <l:DirectInteractionMessage>
-                            <l:TransitionMessage/>
-                        </l:DirectInteractionMessage>
-                    </l:TransitionInteractionMessageAction>
-                </i:EventTrigger>
-            </i:Interaction.Triggers>
-            <StackPanel>
-                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                    <TextBlock Style="{StaticResource ListSettingLabel}">niconare ID設定:</TextBlock>
-                    <TextBlock Text="{Binding NiconareIds.Count}" Style="{StaticResource ListSettingLabel}"/>
-                </StackPanel>
-                <StackPanel HorizontalAlignment="Center">
-                    <TextBlock Style="{StaticResource ListSettingLabel}">niconico &gt; niconare_ids</TextBlock>
-                </StackPanel>
-            </StackPanel>
+            
         </Button>
 
         <Button Grid.Column="1" Grid.Row="0" Style="{StaticResource ListSettingButton}">

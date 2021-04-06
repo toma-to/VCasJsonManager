@@ -106,7 +106,6 @@ namespace VCasJsonManager
                     c.Resolve<IConfigJsonService>(),
                     conf => conf.HiddenDoubleSidedImageUrls),
                 FactoryLifetime.PerResolve);
-            Container.RegisterType<INiconareIdCollectionService, NiconareIdCollectionService>(TypeLifetime.PerResolve);
             Container.RegisterType<IMylistIdCollectionService, MylistIdCollectionService>(TypeLifetime.PerResolve);
             Container.RegisterType<INicovideoIdCollectionService, NicovideoIdCollectionService>(TypeLifetime.PerResolve);
 
