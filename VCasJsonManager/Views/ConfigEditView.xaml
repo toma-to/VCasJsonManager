@@ -10,6 +10,7 @@
         xmlns:ei="http://schemas.microsoft.com/expression/2010/interactions"
         xmlns:l="http://schemas.livet-mvvm.net/2011/wpf"
         xmlns:v="clr-namespace:VCasJsonManager.Views"
+        xmlns:app="clr-namespace:VCasJsonManager"
         xmlns:ldlg="clr-namespace:VCasJsonManager.Views.ListDialog">
     
     <UserControl.Resources>
@@ -391,6 +392,15 @@
                 <CheckBox IsChecked="{Binding PngCaptureFormat}" ToolTip="item &gt; capture_format">
                     キャプチャフォーマットをPNGにする
                 </CheckBox>
+                <StackPanel Orientation="Horizontal" Margin="0,2,0,0">
+                    <TextBlock Text="キャプチャ解像度" VerticalAlignment="Center" Margin="0,0,5,0"/>
+                    <ComboBox SelectedValuePath="Tag" SelectedValue="{Binding CaptureResolution}" Padding="5,0,0,5">
+                        <ComboBoxItem Content="HD" Tag="{x:Static app:CaptureResolution.HD}"/>
+                        <ComboBoxItem Content="FHD" Tag="{x:Static app:CaptureResolution.FHD}"/>
+                        <ComboBoxItem Content="WQHD" Tag="{x:Static app:CaptureResolution.WQHD}"/>
+                        <ComboBoxItem Content="4KUHD" Tag="{x:Static app:CaptureResolution.UHD4K}"/>
+                    </ComboBox>
+                </StackPanel>
                 <StackPanel Orientation="Horizontal" Margin="0,5,0,0">
                     <TextBlock Text="NGスコア閾値" VerticalAlignment="Bottom"/>
                     <TextBox Width="60"

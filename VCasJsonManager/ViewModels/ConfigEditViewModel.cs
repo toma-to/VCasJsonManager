@@ -155,6 +155,16 @@ namespace VCasJsonManager.ViewModels
         }
 
         /// <summary>
+        /// キャプチャ解像度
+        /// </summary>
+        [DoNotNotify]
+        public CaptureResolution CaptureResolution
+        {
+            get => ConfigJson.CaptureResolution;
+            set => ConfigJson.CaptureResolution = value;
+        }
+
+        /// <summary>
         /// デバッグモード
         /// </summary>
         public bool VrDebug => ConfigJson.ScriptVrDebug;
@@ -189,6 +199,7 @@ namespace VCasJsonManager.ViewModels
             AddMapping(nameof(ConfigJson.NicovideoChromaky));
             AddMapping(nameof(ConfigJson.UseFastSpringBone));
             AddMapping(nameof(ConfigJson.PngCaptureFormat));
+            AddMapping(nameof(ConfigJson.CaptureResolution));
             AddMapping(nameof(ConfigJson.ScriptVrDebug), nameof(VrDebug));
 
             Action addConfigJsonListner = () =>
@@ -202,7 +213,8 @@ namespace VCasJsonManager.ViewModels
 
             CompositeDisposable.Add(new PropertyChangedEventListener(ConfigJsonService)
             {
-                { nameof(IConfigJsonService.ConfigJson), (_, __) =>
+                {
+                    nameof(IConfigJsonService.ConfigJson), (_, __) =>
                     {
                         RaiseAllPropertyChanged();
                         CompositeDisposable.Remove(ConfigJsonListner);
