@@ -28,6 +28,7 @@ Remove-Item "$releaseItemsPath\bin\*" -Recurse
 $VsEnv = New-Object -ComObject VisualStudio.DTE.16.0
 $VsEnv.MainWindow.Visible=$True
 $VsEnv.Solution.Open($slnFilePath)
+Start-Sleep 2
 $bld = $VsEnv.Solution.SolutionBuild
 $bld.SolutionConfigurations.Item("Release").Activate()
 $bld.Clean($True)
