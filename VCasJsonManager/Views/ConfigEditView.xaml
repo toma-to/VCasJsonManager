@@ -139,9 +139,6 @@
                 </StackPanel>
             </StackPanel>
         </Button>
-        <Button Grid.Column="0" Grid.Row="4" Style="{StaticResource ListSettingButton}">
-            
-        </Button>
 
         <Button Grid.Column="1" Grid.Row="0" Style="{StaticResource ListSettingButton}">
             <i:Interaction.Triggers>
@@ -323,8 +320,7 @@
             </i:Interaction.Triggers>
             <StackPanel>
                 <StackPanel HorizontalAlignment="Center">
-                    <TextBlock Style="{StaticResource OtherSettingLabel}">アイトラッキング関係</TextBlock>
-                    <TextBlock Style="{StaticResource OtherSettingLabel}">/ ダイレクトビュー関係</TextBlock>
+                    <TextBlock Style="{StaticResource OtherSettingLabel}">ダイレクトビュー関係</TextBlock>
                     <TextBlock Style="{StaticResource OtherSettingLabel}">の設定</TextBlock>
                 </StackPanel>
             </StackPanel>
@@ -371,6 +367,47 @@
             </StackPanel>
         </Button>
 
+        <Border Grid.Column="0" Grid.Row="4" Grid.RowSpan="2"
+                BorderBrush="{StaticResource ThirdBrush}"
+                BorderThickness="1"
+                Padding="5"
+                Margin="10,15">
+            <StackPanel>
+                <CheckBox IsChecked="{Binding VivesranipalEye}" ToolTip="enable_vivesranipal_eye">
+                    アイトラッキング（視線）
+                </CheckBox>
+                <StackPanel Orientation="Horizontal" Margin="0,0,0,0">
+                    <TextBlock Text="左右の眼球移動量" VerticalAlignment="Bottom"/>
+                    <TextBox Width="60"
+                             Height="20"
+                             MaxLength="7"
+                             FontSize="10"
+                             TextAlignment="Right"
+                             ToolTip="vivesranipal_eye_adjust_x"
+                             Text="{Binding VivesranipalX}"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="0,0,0,0">
+                    <TextBlock Text="上下の眼球移動量" VerticalAlignment="Bottom"/>
+                    <TextBox Width="60"
+                             Height="20"
+                             MaxLength="7"
+                             FontSize="10"
+                             TextAlignment="Right"
+                             ToolTip="vivesranipal_eye_adjust_y"
+                             Text="{Binding VivesranipalY}"/>
+                </StackPanel>                <CheckBox IsChecked="{Binding VivesranipalEyeWithEmothion}" ToolTip="enable_vivesranipal_eye_with_emotion">
+                    表情変更中のアイトラ
+                </CheckBox>
+                <CheckBox IsChecked="{Binding VivesranipalBlink}" ToolTip="enable_vivesranipal_blink">
+                    アイトラッキング（まばたき）
+                </CheckBox>
+                <CheckBox IsChecked="{Binding VivesranipalLip}" ToolTip="enable_vivesranipal_lip">
+                    リップトラッキング
+                </CheckBox>
+
+            </StackPanel>
+        </Border>
+        
         <Border Grid.Column="1" Grid.Row="4" Grid.RowSpan="2"
                 BorderBrush="{StaticResource ThirdBrush}"
                 BorderThickness="1"
