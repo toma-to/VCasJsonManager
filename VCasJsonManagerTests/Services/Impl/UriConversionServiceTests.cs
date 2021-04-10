@@ -190,6 +190,16 @@ namespace VCasJsonManager.Services.Impl.Tests
         }
 
         [TestMethod()]
+        public void BuildUriTest_GoogleDraive_変換有り_新形式()
+        {
+            userSetting.UserSettings.ConvertGoogleDriveUri = true;
+            var result = target.BuildUri("https://drive.google.com/file/d/1PprJdtCzBhU01ZgKN-Cu4g8AlADYBUQx/view?usp=sharing");
+
+            Assert.AreEqual(new Uri("https://drive.google.com/uc?export=view&id=1PprJdtCzBhU01ZgKN-Cu4g8AlADYBUQx"), result);
+        }
+
+
+        [TestMethod()]
         public void BuildUriTest_GoogleDraive_変換無し()
         {
             userSetting.UserSettings.ConvertGoogleDriveUri = false;

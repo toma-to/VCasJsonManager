@@ -10,6 +10,7 @@
         xmlns:ei="http://schemas.microsoft.com/expression/2010/interactions"
         xmlns:l="http://schemas.livet-mvvm.net/2011/wpf"
         xmlns:v="clr-namespace:VCasJsonManager.Views"
+        xmlns:app="clr-namespace:VCasJsonManager"
         xmlns:ldlg="clr-namespace:VCasJsonManager.Views.ListDialog">
     
     <UserControl.Resources>
@@ -135,26 +136,6 @@
                 <StackPanel HorizontalAlignment="Center">
                     <TextBlock Style="{StaticResource ListSettingLabel}">background</TextBlock>
                     <TextBlock Style="{StaticResource ListSettingLabel}">&gt; panorama &gt; source_urls</TextBlock>
-                </StackPanel>
-            </StackPanel>
-        </Button>
-        <Button Grid.Column="0" Grid.Row="4" Style="{StaticResource ListSettingButton}">
-            <i:Interaction.Triggers>
-                <i:EventTrigger EventName="Click">
-                    <l:TransitionInteractionMessageAction WindowType="{x:Type ldlg:NiconareIdListDialog}" Mode="Modal" IsOwned="True">
-                        <l:DirectInteractionMessage>
-                            <l:TransitionMessage/>
-                        </l:DirectInteractionMessage>
-                    </l:TransitionInteractionMessageAction>
-                </i:EventTrigger>
-            </i:Interaction.Triggers>
-            <StackPanel>
-                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                    <TextBlock Style="{StaticResource ListSettingLabel}">niconare ID設定:</TextBlock>
-                    <TextBlock Text="{Binding NiconareIds.Count}" Style="{StaticResource ListSettingLabel}"/>
-                </StackPanel>
-                <StackPanel HorizontalAlignment="Center">
-                    <TextBlock Style="{StaticResource ListSettingLabel}">niconico &gt; niconare_ids</TextBlock>
                 </StackPanel>
             </StackPanel>
         </Button>
@@ -339,8 +320,7 @@
             </i:Interaction.Triggers>
             <StackPanel>
                 <StackPanel HorizontalAlignment="Center">
-                    <TextBlock Style="{StaticResource OtherSettingLabel}">アイトラッキング関係</TextBlock>
-                    <TextBlock Style="{StaticResource OtherSettingLabel}">/ ダイレクトビュー関係</TextBlock>
+                    <TextBlock Style="{StaticResource OtherSettingLabel}">ダイレクトビュー関係</TextBlock>
                     <TextBlock Style="{StaticResource OtherSettingLabel}">の設定</TextBlock>
                 </StackPanel>
             </StackPanel>
@@ -387,6 +367,47 @@
             </StackPanel>
         </Button>
 
+        <Border Grid.Column="0" Grid.Row="4" Grid.RowSpan="2"
+                BorderBrush="{StaticResource ThirdBrush}"
+                BorderThickness="1"
+                Padding="5"
+                Margin="10,15">
+            <StackPanel>
+                <CheckBox IsChecked="{Binding VivesranipalEye}" ToolTip="enable_vivesranipal_eye">
+                    アイトラッキング（視線）
+                </CheckBox>
+                <StackPanel Orientation="Horizontal" Margin="0,0,0,0">
+                    <TextBlock Text="左右の眼球移動量" VerticalAlignment="Bottom"/>
+                    <TextBox Width="60"
+                             Height="20"
+                             MaxLength="7"
+                             FontSize="10"
+                             TextAlignment="Right"
+                             ToolTip="vivesranipal_eye_adjust_x"
+                             Text="{Binding VivesranipalX}"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="0,0,0,0">
+                    <TextBlock Text="上下の眼球移動量" VerticalAlignment="Bottom"/>
+                    <TextBox Width="60"
+                             Height="20"
+                             MaxLength="7"
+                             FontSize="10"
+                             TextAlignment="Right"
+                             ToolTip="vivesranipal_eye_adjust_y"
+                             Text="{Binding VivesranipalY}"/>
+                </StackPanel>                <CheckBox IsChecked="{Binding VivesranipalEyeWithEmothion}" ToolTip="enable_vivesranipal_eye_with_emotion">
+                    表情変更中のアイトラ
+                </CheckBox>
+                <CheckBox IsChecked="{Binding VivesranipalBlink}" ToolTip="enable_vivesranipal_blink">
+                    アイトラッキング（まばたき）
+                </CheckBox>
+                <CheckBox IsChecked="{Binding VivesranipalLip}" ToolTip="enable_vivesranipal_lip">
+                    リップトラッキング
+                </CheckBox>
+
+            </StackPanel>
+        </Border>
+        
         <Border Grid.Column="1" Grid.Row="4" Grid.RowSpan="2"
                 BorderBrush="{StaticResource ThirdBrush}"
                 BorderThickness="1"
@@ -408,6 +429,15 @@
                 <CheckBox IsChecked="{Binding PngCaptureFormat}" ToolTip="item &gt; capture_format">
                     キャプチャフォーマットをPNGにする
                 </CheckBox>
+                <StackPanel Orientation="Horizontal" Margin="0,2,0,0">
+                    <TextBlock Text="キャプチャ解像度" VerticalAlignment="Center" Margin="0,0,5,0"/>
+                    <ComboBox SelectedValuePath="Tag" SelectedValue="{Binding CaptureResolution}" Padding="5,0,0,5">
+                        <ComboBoxItem Content="HD" Tag="{x:Static app:CaptureResolution.HD}"/>
+                        <ComboBoxItem Content="FHD" Tag="{x:Static app:CaptureResolution.FHD}"/>
+                        <ComboBoxItem Content="WQHD" Tag="{x:Static app:CaptureResolution.WQHD}"/>
+                        <ComboBoxItem Content="4KUHD" Tag="{x:Static app:CaptureResolution.UHD4K}"/>
+                    </ComboBox>
+                </StackPanel>
                 <StackPanel Orientation="Horizontal" Margin="0,5,0,0">
                     <TextBlock Text="NGスコア閾値" VerticalAlignment="Bottom"/>
                     <TextBox Width="60"

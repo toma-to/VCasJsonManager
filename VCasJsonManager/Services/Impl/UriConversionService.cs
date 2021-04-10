@@ -152,6 +152,12 @@ namespace VCasJsonManager.Services.Impl
         }
 
         /// <summary>
+        /// GoogleドライブURL抽出用Regex
+        /// </summary>
+        private static Regex DriveRegex { get; } = new Regex(@"google\.com/.*/.*/(.+)[/_]");
+
+
+        /// <summary>
         /// URL文字列のURIオブジェクトへの変換。同時に、GoogleドライブURL変換処理も行う
         /// </summary>
         /// <param name="input">URL文字列</param>
@@ -161,7 +167,15 @@ namespace VCasJsonManager.Services.Impl
             if (UserSettings.ConvertGoogleDriveUri)
             {
                 // GoogleドライブURLの共有URLを画像直接指定のURLに変換
-                input = input.Replace("https://drive.google.com/open?id=", "https://drive.google.com/uc?export=view&id=");
+                var match = DriveRegex.Matches(input).OfType<Match>().Where(e => e.Groups.Count >= 2).FirstOrDefault();
+                if (match != null)
+                {
+                    input = "https://drive.google.com/uc?export=view&id=" + match.Groups[1].Value;
+                }
+                else
+                {
+                    input = input.Replace("https://drive.google.com/open?id=", "https://drive.google.com/uc?export=view&id=");
+                }
             }
 
             return input.ToUri();

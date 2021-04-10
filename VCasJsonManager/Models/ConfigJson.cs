@@ -60,11 +60,6 @@ namespace VCasJsonManager.Models
         public ObservableCollection<int> BackgroundModels { get; set; } = new ObservableCollection<int>();
 
         /// <summary>
-        /// niconico.niconare_ids
-        /// </summary>
-        public ObservableCollection<int> NiconareIds { get; set; } = new ObservableCollection<int>();
-
-        /// <summary>
         /// niconico.mylist_ids
         /// </summary>
         public ObservableCollection<int> MylistIds { get; set; } = new ObservableCollection<int>();
@@ -140,6 +135,11 @@ namespace VCasJsonManager.Models
         public bool PngCaptureFormat { get; set; }
 
         /// <summary>
+        /// item.capture_resolution
+        /// </summary>
+        public CaptureResolution CaptureResolution { get; set; }
+
+        /// <summary>
         /// studio.allow_direct_view
         /// </summary>
         public bool AllowDirectView { get; set; }
@@ -183,6 +183,16 @@ namespace VCasJsonManager.Models
         /// vivesranipal_eye_adjust_y
         /// </summary>
         public decimal? VivesranipalY { get; set; }
+
+        /// <summary>
+        /// enable_vivesranipal_eye_with_emotion
+        /// </summary>
+        public bool VivesranipalEyeWithEmothion { get; set; }
+
+        /// <summary>
+        /// enable_vivesranipal_lip
+        /// </summary>
+        public bool VivesranipalLip { get; set; }
 
         /// <summary>
         /// embedded_script.websocket_console_port

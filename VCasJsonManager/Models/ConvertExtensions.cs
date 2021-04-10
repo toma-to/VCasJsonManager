@@ -54,5 +54,47 @@ namespace VCasJsonManager.Models
             })
             .Where(e => e != null);
         }
+
+        /// <summary>
+        /// キャプチャ解像度の列挙型を、JSON用の文字列に変換する。
+        /// </summary>
+        /// <param name="self">キャプチャ解像度の列挙型</param>
+        /// <returns>JSON用の文字列</returns>
+        public static string ToResolutionString(this CaptureResolution self)
+        {
+            switch (self)
+            {
+                case CaptureResolution.HD:
+                    return "HD";
+                case CaptureResolution.FHD:
+                    return null;
+                case CaptureResolution.WQHD:
+                    return "WQHD";
+                case CaptureResolution.UHD4K:
+                    return "4KUHD";
+                default:
+                    return null;
+            }
+        }
+
+        /// <summary>
+        /// JSON内のキャプチャ解像度文字列を、列挙型に変換する
+        /// </summary>
+        /// <param name="self">キャプチャ解像度文字列</param>
+        /// <returns>対応する列挙型</returns>
+        public static CaptureResolution FromResolutionString(this string self)
+        {
+            switch (self)
+            {
+                case "HD":
+                    return CaptureResolution.HD;
+                case "WQHD":
+                    return CaptureResolution.WQHD;
+                case "4KUHD":
+                    return CaptureResolution.UHD4K;
+                default:
+                    return CaptureResolution.FHD;
+            }
+        }
     }
 }

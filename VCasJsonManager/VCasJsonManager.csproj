@@ -61,6 +61,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="CaptureResolution.cs" />
     <Compile Include="DIContainer.cs" />
     <Compile Include="Models\ConfigJson.cs" />
     <Compile Include="Models\ConfigJsonExtensions.cs" />
@@ -93,7 +94,6 @@
     <Compile Include="Services\IUserSettingsService.cs" />
     <Compile Include="Services\Impl\MylistIdCollectionService.cs" />
     <Compile Include="Services\Impl\Nico3dIdCollectionService.cs" />
-    <Compile Include="Services\Impl\NiconareIdCollectionService.cs" />
     <Compile Include="Services\Impl\NicovideoIdCollectionService.cs" />
     <Compile Include="Services\Impl\TextCollectionService.cs" />
     <Compile Include="Services\Impl\UriConversionService.cs" />
@@ -120,7 +120,6 @@
     <Compile Include="ViewModels\ErrorMessageDialogViewModel.cs" />
     <Compile Include="ViewModels\ListDialog\MylistIdListDialogViewModel.cs" />
     <Compile Include="ViewModels\NewPresetDialogViewModel.cs" />
-    <Compile Include="ViewModels\ListDialog\NiconareIdListDialogViewModel.cs" />
     <Compile Include="ViewModels\ListDialog\NicovideoIdListDialogViewModel.cs" />
     <Compile Include="ViewModels\PreferencesDialogViewModel.cs" />
     <Compile Include="ViewModels\PresetControlViewModel.cs" />
@@ -192,9 +191,6 @@
     </Compile>
     <Compile Include="Views\NewPresetDialog.xaml.cs">
       <DependentUpon>NewPresetDialog.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\ListDialog\NiconareIdListDialog.xaml.cs">
-      <DependentUpon>NiconareIdListDialog.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\ListDialog\NicovideoIdListDialog.xaml.cs">
       <DependentUpon>NicovideoIdListDialog.xaml</DependentUpon>
@@ -300,10 +296,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\NewPresetDialog.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\ListDialog\NiconareIdListDialog.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

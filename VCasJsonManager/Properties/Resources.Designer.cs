@@ -223,15 +223,6 @@ namespace VCasJsonManager.Properties {
         }
         
         /// <summary>
-        ///   正しいniconareのIDまたはURLを入力してください に類似しているローカライズされた文字列を検索します。
-        /// </summary>
-        internal static string ValidationBadNiconareId {
-            get {
-                return ResourceManager.GetString("ValidationBadNiconareId", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   正しいニコニコ動画のIDまたはURLを入力してください に類似しているローカライズされた文字列を検索します。
         /// </summary>
         internal static string ValidationBadNicovideoId {

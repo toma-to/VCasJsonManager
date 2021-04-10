@@ -35,11 +35,6 @@ namespace VCasJsonManager.ViewModels
         public ObservableCollection<int> BackgroundModels => ConfigJson.BackgroundModels;
 
         /// <summary>
-        /// ニコナレID
-        /// </summary>
-        public ObservableCollection<int> NiconareIds => ConfigJson.NiconareIds;
-
-        /// <summary>
         /// マイリストID
         /// </summary>
         public ObservableCollection<int> MylistIds => ConfigJson.MylistIds;
@@ -160,6 +155,82 @@ namespace VCasJsonManager.ViewModels
         }
 
         /// <summary>
+        /// キャプチャ解像度
+        /// </summary>
+        [DoNotNotify]
+        public CaptureResolution CaptureResolution
+        {
+            get => ConfigJson.CaptureResolution;
+            set => ConfigJson.CaptureResolution = value;
+        }
+
+        /// <summary>
+        /// VivesranipalEye
+        /// </summary>
+        [DoNotNotify]
+        public bool VivesranipalEye { get => ConfigJson.VivesranipalEye; set => ConfigJson.VivesranipalEye = value; }
+
+        /// <summary>
+        /// VivesranipalBlink
+        /// </summary>
+        [DoNotNotify]
+        public bool VivesranipalBlink { get => ConfigJson.VivesranipalBlink; set => ConfigJson.VivesranipalBlink = value; }
+
+        /// <summary>
+        /// VivesranipalX
+        /// </summary>
+        [DoNotNotify]
+        public string VivesranipalX
+        {
+            get => ConfigJson.VivesranipalX?.ToString();
+            set
+            {
+                if (decimal.TryParse(value, out var wk))
+                {
+                    ConfigJson.VivesranipalX = wk;
+                }
+                else
+                {
+                    ConfigJson.VivesranipalX = null;
+                }
+            }
+        }
+
+        /// <summary>
+        /// VivesranipalY
+        /// </summary>
+        [DoNotNotify]
+        public string VivesranipalY
+        {
+            get => ConfigJson.VivesranipalY?.ToString();
+            set
+            {
+                if (decimal.TryParse(value, out var wk))
+                {
+                    ConfigJson.VivesranipalY = wk;
+                }
+                else
+                {
+                    ConfigJson.VivesranipalY = null;
+                }
+            }
+        }
+
+        /// <summary>
+        /// VivesranipalEyeWithEmothion
+        /// </summary>
+        public bool VivesranipalEyeWithEmothion
+        {
+            get => ConfigJson.VivesranipalEyeWithEmothion;
+            set => ConfigJson.VivesranipalEyeWithEmothion = value;
+        }
+
+        /// <summary>
+        /// VivesranipalLip
+        /// </summary>
+        public bool VivesranipalLip { get => ConfigJson.VivesranipalLip; set => ConfigJson.VivesranipalLip = value; }
+
+        /// <summary>
         /// デバッグモード
         /// </summary>
         public bool VrDebug => ConfigJson.ScriptVrDebug;
@@ -179,7 +250,6 @@ namespace VCasJsonManager.ViewModels
 
             AddMapping(nameof(ConfigJson.CharacterModels), nameof(CharacterModels));
             AddMapping(nameof(ConfigJson.BackgroundModels), nameof(BackgroundModels));
-            AddMapping(nameof(ConfigJson.NiconareIds), nameof(NiconareIds));
             AddMapping(nameof(ConfigJson.MylistIds), nameof(MylistIds));
             AddMapping(nameof(ConfigJson.BroadcasterComments), nameof(Comments));
             AddMapping(nameof(ConfigJson.BackgroundUrls), nameof(BackgroundImages));
@@ -187,7 +257,6 @@ namespace VCasJsonManager.ViewModels
             AddMapping(nameof(ConfigJson.DoubleSidedImageUrls), nameof(DoubleSided));
             AddMapping(nameof(ConfigJson.HiddenImageUrls), nameof(HiddenImages));
             AddMapping(nameof(ConfigJson.HiddenDoubleSidedImageUrls), nameof(HiddenDouble));
-            AddMapping(nameof(ConfigJson.NicovideoIds), nameof(NiconareIds));
             AddMapping(nameof(ConfigJson.WhiteboardUrls), nameof(Whiteboard));
             AddMapping(nameof(ConfigJson.CueCardUrls), nameof(CueCard));
             AddMapping(nameof(ConfigJson.NgScoreThreshold));
@@ -196,6 +265,13 @@ namespace VCasJsonManager.ViewModels
             AddMapping(nameof(ConfigJson.NicovideoChromaky));
             AddMapping(nameof(ConfigJson.UseFastSpringBone));
             AddMapping(nameof(ConfigJson.PngCaptureFormat));
+            AddMapping(nameof(ConfigJson.CaptureResolution));
+            AddMapping(nameof(ConfigJson.VivesranipalEye));
+            AddMapping(nameof(ConfigJson.VivesranipalBlink));
+            AddMapping(nameof(ConfigJson.VivesranipalX));
+            AddMapping(nameof(ConfigJson.VivesranipalY));
+            AddMapping(nameof(ConfigJson.VivesranipalEyeWithEmothion));
+            AddMapping(nameof(ConfigJson.VivesranipalLip));
             AddMapping(nameof(ConfigJson.ScriptVrDebug), nameof(VrDebug));
 
             Action addConfigJsonListner = () =>
@@ -209,7 +285,8 @@ namespace VCasJsonManager.ViewModels
 
             CompositeDisposable.Add(new PropertyChangedEventListener(ConfigJsonService)
             {
-                { nameof(IConfigJsonService.ConfigJson), (_, __) =>
+                {
+                    nameof(IConfigJsonService.ConfigJson), (_, __) =>
                     {
                         RaiseAllPropertyChanged();
                         CompositeDisposable.Remove(ConfigJsonListner);

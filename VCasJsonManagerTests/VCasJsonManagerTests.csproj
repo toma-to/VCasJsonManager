@@ -62,7 +62,6 @@
     <Compile Include="Services\Impl\DoubleImageCollectionServiceTests.cs" />
     <Compile Include="Services\Impl\MylistIdCollectionServiceTests.cs" />
     <Compile Include="Services\Impl\Nico3dIdCollectionServiceTests.cs" />
-    <Compile Include="Services\Impl\NiconareIdCollectionServiceTests.cs" />
     <Compile Include="Services\Impl\NicovideoIdCollectionServiceTests.cs" />
     <Compile Include="Services\Impl\TextCollectionServiceTests.cs" />
     <Compile Include="Services\Impl\UriConversionServiceTests.cs" />
